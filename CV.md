@@ -12,7 +12,7 @@ layout: post
 ### Experience
 
 -   Teaching Assistant
-	-   See the  [teaching section](https://https://ali-almasi.github.io/teaching/).
+	-   See the  [teaching section](https://ali-almasi.github.io/teaching/).
 -   Mathematics Teacher (10th and 11th grade), Tehran's Allameh Helli 5 High School, Iran (2023)
 -  Mathematics Teacher (7th grade), Tehran's Allameh Helli 3 Middle School, Iran (2020)
 -   Mathematics Teacher (8th grade), Tehran's Allameh Helli 1 Middle School, Iran (2019)
