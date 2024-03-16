@@ -1,6 +1,6 @@
-title: "Blog Title"
-author: "Blog Author"
-description: "Made with <b style=\"color: #f45;\">&lt;3</b>"
+title: "Ali Almasi"
+author: "Ali Almasi"
+description: "“Great things are not done by impulse, but by a series of small things brought together.”"
 permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
