@@ -1,3 +1,7 @@
+---
+mathjax: true
+---
+
 ## Projects
 -  **Positive but not Completely Positive Maps** (2023 - 2024), Supervisor: [Peter Brown](https://peterjbrown519.github.io/)
 
