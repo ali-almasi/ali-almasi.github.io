@@ -12,7 +12,7 @@ layout: post
 -   **Bachelor thesis: Quantum (Non-interactive) Proofs** (2022-2023), Supervisor: [Shahram Khazaei](https://sharif.ir/~shahram.khazaei/home.html)
 	- A literature survey on quantum non-interactive proof systems (The QMA complexity class, Quantum PCP conjecture and obstacles in proving it).
 
--   **An Overview of the $\mathcal{BQP}$ Class** (Summer 2022)
+-   **An Overview of the BQP Class** (Summer 2022)
 	- The course project of the graduate Complexity Theory course (Instructor: [Amir Daneshgar](http://math.sharif.ir/faculties/daneshgar)); A literature survey on quantum computational models (quantum Turing machines and quantum circuits), the BQP class, how it relates to classical complexity classes, and oracle separation results.
 
 -   **Quantum Dynamic Logic** (Summer 2022)  
