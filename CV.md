@@ -1,4 +1,8 @@
-## Curriculum Vitae
+---
+title:  "Curriculum Vitae"
+mathjax: true
+layout: post
+---
 ### Education
  *   MSc. in Computer Science,  [Institut Polytechnique de Paris](https://www.ip-paris.fr/),  France (2023 - Present)
 	 - Recipient of the IP Paris scholarship
