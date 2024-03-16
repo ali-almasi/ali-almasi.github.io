@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="{{ "/assets/css/sidebar.css" | relative_url }}" media="screen and (min-width: 70em)">
 <aside style="display: none">
+
+  <img src="{{ '/assets/profile_photo.jpg' | relative_url }}" alt="Profile Photo" style="width:100%; max-width: 200px; display: block; margin: 0 auto;">
+  
   <nav>
   {%- for item in site.navigation -%}
     {%- assign node = site.pages | where: "name", item.file | first -%}
