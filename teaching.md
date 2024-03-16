@@ -3,7 +3,7 @@ title:  ""
 mathjax: true
 layout: post
 ---
-##Teaching Assistant 
+## Teaching Assistant 
 
 ### Sharif University of Technology
 -   Mathematical Logic (Fall 2022)
