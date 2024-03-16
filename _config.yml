@@ -17,11 +17,12 @@ minimal: false             # use a dark header
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "index.html", title: "Home"}
+  - {file: "CV.md", title: "CV"}
   - {file: "projects.md", title: "Projects"}
   - {file: "teaching.md", title: "Teaching"}
   - {file: "talks.md", title: "Talks"}
   - {file: "blog.html", title: "Blog"}
-  - {file: "CV.html", title: "CV"}
+
   
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
