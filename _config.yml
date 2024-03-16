@@ -8,21 +8,27 @@ date_format: "%B %d, %Y"
 
 # Layout
 
-show_excerpts: true        # show article excerpts on the home page
-show_frame: true           # adds a gray frame to the site
+show_excerpts: false        # show article excerpts on the home page
+show_frame: false           # adds a gray frame to the site
 show_sidebar: false        # show a sidebar instead of the usual header
 minimal: false             # use a dark header
 
 # Menu
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "index.html"}
-  - {file: "README.md"}
+  - {file: "index.html", title: "Home"}
+  - {file: "CV.html", title: "CV"}
+  - {file: "projects.html", title: "Projects"}
+  - {file: "teaching.html", title: "Teaching"}
+  - {file: "talks.html", title: "Talks"}
+  - {file: "blog.html", title: "Blog"}
+  
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:niklasbuschmann@users.noreply.github.com"}
-  - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/contrast"}
-  - {title: Subscribe, icon: rss, url: "/feed.xml"}
+  - {title: Mail, icon: envelope, url: "mailto:ali.almasi@polytechnique.edu"}
+  - {title: Github, icon: github, url: "https://github.com/ali-almasi"}
+  - {title: Twitter, icon: twitter, url: "https://twitter.com/leakingboat"}
+  - {title: Pinterest, icon: pinterest, url: "https://www.pinterest.fr/ali79almasi/_created"}
 
 comments:
 #  disqus_shortname: ""    # see https://disqus.com/
