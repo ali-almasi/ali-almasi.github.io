@@ -25,5 +25,5 @@ layout: post
 
 -   **Editorial board member of Sharif Mathematics Magazine**,  Scientific Student Magazine of  
 the Mathematics and Computer Science Department of Sharif University of Technology (2023)
-- **Member of Students Scientific Association**, Mathematics and Computer Science Department, Sharif University of Technology (2019-2020)
+- **[Member of Students Scientific Association](https://hamband.math.sharif.edu/wiki/%D8%A7%D8%B9%D8%B6%D8%A7%DB%8C_%D9%87%D9%85%D8%A8%D9%86%D8%AF/%D8%AF%D8%A7%D9%86%D8%B4%D9%86%D8%A7%D9%85%D9%87)**, Mathematics and Computer Science Department, Sharif University of Technology (2019-2020)
 -  **Head organiser and mentor of  [Sharif Mathematics Summer School](http://school.math.sharif.edu/)**, Sharif University of Technology, Iran (2019)
