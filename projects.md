@@ -7,7 +7,7 @@ layout: post
 ## Projects
 -  **Positive but not Completely Positive Maps** (2023 - 2024), Supervisor: [Peter Brown](https://peterjbrown519.github.io/)
 
-	- Aimed at investigating the applications of positive but not completely positive maps in quantum information theory, with a specific emphasis on their role as entanglement criteria. ([Report](https://drive.google.com/file/d/1sSTh-uVmRqTWzvqOrSSbzzUMZ8kPmZFY/view))
+	- Aimed at investigating the applications of positive but not completely positive maps in quantum information theory, with a specific emphasis on their role as entanglement criteria. ([Report](projects_materials/pncp/final_report.pdf))
 
 -   **Bachelor thesis: Quantum (Non-interactive) Proofs** (2022-2023), Supervisor: [Shahram Khazaei](https://sharif.ir/~shahram.khazaei/home.html)
 	- A literature survey on quantum non-interactive proof systems (The QMA complexity class, Quantum PCP conjecture and obstacles in proving it). ([Thesis](projects_materials/bachelor_thesis/QProofs.pdf))
