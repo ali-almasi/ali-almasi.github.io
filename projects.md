@@ -16,7 +16,7 @@ layout: post
 	- The course project of the graduate Complexity Theory course (Instructor: [Amir Daneshgar](http://math.sharif.ir/faculties/daneshgar)); A literature survey on quantum computational models (quantum Turing machines and quantum circuits), the BQP class, how it relates to classical complexity classes, and oracle separation results.
 
 -   **Quantum Dynamic Logic** (Summer 2022)  
-	- A literature survey for the graduate seminar course in Mathematical Logic (Instructor: [Mohammad Ardeshir](http://math.sharif.ir/faculties/mardeshir)); The survey is on dynamical approaches to logical verification of quantum programs, and a detailed analysis of the correctness of the quantum teleportation protocol.
+	- A literature survey for the graduate seminar course in Mathematical Logic (Instructor: [Mohammad Ardeshir](http://math.sharif.ir/faculties/mardeshir)); The survey is on dynamical approaches to logical verification of quantum programs, and a detailed analysis of the correctness of the quantum teleportation protocol. ([Report](projects_materials/Quantum_Dynamic_Logic/intro_quantum_dynamic_logic.pdf))
 
 -  **PCP Theorem and the Hardness of Approximation** (Summer 2021)
 	- A literature survey for the graduate seminar course in Complexity Theory (Instructor: [Javad Ebrahimi](http://math.sharif.ir/faculties/ebrahimi)); The survey is on the two equivalent statements of the PCP theorem, some of its applications, and the sketch of its proof.
