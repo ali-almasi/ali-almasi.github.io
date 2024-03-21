@@ -16,8 +16,8 @@ layout: post
 -  Topology (Spring 2021)  
 -  Linear Algebra, Head TA (Spring 2020)
 	- [Problem Set 1](teaching_materials/linear_algebra2020/PS1.pdf), [Hints](teaching_materials/linear_algebra2020/PS1_Hints.pdf)
-	-[Problem Solving Workshop](teaching_materials/linear_algebra2020/WS1.pdf)
-	-[Problem Set 3 (part 2)](teaching_materials/linear_algebra2020/PS3-part2.pdf), [Hints](teaching_materials/linear_algebra2020/PS3_Part2_Hints.pdf)
-	-[Homework 1 (Bonus)](teaching_materials/linear_algebra2020/HW1.pdf)
-	-[Homework 2 (Bonus)](teaching_materials/linear_algebra2020/HW2.pdf)
+	- [Problem Solving Workshop](teaching_materials/linear_algebra2020/WS1.pdf)
+	- [Problem Set 3 (part 2)](teaching_materials/linear_algebra2020/PS3-part2.pdf), [Hints](teaching_materials/linear_algebra2020/PS3_Part2_Hints.pdf)
+	- [Homework 1 (Bonus)](teaching_materials/linear_algebra2020/HW1.pdf)
+	- [Homework 2 (Bonus)](teaching_materials/linear_algebra2020/HW2.pdf)
  
