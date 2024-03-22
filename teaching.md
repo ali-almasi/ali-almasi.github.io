@@ -10,9 +10,9 @@ layout: post
 - Automata Theory, Head TA ([Fall](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%A9%D8%AF%D9%87/%D8%AF%D8%B1%D9%88%D8%B3/22873/14011/main) and [Spring 2022](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%A9%D8%AF%D9%87/%D8%AF%D8%B1%D9%88%D8%B3/22873/14002/main),  
 [Fall 2021](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%A9%D8%AF%D9%87/%D8%AF%D8%B1%D9%88%D8%B3/22873/14001/main))
 	- [Problem Set 0](teaching_materials/automata_theory/PS0.pdf)
-   	- [Problem Set 1](teaching_materials/automata_theory/PS1.pdf)
-   	- [Problem Set 2](teaching_materials/automata_theory/PS2.pdf)
-   	- [Problem Set 3](teaching_materials/automata_theory/PS3.pdf)
+	- [Problem Set 1](teaching_materials/automata_theory/PS1.pdf)
+	- [Problem Set 2](teaching_materials/automata_theory/PS2.pdf)
+	- [Problem Set 3](teaching_materials/automata_theory/PS3.pdf)
    	- [Problem Set 4](teaching_materials/automata_theory/PS4.pdf)
    	- [Problem Set 5](teaching_materials/automata_theory/PS5.pdf)
    	- [Problem Set 6](teaching_materials/automata_theory/PS6.pdf)
