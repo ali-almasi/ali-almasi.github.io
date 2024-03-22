@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper]{exam}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{xepersian}
+\settextfont[Scale=1]{Persian Modern}
+\setdigitfont[Scale=1]{Yas}
+\def \then {\rightarrow}
+\def \liff {\leftrightarrow}
+\def \PR {\mathsf { PR }}
+\begin{document}
+\baselineskip=8mm 
+\begin{center}
+بسمه تعالی\\
+\vspace{.3in}
+\parbox{2cm}{\includegraphics[scale=.6]{logo.pdf}}
+\hfill \hfill { \textbf{{\large امتحان میان‌ترم منطق ریاضی}} } \hfill \begin{tabular}{l}
+تاریخ: ۲۲ آذر ۱۴۰۱ \\[2mm]
+مـدت امتحان: ۲ ساعت \\[2mm]
+\end{tabular}\\[3mm]
+\hrule height 1mm
+\end{center}
+
+\begin{enumerate} 
+\item
+\textbf{( ۳ نمره، هر یک $\mathbf{0.75}$)}
+در هر مورد، اگر گزاره‌ی داده شده به ازای هر سه گزاره‌ی
+$ A $،
+$ B $
+و
+$ C $
+ همانگو است برای آن درخت استنتاج طبیعی مناسب رسم کنید و در غیر این صورت، به کمک رسم تابلو برای آن مثال نقض ارائه کنید.
+
+\begin{enumerate}
+	\item
+	$ ( A \then \neg B ) \lor B $
+	\item
+	$ ( A \then B ) \land ( A \then \neg B ) \then \neg A $
+	\item
+	$ ( A \then B \lor C ) \then \big( A \lor B \then C \big) $
+	\item
+	$ ( A \then B ) \then ( \neg B \then C ) \lor \neg A $
+
+\end{enumerate}
+\item 
+\textbf{($\mathbf{1.5}$ نمره)}
+نشان دهید هر مجموعه از گزاره‌ها که تحت استنتاج بسته است مدل دارد، هرگاه هر عضو آن ارضاپذیر باشد.
+\item 
+\textbf{($\mathbf{1.5}$ نمره)}
+فرض کنید
+$A$
+و
+$B$
+دو گزاره باشند که هیچ اتم مشترکی ندارند. اگر
+$\models A \lor B$
+نشان دهید
+$\models A$
+یا
+$\models B$
+.
+\item 
+فرض کنید $I$ یک تعبیر دلخواه باشد و تعریف کنید
+$Th(I)=\{A~|~I(A)=1\}$.
+نشان دهید:
+\begin{enumerate}
+	\item 
+	\textbf{($\mathbf{0.75}$ نمره)}
+	اگر 
+	$J\vDash Th(I)$، آنگاه 
+	$J=I$.
+	\item \textbf{($\mathbf{1.75}$ نمره)}
+	$Th(I)$
+	سازگار ماکسیمال است.
+\end{enumerate}
+\end{enumerate}
+\end{document}
