@@ -21,6 +21,10 @@ layout: post
 
 -   See the  [projects section](https://ali-almasi.github.io/projects).
 
+### Talks and Presentations 
+
+-  See the [talks section](https://ali-almasi.github.io/talks/).
+
 ### Other activities
 
 -   **Editorial board member of Sharif Mathematics Magazine**,  Scientific Student Magazine of  
