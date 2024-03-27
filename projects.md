@@ -6,11 +6,13 @@ layout: post
 
 ## Projects
 -  **Positive but not Completely Positive Maps** (2023 - 2024), Supervisor: [Peter Brown](https://peterjbrown519.github.io/)
-
 	- Aimed at investigating the applications of positive but not completely positive maps in quantum information theory, with a specific emphasis on their role as entanglement criteria. ([Report](projects_materials/pncp/final_report.pdf))
 
 -   **Bachelor thesis: Quantum (Non-interactive) Proofs** (2022-2023), Supervisor: [Shahram Khazaei](https://sharif.ir/~shahram.khazaei/home.html)
 	- A literature survey on quantum non-interactive proof systems (The QMA complexity class, Quantum PCP conjecture and obstacles in proving it). ([Thesis](projects_materials/bachelor_thesis/QProofs.pdf))
+
+-   **Quantum Attacks on Symmetric Cryptography Schemes** (Fall 2022)
+	- The course project of the graduate seminar course in Cryptography (Instructor: [Shahram Khazaei](https://sharif.ir/~shahram.khazaei/home.html)); A survey on the use of quantum algorithms in breaking symmetric cryptography schemes. ([Report](projects_materials/Qattacks_symmetric_schemes/report_Qattacks.pdf))
 
 -   **An Overview of the BQP Class** (Summer 2022)
 	- The course project of the graduate Complexity Theory course (Instructor: [Amir Daneshgar](http://math.sharif.ir/faculties/daneshgar)); A literature survey on quantum computational models (quantum Turing machines and quantum circuits), the BQP class, how it relates to classical complexity classes, and oracle separation results.
