@@ -14,5 +14,5 @@ layout: post
 *  (October 2019) On Calculus 1 (Part 2), in Derayeh (4,4). ([Exerpt](Miscellaneous_materials/Derayeh/excerpts/Derayeh4_4_calculus1_part2.pdf), [Issue](Miscellaneous_materials/Derayeh/Full_version/Derayeh4_4.pdf))
 *  (October 2019) On Calculus 1 (Part 1), in Derayeh (4,3). ([Exerpt](Miscellaneous_materials/Derayeh/excerpts/Derayeh4_3_calculus1_part1.pdf), [Issue](Miscellaneous_materials/Derayeh/Full_version/Derayeh4_3.pdf))  
 
-### Issues of *[Derayeh](https://t.me/deraye_mag)* For whcih I was the editor-in-chief 
+### Issues of *[Derayeh](https://t.me/deraye_mag)* For which I was the editor-in-chief 
 *  (October 2019) [Derayeh (4,1)](Miscellaneous_materials/Derayeh/Full_version/Derayeh4_1.pdf), [Derayeh (4,2)](Miscellaneous_materials/Derayeh/Full_version/Derayeh4_2.pdf), [Derayeh (4,3)](Miscellaneous_materials/Derayeh/Full_version/Derayeh4_3.pdf), [Derayeh (4,4)](Miscellaneous_materials/Derayeh/Full_version/Derayeh4_4.pdf)
