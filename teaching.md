@@ -3,9 +3,9 @@ title:  ""
 mathjax: true
 layout: post
 ---
-## Teaching Assistant 
+## Teaching
 
-### Sharif University of Technology
+### Teaching Assistant at Sharif University of Technology
 -   Mathematical Logic (Fall 2022)
 	- [Midterm](teaching_materials/logic2022/mid.pdf)
 	- [Final](teaching_materials/logic2022/final.pdf)
@@ -47,3 +47,11 @@ layout: post
 	- [Homework 1 (Bonus)](teaching_materials/linear_algebra2020/HW1.pdf)
 	- [Homework 2 (Bonus)](teaching_materials/linear_algebra2020/HW2.pdf)
  
+### Workshop Mentor
+-   Calculus 1 Problem Solving Workshop (Fall 2019), Hamband Student Association 
+  	- [Problem Set 1](teaching_materials/Calculus1_problemSolving_workshop/problems1.pdf)
+  	- [Problem Set 2](teaching_materials/Calculus1_problemSolving_workshop/problems2.pdf)
+   	- [Problem Set 3](teaching_materials/Calculus1_problemSolving_workshop/problems3.pdf)
+	- [Problem Set 4](teaching_materials/Calculus1_problemSolving_workshop/problems4.pdf)
+	- [Problem Set 5](teaching_materials/Calculus1_problemSolving_workshop/problems5.pdf)
+	- [Problem Set 6](teaching_materials/Calculus1_problemSolving_workshop/problems6.pdf)
