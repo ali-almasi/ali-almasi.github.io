@@ -22,6 +22,7 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "projects.md", title: "Projects"}
   - {file: "teaching.md", title: "Teaching"}
   - {file: "talks.md", title: "Talks"}
+  - {file: "miscellaneous.md", title: "Misc."}
   - {file: "blog.html", title: "Blog"}
 
   
