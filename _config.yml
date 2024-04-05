@@ -1,0 +1,73 @@
+title: Ali ALMASI
+logo:  # you can add own logo.
+description:
+baseurl: ""
+url: https://ali-almasi.github.io # the base hostname & protocol for your site, e.g. http://example.com
+
+
+# Author Settings
+author:
+  name: Ali ALMASI
+  image: '/assets/img/profile.jpg'
+  job: Ali ALMASI
+  bio: Computer Science PhD-track Student at IP Paris
+  email: ali.almasi@polytechnique.edu
+  resume: https://ali-almasi.github.io/cv/
+  
+  github: https://github.com/ali-almasi
+  
+  twitter: https://twitter.com/leakingboat
+  linkedin: https://www.linkedin.com/in/ali-almasi-43a44225a/
+  saatchiart: https://www.saatchiart.com/alialmasi
+  last_update:  April 2024  
+
+
+
+
+# Contact links
+contact:
+  
+  # - name: Instagram
+  #   link: https://instagram.com/
+
+# Comment Section (Disqus)
+disqus-identifier: sho-personal # add your shortname for Disqus Comment. For example mr-brown
+
+
+# Google Analytics
+google-analytics: UA-208765987-1
+# add your identifier. For example UA-99631805-1.
+
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-sitemap
+  - jekyll/tagging
+
+# Pages Path
+defaults:
+  - scope:
+      path: '_pages'
+    values:
+      permalink: /:basename:output_ext
+
+include:
+  - _pages
+
+# Tags
+tag_page_dir:         tag
+tag_page_layout:      tag-page
+tag_permalink_style:  pretty
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+
+# Exclude from processing.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
