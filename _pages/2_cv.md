@@ -1,7 +1,7 @@
 ---
 layout: page
 title: CV
-permalink: /cv/
+permalink: /curriculum-vitae/
 ---
 ### Education
  *   MSc. in Computer Science,  [Institut Polytechnique de Paris](https://www.ip-paris.fr/),  France (2023 - Present)
