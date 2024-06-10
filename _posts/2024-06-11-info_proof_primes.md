@@ -1,9 +1,7 @@
 ---
 layout: post
-title:  An Information-theoretic Proof for the Infinitude of Primes
+title:  An Information-theoretic Proof
 date:   2024-06-11 14:00:00
-image: /assets/img/noah_purifoy.jpeg
-caption: Noah Purifoy Outdoor Desert Art Museum
 ---
 
 Updated December 1st.
