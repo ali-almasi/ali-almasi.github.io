@@ -1,5 +1,5 @@
 ---
 layout: post-page
-title: Posts
-permalink: /posts/
+title: A Mathematical Anthology
+permalink: /mathematical-anthology/
 ---
