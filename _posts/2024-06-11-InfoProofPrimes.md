@@ -1,12 +1,18 @@
 ---
 layout: post
-title:  Stat 5, Fall 2021
-date:   2021-09-05 14:00:00
+title:  An Information-theoretic Proof for the Infinitude of Primes
+date:   2024-06-11 14:00:00
 image: /assets/img/noah_purifoy.jpeg
 caption: Noah Purifoy Outdoor Desert Art Museum
+usemathjax: true
 ---
 
 Updated December 1st.
+
+
+So let \\(D_1 \cup D_2 \\) be the event that you have at least one disease.  
+Let \\(D_1^c \cap D_2^c \\) be the probability that you have neither.
+
 
 Welcome!
 This page is for students in my discussion sections & also for students taking the class generally!  
