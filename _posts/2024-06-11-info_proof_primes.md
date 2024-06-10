@@ -7,10 +7,6 @@ date:   2024-06-11 14:00:00
 Updated December 1st.
 
 
-So let \\(D_1 \cup D_2 \\) be the event that you have at least one disease.  
-Let \\(D_1^c \cap D_2^c \\) be the probability that you have neither.
-
-
 Welcome!
 This page is for students in my discussion sections & also for students taking the class generally!  
 The instructor for this class was Bruno Mendes.
