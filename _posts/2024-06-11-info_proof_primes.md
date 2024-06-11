@@ -16,6 +16,7 @@ The instructor for this class was Bruno Mendes.
 
 ### Important Information
 
+\\(|\psi\rangle\langle \psi| \\)
 **Missing Sections/Quizzes**: If you are sick and do not feel that coming to section is possible or wise (to avoid spreading stuff to your classmates & me), that is totally ok.  You do NOT have to send me an email.  To take the quiz, please come to my office hours. There, I'll give you the access key to take the quiz.
 
 **Use Piazza for (most questions)**: Please direct most course-related questions to *Piazza* and NOT to my email.  [Please join STAT 5 piazza](https://piazza.com/uc_santa_cruz/fall2021/stat5/home)
