@@ -1,7 +1,10 @@
 ---
 layout: post
-title:  An Information-theoretic Proof
-date:   2024-06-11 14:00:00
+title:  Berkdfdn's Paradox
+date:   2023-02-02 11:00:00
+image: /assets/img/lassen.jpeg
+caption: Lassen National Park!
+usemathjax: true
 ---
 
 Updated December 1st.
