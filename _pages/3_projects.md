@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects/
 ---
 
--  **Positive but not Completely Positive Maps** (2023 - 2024),
+-  **Positive but not Completely Positive Maps** (2023 - 2024),\
 	 Supervisor: [Peter Brown](https://peterjbrown519.github.io/)
 	- Aimed at investigating the applications of positive but not completely positive maps in quantum information theory, with a specific emphasis on their role as entanglement criteria. ([Report](/assets/projects_materials/pncp/final_report.pdf))
 
