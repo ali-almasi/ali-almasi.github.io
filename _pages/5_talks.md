@@ -8,7 +8,7 @@ image:
 *   <span style="color:red">(March 2024)</span>\
    **"Introduction to Quantum Information Theory"** ([Slides](/assets/talks_materials/Intro_QIT/Intro_to_QIT.pdf))\
      <span style="color:green;font-weight:700;font-size:12px">
-    A presentation for the *Théorie de l'information* course] 
+    A presentation for the *Théorie de l'information* course 
 </span>(2023-2024). 
  *   (March 2024) **Positive but not Completely Positive Maps**; The presentation for the final defence of the *Projet de 3A Algorithmes efficaces et fondements des languages de programmation* course (2023-2024). ([Slides](/assets/projects_materials/pncp/PnCP_defence.pdf))
  *   (March 2024) **"Distinguishability of Random Quantum States"**, Based on Montanaro, A. Commun.Math. Phys. 3, 619–636 (2007); A presentation for the *Informatique quantique et applications* course (2023-2024). ([Slides](/assets/talks_materials/Discrimination_of_random_states/discrimination_of_random_states_slides.pdf))
