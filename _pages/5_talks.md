@@ -22,7 +22,6 @@ image:
     -   **"Recursion Theorem and Hilbert's Dream"** ([Slides](/assets/talks_materials/Intro_QIT/Intro_to_QIT.pdf))\
       <span style="color:green;font-weight:700;font-size:12px">
     In [Hamband](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%D9%86%D8%A7%D9%85%D9%87) scientific association ([Poster](/assets/talks_materials/Posters/Recursion.jpg))</span>
-    <br/><br/>
 ### Course Presentations
 -  <span style="color:red">(March 2024)</span>\
     -   **"Introduction to Quantum Information Theory"** ([Slides](/assets/talks_materials/Intro_QIT/Intro_to_QIT.pdf))\
