@@ -3,6 +3,7 @@ layout: page
 title: Talks
 permalink: /talks/
 image: /assets/img/DSC_0479.JPG
+caption: One of my first math talks ever, at the Sharif Summer School of Mathematics in 2019.
 ---
 ### Invited Talks
 -  <span style="color:red">(July 2024)</span>\
