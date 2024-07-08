@@ -5,29 +5,34 @@ permalink: /talks/
 image:
 ---
 ### Invited Talks
+
 ### Course Presentations
 -  <span style="color:red">(March 2024)</span>\
     -   **"Introduction to Quantum Information Theory"** ([Slides](/assets/talks_materials/Intro_QIT/Intro_to_QIT.pdf))\
       <span style="color:green;font-weight:700;font-size:12px">
     A presentation for the *Théorie de l'information* course (2023-2024)</span>
-    -   **Positive but not Completely Positive Maps** ([Slides](/assets/projects_materials/pncp/PnCP_defence.pdf))\
+    -   **"Positive but not Completely Positive Maps"** ([Slides](/assets/projects_materials/pncp/PnCP_defence.pdf))\
       <span style="color:green;font-weight:700;font-size:12px">
     The presentation for the final defence of the *Projet de 3A Algorithmes efficaces et fondements des languages de programmation* course (2023-2024)</span> 
     -   **"Distinguishability of Random Quantum States"** ([Slides](/assets/talks_materials/Discrimination_of_random_states/discrimination_of_random_states_slides.pdf))\
       <span style="color:green;font-weight:700;font-size:12px">
-    A presentation for the *Informatique quantique et applications* course (2023-2024)</span> 
+    A presentation for the *Informatique quantique et applications* course (2023-2024)</span>
+<br/><br/>
 -  <span style="color:red">(February 2023)</span>\
     -   **"Quantum Attacks on Symmetric Cryptography Schemes"** ([Slides](/assets/talks_materials/QAttacks_symmetric/QAttacks_symmetric.pdf))\
       <span style="color:green;font-weight:700;font-size:12px">
     A presentation for the *Cryptography* course (2021-2022), in collaboration with [Arman Maghsoudnia](https://people.epfl.ch/arman.maghsoudnia)</span>
+    <br/><br/>
 -  <span style="color:red">(July 2022)</span>\
     -   **"Interpretable ML"** ([Slides](/assets/talks_materials/Interpretable_AI/interpretale_AI.pdf))\
       <span style="color:green;font-weight:700;font-size:12px">
     A presentation for the *Artificial Intelligence* course (2021-2022), in collaboration with Fahimeh Hosseini Noohdani</span>
+    <br/><br/>
 -  <span style="color:red">(June 2020)</span>\
     -   **"Classification of 2-Dimensional Manifolds"** \
       <span style="color:green;font-weight:700;font-size:12px">
     A presentation for the *Topology* course (2019-2020)</span>
+    <br/><br/>
 -  <span style="color:red">(December 2019)</span>\
     -   **"Gauss–Bonnet theorem"** \
       <span style="color:green;font-weight:700;font-size:12px">
