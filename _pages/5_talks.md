@@ -5,7 +5,24 @@ permalink: /talks/
 image:
 ---
 ### Invited Talks
-
+-  <span style="color:red">(July 2024)</span>\
+    -   **"An Application of SDP in QIT"** ([Slides](/assets/talks_materials/Intro_QIT/Intro_to_QIT.pdf))\
+      <span style="color:green;font-weight:700;font-size:12px">
+    In the Sharif Math Journal's Night</span>
+    -   **"Iterative Algorithms for Quantum State Discrimination"** ([Slides](/assets/projects_materials/pncp/PnCP_defence.pdf))\
+      <span style="color:green;font-weight:700;font-size:12px">
+    In Télécom Paris, [Quriosity](https://quriosity.telecom-paris.fr/)</span>    
+<br/><br/>
+-  <span style="color:red">(November 2023)</span>\
+    -   **"Positive Maps and their Applications in the Study of Entanglement"**\
+      <span style="color:green;font-weight:700;font-size:12px">
+    In [Hamband](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%D9%86%D8%A7%D9%85%D9%87) scientific association ([Poster](/assets/talks_materials/Posters/Recursion.jpg))</span>
+<br/><br/>
+ -  <span style="color:red">(November 2022)</span>\
+    -   **"Recursion Theorem and Hilbert's Dream"** ([Slides](/assets/talks_materials/Intro_QIT/Intro_to_QIT.pdf))\
+      <span style="color:green;font-weight:700;font-size:12px">
+    In [Hamband](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%D9%86%D8%A7%D9%85%D9%87) scientific association ([Poster](/assets/talks_materials/Posters/Recursion.jpg))</span>
+    <br/><br/>
 ### Course Presentations
 -  <span style="color:red">(March 2024)</span>\
     -   **"Introduction to Quantum Information Theory"** ([Slides](/assets/talks_materials/Intro_QIT/Intro_to_QIT.pdf))\
