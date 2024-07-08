@@ -2,7 +2,7 @@
 layout: page
 title: Talks
 permalink: /talks/
-image:
+image: /assets/img/DSC_0479.JPG
 ---
 ### Invited Talks
 -  <span style="color:red">(July 2024)</span>\
