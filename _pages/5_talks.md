@@ -6,17 +6,17 @@ image:
 ---
 ### Invited Talks
 -  <span style="color:red">(July 2024)</span>\
-    -   **"An Application of SDP in QIT"** ([Slides](/assets/talks_materials/Intro_QIT/Intro_to_QIT.pdf))\
+    -   **"An Application of SDP in QIT"** ([Slides](/assets/talks_materials/An_Application_of_SDP_in_QIT.pdf))\
       <span style="color:green;font-weight:700;font-size:12px">
     In the Sharif Math Journal's Night</span>
-    -   **"Iterative Algorithms for Quantum State Discrimination"** ([Slides](/assets/projects_materials/pncp/PnCP_defence.pdf))\
+    -   **"Iterative Algorithms for Quantum State Discrimination"** ([Slides](/assets/talks_materials/Iterative_Algos_for_QSD.pdf))\
       <span style="color:green;font-weight:700;font-size:12px">
     In Télécom Paris, [Quriosity](https://quriosity.telecom-paris.fr/)</span>    
 <br/><br/>
 -  <span style="color:red">(November 2023)</span>\
     -   **"Positive Maps and their Applications in the Study of Entanglement"**\
       <span style="color:green;font-weight:700;font-size:12px">
-    In [Hamband](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%D9%86%D8%A7%D9%85%D9%87) scientific association ([Poster](/assets/talks_materials/Posters/Recursion.jpg))</span>
+    In [Hamband](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%D9%86%D8%A7%D9%85%D9%87) scientific association ([Poster](/assets/talks_materials/Posters/Positive_maps_and_entanglement.jpg))</span>
 <br/><br/>
  -  <span style="color:red">(November 2022)</span>\
     -   **"Recursion Theorem and Hilbert's Dream"** ([Slides](/assets/talks_materials/Intro_QIT/Intro_to_QIT.pdf))\
@@ -56,8 +56,5 @@ image:
     A presentation for the *Elementary Differential Geometry* course (2019-2020)</span> 
 
 
-*   (November 2023) **"Positive Maps and their Applications in the Study of Entanglement"**, An explanatory talk in Hamband scientific association. ([Poster](/assets/talks_materials/Posters/Positive_maps_and_entanglement.jpg))
-*   (November 2022) **"Recursion Theorem and Hilbert's Dream"**, An explanatory talk in Hamband scientific association. ([Poster](/assets/talks_materials/Posters/Recursion.jpg))
-*   (September 2022) **"An Introduction to Quantum Computing and Quantum Logic"**, A mini-course in Hamband scientific association (Incomplete due to the 2022 protests in Iran). ([Poster](/assets/talks_materials/Posters/QC_Intro.jpg), [Slides](/assets/talks_materials/QC_hamband/QC_hamband.pdf))
-*   (April 2019) **"Roots of Polynomials"**, An explanatory talk in Hamband scientific association. ([Poster](/assets/talks_materials/Posters/Roots_of_polynomials.jpg))
+
 
