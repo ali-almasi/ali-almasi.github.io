@@ -3,7 +3,9 @@ layout: page
 title: Projects
 permalink: /projects/
 ---
-
+-  **Quantum Guessing Games** (2024)\
+	 Supervisors: [Peter Brown](https://peterjbrown519.github.io/), [Cambyse Rouzé](https://www.xn--cambyserouz-lbb.fr)
+	- M1 internship research. We investigated quantum guessing games, a generalization of two well-studied quantum information problems: quantum state discrimination and quantum state antidiscrimination. Our work involved finding closed-form solutions for specific games, analyzing the pretty good measurement in this broader context, and studying the convergence behavior of an iterative algorithm for determining the optimal strategy. ([Report](/assets/projects_materials/Internship_report.pdf))
 -  **Positive but not Completely Positive Maps** (2023 - 2024)\
 	 Supervisor: [Peter Brown](https://peterjbrown519.github.io/)
 	- Aimed at investigating the applications of positive but not completely positive maps in quantum information theory, with a specific emphasis on their role as entanglement criteria. ([Report](/assets/projects_materials/pncp/final_report.pdf))
