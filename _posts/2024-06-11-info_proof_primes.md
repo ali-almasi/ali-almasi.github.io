@@ -5,7 +5,7 @@ date:   2024-06-11 11:00:00
 usemathjax: true
 ---
 # Introduction
-Prime numbers are among the most fascinating objects in mathematics, and their study has led to advancements in several areas of mathematics. One of the oldest known theorems about primes is that the sequence of primes is infinite. The earliest existing proof, attributed to Euclid circa 300 B.C., can be found in *Elements, Book IX, Proposition 20*. Since then, many different proofs for this statement have emerged, with a comprehensive list compiled in [1].
+Prime numbers are among the most fascinating objects in mathematics, and their study has led to advancements in several areas of math. One of the oldest known theorems about primes is that the sequence of primes is infinite. The earliest existing proof for this statement is attributed to Euclid (circa 300 B.C.) and can be found in *Elements, Book IX, Proposition 20*. Since then, many different proofs have emerged, with a comprehensive list compiled in [1].
 
 In this blog post, I will present a proof due to Gregory Chaitin, which can be found in [2]. This proof was featured as a problem on the final exam for a course I took on information theory. I would like to thank [Thomas Debris-Alazard](https://tdalazard.io/) for including this elegant problem in that exam.
 
