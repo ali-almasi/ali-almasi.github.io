@@ -13,5 +13,5 @@ Prime numbers are among the most fascinating mathematical objects, and their stu
 Let $n$ be an integer and define $N$ as the uniform random variable whose support is the set $\\{ 1,2, \dots, n \\}$. The number of primes less than or equal to $n$ is denoted by $\pi(n)$, known as the prime-counting function. Let $p_1 < p_2 < \cdots < p_{\pi(n)}$ be the sequence of primes less than or equal to $n$. For $i \leq \pi(n)$, define a random variable $X_i$ as the exponent of $p_i$ in the prime factorization of $N$.
 
 By the fundamental theorem of arithmetic, $(X_1, \dots, X_{\pi(n)})$ is a function of $N$ and vice versa. Therefore, 
-$$ H(X_1, \dots, X_{\pi(n)}) = H(N), $$
+\\[ H(X_1, \dots, X_{\pi(n)}) = H(N), \\]
 where $H(\cdot)$ denotes the Shannon entropy.
