@@ -12,7 +12,7 @@ usemathjax: true
 
 We’ve all encountered optimization problems that are classified as NP-hard. It is widely believed that finding a fast (i.e., polynomial-time) algorithm to solve these problems is unlikely. However, these problems arise in numerous real-world situations, from VLSI chip design to barter-exchange markets. Given their importance, simply abandoning the search for solutions is not an option. This is where *approximation algorithms* come into play. The core idea behind approximation algorithms is to trade off the quality of the solution for a faster runtime.
 
-Let $A$ be an algorithm for a minimization problem $P$, and let $I$ represent an instance of $P$ with an optimal solution denoted by $OPT(I)$. We define $A(I)$ as the solution output by $A$ on input $I$, and $c(A(I))$ as the objective value of $A(I)$. We say that $A$ is an \textbf{$\alpha$-approximation algorithm} for $P$ if for every instance $I$,
+Let $A$ be an algorithm for a minimization problem $P$, and let $I$ represent an instance of $P$ whose optimal value is denoted by $OPT(I)$ (or simply $OPT$, if the instance is clear from the context). We define $A(I)$ as the solution output by $A$ on input $I$, and $c(A(I))$ as the objective value of $A(I)$. We say that $A$ is an \textbf{$\alpha$-approximation algorithm} for $P$ if for every instance $I$,
 \\[
 \frac{c(A(I))}{OPT(I)} \leq \alpha.
 \\]
