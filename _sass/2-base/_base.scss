@@ -1,7 +1,15 @@
 *, *::after, *::before {
   box-sizing: border-box;
 }
-
+@font-face {
+    font-family: 'OpenDyslexic';
+    src:url('OpenDyslexic.ttf.woff') format('woff'),
+        url('OpenDyslexic.ttf.svg#OpenDyslexic') format('svg'),
+        url('OpenDyslexic.ttf.eot'),
+        url('OpenDyslexic.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
 body {
   font-family: 'OpenDyslexic', sans-serif;
   font-family: 'OpenDyslexic3', sans-serif;
