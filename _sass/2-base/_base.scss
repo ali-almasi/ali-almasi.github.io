@@ -1,8 +1,12 @@
 *, *::after, *::before {
   box-sizing: border-box;
 }
+
 body {
-  font-family: 'Open-Dyslexic', sans-serif;                         
+font-family: 'opendyslexic';
+	src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Regular.otf');
+	font-style: normal;
+	font-weight: normal;                   
   // font-family: 'Lora', Georgia, Times, 'Times New Roman', serif;
   font-size: 16px;
   color: $dark;
