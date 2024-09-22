@@ -8,7 +8,7 @@ usemathjax: true
 header-includes:
   - \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 ---
-
+Let $\mathcal{E}$ be a quantum ensemble,
 # Algorithm 1
 Just a sample algorithmn
 \begin{algorithm}[H]
