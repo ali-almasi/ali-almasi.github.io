@@ -6,16 +6,7 @@ image: /assets/img/lassen.jpeg
 caption: Lassen National Park!
 usemathjax: true
 ---
+# Introduction
+Prime numbers are among the most fascinating mathematical objects, and their studies have led to advancements in several areas of mathematics. One of the oldest theorems about primes is that the sequence of primes is not finite. The oldest proof is due to Euclid, circa 300 B.C., which can be found in *Elements, Book IX, Proposition 20*. Since then, many different proofs have been given for this statement, a pretty exhaustive list of which can be found in [1]. In this blog post, I will present a proof by Chaitin, given in [2]. This proof was one of the problems in the final exam of a course I had on information theory, and I have to thank [Thomas Debris-Alazard](https://tdalazard.io/) for including this beautiful problem in that exam.
 
-Let $V$ be a vector space and $\{v_1, v_2, \dots, v_n\}$ be a basis.
-> Algorithm parameters: step size  $\alpha \in (0 , 1] , \epsilon > 0$   
-Initialize  $Q  ( s, a ), \  \forall s \in S^+ , a \in A ( s ),$ arbitrarily except that $Q ( terminal , \cdot ) = 0$    
->
-> Loop for each episode:  
-$\quad$Initialize $S$   
-$\quad$Loop  for  each  step  of  episode:    
-$\qquad$Choose  $A$ from $S$ using some policy derived from $Q$ (eg $\epsilon$-greedy)   
-$\qquad$Take action $A$, observe $R, S'$   
-$\qquad Q(S,A) \leftarrow Q(S,A) + \alpha[R+\gamma \max_a(S', a) - Q(S, A)]$   
-$\qquad S \leftarrow S'$    
-$\quad$ until $S$ is terminal
+# Proof
