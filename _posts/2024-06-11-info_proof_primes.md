@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  An Information Theoretic Proof for the Infinitude of Primes
-date:   2023-03-20 11:00:00
+date:   2024-06-11 11:00:00
 usemathjax: true
 ---
 # Introduction
@@ -20,7 +20,7 @@ The cardinality of the support of $X_i$ is $\lbrack \log_{p_i} n \rbrack + 1 \le
 \\[ H(X_i) \leq \log (\log n + 1), \\]
 which leads to the inequality 
 \\[ \pi(n) \geq \frac{\log n}{\log (\log n + 1)}. \\]
-As $ n \to \infty$, the right-hand side of this inequality tends to infinity, implying that $\pi(n)$ becomes arbitrarily large.
+As $ n \to \infty$, the right-hand side of this inequality tends to infinity, implying that $\pi(n)$ becomes arbitrarily large.\
 Q.E.D.
 
 It is worth noting that this approach not only proves the infinitude of primes, but also provides a lower bound on the prime-counting function, which is of great interest to many mathematicians.
@@ -31,5 +31,5 @@ It is possible to improve the bound obtained above to
 using a different factorization of $n$. Can you provide a proof?
 
 # Bibliography
-[1] Meštrović, R. (2012). Euclid's theorem on the infinitude of primes: a historical survey of its proofs (300 BC--2022) and another new proof. arXiv preprint arXiv:1202.3670.
+[1] Meštrović, R. (2012). Euclid's theorem on the infinitude of primes: a historical survey of its proofs (300 BC--2022) and another new proof. arXiv preprint arXiv:1202.3670.\
 [2] Chaitin, G. J. (1977). Toward a Mathematical Definition of Life, 2. IBM Thomas J. Watson Research Division.
