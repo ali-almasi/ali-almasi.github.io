@@ -14,4 +14,10 @@ Let $n$ be an integer and define $N$ as the uniform random variable whose suppor
 
 By the fundamental theorem of arithmetic, $(X_1, \dots, X_{\pi(n)})$ is a function of $N$ and vice versa. Therefore, 
 \\[ H(X_1, \dots, X_{\pi(n)}) = H(N), \\]
-where $H(\cdot)$ denotes the Shannon entropy.
+where $H(\cdot)$ denotes the Shannon entropy. Since $N$ is a uniform random variable on a support with cardinality $n$, $H(N) = \log n$. On the other hand, we can bound $H(X_1, \dots, X_{\pi(n)})$, using the inequality 
+\\[ H(X_1, \dots, X_{\pi(n)}) \leq \sum_{i=1}^{\pi(n)} H(X_i). \\]
+Note that the cardinality of the support of $X_i$ is $\lbrack \log_{p_i} n \rbrack + 1 \leq \log n + 1$, thus, 
+\\[ H(X_i) \leq \log (\log n + 1), \\]
+which implies that 
+\\[ \pi(n) \geq \frac{\log n}{\log (\log n + 1)}. \\]
+When $ n \to \infty$, the r.h.s. of the above inequality tends to infinity, and $\pi(n)$ becomes arbitrarily large.
