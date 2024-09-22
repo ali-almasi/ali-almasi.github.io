@@ -4,12 +4,13 @@ title: CV
 permalink: /curriculum-vitae/
 ---
 ### Education
- *   MSc. in Computer Science,  [Institut Polytechnique de Paris](https://www.ip-paris.fr/),  France (2023 - Present)
+ *   MSc. in Foundations of Computer Science ([Master Parisien de Recherche en Informatique](https://wikimpri.dptinfo.ens-cachan.fr/doku.php?id=start) (MPRI)),  [École polytechnique](https://www.polytechnique.edu/),  France (2023 - Present)
 	 - Recipient of the IP Paris scholarship
+*   Minor in Computer Science,  [Sharif University of Technology](https://en.sharif.edu/), Iran (2021 - 2023)
 *   BSc. in Mathematics,  [Sharif University of Technology](https://en.sharif.edu/), Iran (2018 - 2023)
 
 ### Experience
-
+-   Research Intern, [Quriosity](https://quriosity.telecom-paris.fr/), Télécom Paris; Supervisors: [Peter Brown](https://peterjbrown519.github.io/), [Cambyse Rouzé](https://www.xn--cambyserouz-lbb.fr) (April 2024 - August 2024)
 -   Teaching Assistant
 	-   See the  [teaching section](https://ali-almasi.github.io/teaching/).
 -   Mathematics Teacher (10th and 11th grade), Tehran's Allameh Helli 5 High School, Iran (2023)
