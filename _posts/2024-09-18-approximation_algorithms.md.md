@@ -12,18 +12,17 @@ usemathjax: true
 
 We’ve all encountered optimization problems that are classified as NP-hard. It is widely believed that finding a fast (i.e., polynomial-time) algorithm to solve these problems is unlikely. However, these problems arise in numerous real-world situations, from VLSI chip design to barter-exchange markets. Given their importance, simply abandoning the search for solutions is not an option. This is where *approximation algorithms* come into play. The core idea behind approximation algorithms is to trade off the quality of the solution for a faster runtime.
 
-Let \( A \) be an algorithm for a minimization problem \( P \), and let \( I \) represent an instance of \( P \) with an optimal solution denoted by \( OPT(I) \). We define \( A(I) \) as the solution output by \( A \) on input \( I \), and \( c(A(I)) \) as the objective value of \( A(I) \). We say that \( A \) is an *\( \alpha \)-approximation algorithm* for \( P \) if for every instance \( I \),
-\[
+Let $A$ be an algorithm for a minimization problem $P$, and let $I$ represent an instance of $P$ with an optimal solution denoted by $OPT(I)$. We define $A(I)$ as the solution output by $A$ on input $I$, and $c(A(I))$ as the objective value of $A(I)$. We say that $A$ is an \textbf{$\alpha$-approximation algorithm} for $P$ if for every instance $I$,
+\\[
 \frac{c(A(I))}{OPT(I)} \leq \alpha.
-\]
-Here, \( \alpha \geq 1 \) is necessary for the inequality to hold, reflecting that the algorithm’s solution is at most \( \alpha \) times worse than the optimal solution.
+\\]
+Here, $\alpha \geq 1$ is necessary for the inequality to hold, reflecting that the algorithm’s solution is at most $\alpha$ times worse than the optimal solution.
 
-A similar definition applies to maximization problems, where \( \alpha \leq 1 \). In this case, \( A \) is an \( \alpha \)-approximation algorithm for a maximization problem \( P \) if for every instance \( I \),
-\[
+A similar definition applies for maximization problems, where $\alpha \leq 1$. In this case, $A$ is an $\alpha$-approximation algorithm for a maximization problem $P$ if for every instance $I$,
+\\[
 \frac{c(A(I))}{OPT(I)} \geq \alpha.
-\]
-This ensures that the solution found by \( A \) is at least \( \alpha \) times the optimal value.
-
+\\]
+This ensures that the solution found by $A$ is at least $\alpha$ times the optimal value.
 
 
 Let $V$ be a vector space and $\{v_1, v_2, \dots, v_n\}$ be a basis.
