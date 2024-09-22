@@ -5,28 +5,6 @@ date:   2023-02-02 11:00:00
 image: /assets/img/lassen.jpeg
 caption: Lassen National Park!
 usemathjax: true
-header-includes:
-  - \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 ---
-Let $\mathcal{E}$ be a quantum ensemble,
-# Algorithm 1
-Just a sample algorithmn
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\SetAlgoLined
-\KwResult{Write here the result}
-\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
-\Input{Write here the input}
-\Output{Write here the output}
-\BlankLine
-\While{While condition}{
-    instructions\;
-    \eIf{condition}{
-        instructions1\;
-        instructions2\;
-    }{
-        instructions3\;
-    }
-}
-\caption{While loop with If/Else condition}
-\end{algorithm}
+
+Let $V$ be a vector space and $\{v_1, v_2, \dots, v_n\}$ be a basis.
