@@ -5,11 +5,10 @@ date:   2023-02-02 11:00:00
 image: /assets/img/lassen.jpeg
 caption: Lassen National Park!
 usemathjax: true
----
----
 header-includes:
   - \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 ---
+
 # Algorithm 1
 Just a sample algorithmn
 \begin{algorithm}[H]
