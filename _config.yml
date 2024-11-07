@@ -12,7 +12,11 @@ author:
   job: Ali ALMASI
   bio: |+
         <p>
-            I am a PhD-track computer science student currently enrolled in the second year of the MPRI (Master Parisien de Recherche en Informatique) at École Polytechnique, part of the Institut Polytechnique de Paris. I previously completed my undergraduate studies at Sharif University of Technology, where I earned a bachelor's degree in mathematics with a minor in computer science.
+            I am a PhD-track computer science student currently enrolled in the second year of the 
+            <a href="https://mpri.ip-paris.fr/" target="_blank">MPRI (Master Parisien de Recherche en Informatique)</a> 
+            at <a href="https://www.polytechnique.edu/en" target="_blank">École Polytechnique</a>, part of the 
+            <a href="https://www.ip-paris.fr/en" target="_blank">Institut Polytechnique de Paris</a>. I previously completed my undergraduate studies at 
+            <a href="https://www.sharif.edu/" target="_blank">Sharif University of Technology</a>, where I earned a bachelor's degree in mathematics with a minor in computer science.
         </p>
         <p>
             My primary field of interest is quantum information science, with a particular focus on using methods from optimization theory and mathematical analysis to tackle problems in quantum information theory.
