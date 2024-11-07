@@ -9,14 +9,68 @@ permalink: /curriculum-vitae/
 *   Minor in Computer Science,  [Sharif University of Technology](https://en.sharif.edu/), Iran (2021 - 2023)
 *   BSc. in Mathematics,  [Sharif University of Technology](https://en.sharif.edu/), Iran (2018 - 2023)
 
-### Experience
--   Research Intern, [Quriosity](https://quriosity.telecom-paris.fr/), Télécom Paris; Supervisors: [Peter Brown](https://peterjbrown519.github.io/), [Cambyse Rouzé](https://www.xn--cambyserouz-lbb.fr) (April 2024 - August 2024)
--   Teaching Assistant
-	-   See the  [teaching section](https://ali-almasi.github.io/teaching/).
--   Mathematics Teacher (10th and 11th grade), Tehran's Allameh Helli 5 High School, Iran (2023)
--  Mathematics Teacher (7th grade), Tehran's Allameh Helli 3 Middle School, Iran (2020)
--   Mathematics Teacher (8th grade), Tehran's Allameh Helli 1 Middle School, Iran (2019)
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .experience {
+            font-size: 18px;
+        }
+        .experience h3 {
+            color: #2e8b57; /* Green color for section title */
+            font-size: 24px;
+        }
+        .intern, .teaching-assistant, .teacher {
+            margin-bottom: 10px;
+        }
+        .intern a, .teaching-assistant a, .teacher a {
+            color: #0077cc; /* Blue color for links */
+            text-decoration: none;
+        }
+        .intern a:hover, .teaching-assistant a:hover, .teacher a:hover {
+            text-decoration: underline;
+        }
+        .date {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <section class="experience">
+        <h3>Experience</h3>
+        <div class="intern">
+            <strong>Research Intern</strong>, <a href="https://quriosity.telecom-paris.fr/" target="_blank">Quriosity</a>, Télécom Paris  
+            <span class="date">*(April 2024 - August 2024)*</span>  
+            <br>Supervisors: <a href="https://peterjbrown519.github.io/" target="_blank">Peter Brown</a>, 
+            <a href="https://www.xn--cambyserouz-lbb.fr" target="_blank">Cambyse Rouzé</a>
+        </div>
+        <div class="teaching-assistant">
+            <strong>Teaching Assistant</strong> at Sharif University of Technology  
+            <br>In the span of 4 years during my undergraduate studies at Sharif University of Technology, I worked as a teaching assistant for several courses.  
+            [See Misc. section](https://ali-almasi.github.io/misc/) if you want to know more.
+        </div>
+        <div class="teacher">
+            <strong>Mathematics Teacher</strong> (10th and 11th grade), Tehran's Allameh Helli 5 High School, Iran  
+            <span class="date">(2023)</span>
+        </div>
+        <div class="teacher">
+            <strong>Mathematics Teacher</strong> (7th grade), Tehran's Allameh Helli 3 Middle School, Iran  
+            <span class="date">(2020)</span>
+        </div>
+        <div class="teacher">
+            <strong>Mathematics Teacher</strong> (8th grade), Tehran's Allameh Helli 1 Middle School, Iran  
+            <span class="date">(2019)</span>
+        </div>
+    </section>
+</body>
+</html>
 ### Projects
 
 -   See the  [projects section](https://ali-almasi.github.io/projects).
