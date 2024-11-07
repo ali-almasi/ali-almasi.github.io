@@ -4,8 +4,9 @@ title: CV
 permalink: /curriculum-vitae/
 ---
 ### Education
- *   MSc. in Foundations of Computer Science ([Master Parisien de Recherche en Informatique](https://wikimpri.dptinfo.ens-cachan.fr/doku.php?id=start) (MPRI)),  [École polytechnique](https://www.polytechnique.edu/),  France (2023 - Present)
-	 - Recipient of the IP Paris scholarship
+ *   <span style="color:red">MSc. in Foundations of Computer Science ([Master Parisien de Recherche en Informatique](https://wikimpri.dptinfo.ens-cachan.fr/doku.php?id=start) (MPRI))</span>\, <span style="font-weight:700;font-size:12px">
+    [École polytechnique](https://www.polytechnique.edu/),  France (2023 - Present)</span>
+	 - <span style="font-weight:700;font-size:9px">Recipient of the IP Paris scholarship</span>
 *   Minor in Computer Science,  [Sharif University of Technology](https://en.sharif.edu/), Iran (2021 - 2023)
 *   BSc. in Mathematics,  [Sharif University of Technology](https://en.sharif.edu/), Iran (2018 - 2023)
 
