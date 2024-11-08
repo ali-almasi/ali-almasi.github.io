@@ -24,7 +24,6 @@ image:
 -  **Linear Algebra, (Spring 2020)**
 	[Problem Set 1](/assets/teaching_materials/linear_algebra2020/PS1.pdf), [Hints for Problem Set 1](/assets/teaching_materials/linear_algebra2020/PS1_Hints.pdf), [Problem-Solving Workshop](/assets/teaching_materials/linear_algebra2020/WS1.pdf), [Problem Set 3 (part 2)](/assets/teaching_materials/linear_algebra2020/PS3-part2.pdf), [Hints for Problem Set 3 (part 2)](/assets/teaching_materials/linear_algebra2020/PS3_Part2_Hints.pdf), [Homework 1 (Bonus)](/assets/teaching_materials/linear_algebra2020/HW1.pdf), [Homework 2 (Bonus)](/assets/teaching_materials/linear_algebra2020/HW2.pdf)
  
-### Workshop Mentor
 -   **Calculus 1 Problem-Solving Workshop (Fall 2019)**, Hamband Student Association 
 [Problem Set 1](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems1.pdf), [Problem Set 2](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems2.pdf), [Problem Set 3](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems3.pdf), [Problem Set 4](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems4.pdf), [Problem Set 5](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems5.pdf), [Problem Set 6](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems6.pdf)
 
