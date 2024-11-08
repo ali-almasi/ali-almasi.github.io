@@ -4,7 +4,7 @@ title: CV
 permalink: /curriculum-vitae/
 ---
 ### Education
- *   (2023 - Present) <span style="color:red;font-size:16px">MSc. in Foundations of Computer Science (MPRI)</span>,\
+ *   (2023 - Present) <span style="font-weight:700;color:red;font-size:16px">MSc. in Foundations of Computer Science (MPRI)</span>,\
 	 <span style="font-weight:700;font-size:12px">[École polytechnique](https://www.polytechnique.edu/), Paris, France</span>
 	 - <span style="font-weight:700;font-size:10px">Recipient of the IP Paris scholarship</span>
 *   Minor in Computer Science,  [Sharif University of Technology](https://en.sharif.edu/), Iran (2021 - 2023)
