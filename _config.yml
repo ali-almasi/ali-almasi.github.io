@@ -18,21 +18,19 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Matthew Aldridge
-email: m.aldridge@leeds.ac.uk
+title: Ali ALMASI
+email: ali.almasi@polytechnique.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  The website of Dr Matthew Aldridge,
-  Lecturer in Statistics at the University of Leeds
+  The website of Ali ALMASI,
+  PhD-track student at École Polytechnique, France.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://ali-almasi.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: mpaldridge
-github_username:  mpaldridge
-bluesky_username: mpaldridge.bsky.social
+github_username:  ali-almasi
 
 header_pages:
  - about.md
- - publications.md
- - teaching.md
+ - research.md
+ - misc.md
  - blog.md
 
 # Build settings
