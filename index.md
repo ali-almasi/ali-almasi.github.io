@@ -3,22 +3,40 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home-noposts
 ---
+# Short Bio
 
-Hi, I'm **Matthew Aldridge**. I'm a lecturer at the [University of Leeds](https://www.leeds.ac.uk) in the [School of Mathematics](https://eps.leeds.ac.uk/maths), in the [Statistics department](https://eps.leeds.ac.uk/maths-statistics).
+Hi, I'm **Ali Almasi**. I am a PhD-track computer science student currently enrolled in the M2 year of the [Master Parisien de Recherche en Informatique (MPRI)](https://wikimpri.dptinfo.ens-cachan.fr/doku.php?id=start) at [École Polytechnique](https://www.polytechnique.edu), part of the [Institut Polytechnique de Paris](https://www.ip-paris.fr). I previously completed my undergraduate studies at [Sharif University of Technology](https://www.sharif.edu/en), where I obtained a bachelor's degree in mathematics with a minor in computer science.
 
-I study probability, information theory, combinatorics, statistics and related things. I’m particularly interested in group testing, a problem that models testing a large population for a blood disease that also has applications in communications, computer science, genetics and has been used during the Covid pandemic. I’m also interested in ways of coping with interference in large multiuser communications networks. I'm also also interested in "discrete probability equivalents" of concepts from continuous probability.
+I like quantum information science, mostly the information-theoretic and complexity-theoretic aspects. I enjoy using tools from optimization theory, mathematical analysis, and discrete mathematics to tackle problems in these areas.
 
-I currently have two **PhD projects** advertised:
-* [Pooled testing to prevent the next pandemic](https://phd.leeds.ac.uk/project/1997-pooled-testing-to-prevent-the-next-pandemic)
-* [Genuinely discrete discrete probability](https://phd.leeds.ac.uk/project/1998-genuinely-discrete-discrete-probability)
-  
-See those pages for details of how to apply.
+# CV
 
-My **ORCID** is [0000-0002-9347-1586](https://orcid.org/0000-0002-9347-1586).
+## Education
+*   (2023 - Present) <span style="font-weight:700;color:black;font-size:16px">MSc. in Foundations of Computer Science (MPRI)</span>,
+	 <span style="font-weight:700;font-size:12px">[École polytechnique](https://www.polytechnique.edu/), Paris, France</span>
+	 - <span style="font-weight:700;font-size:10px">Recipient of the IP Paris scholarship</span>
+*   (2021 - 2023) <span style="font-weight:700;color:black;font-size:16px">Minor in Computer Science</span>,
+	 <span style="font-weight:700;font-size:12px">[Sharif University of Technology](https://en.sharif.edu/), Iran</span>
+*   (2018 - 2023) <span style="font-weight:700;color:black;font-size:16px">BSc. in Mathematics</span>,
+	 <span style="font-weight:700;font-size:12px">[Sharif University of Technology](https://en.sharif.edu/), Iran</span>
 
-You might be looking for:
+## Experience
+*   (April 2024 - August 2024) <span style="font-weight:700;color:black;font-size:16px">Research Intern</span>,
+	 <span style="font-weight:700;font-size:12px">[Quriosity](https://quriosity.telecom-paris.fr/), Télécom Paris, Paris, France</span>
+	- <span style="font-weight:700;font-size:10px">Supervisors: [Peter Brown](https://peterjbrown519.github.io/), [Cambyse Rouzé](https://www.xn--cambyserouz-lbb.fr)</span>
+*   (2020 - 2023) <span style="font-weight:700;color:black;font-size:16px">Teaching Assistant</span>,\
+	 <span style="font-weight:700;font-size:12px">During my undergraduate studies at Sharif University of Technology, I worked as a teaching assistant for several courses, including *Automata Theory, Theory of Computer Science, Linear Algebra, Probability, and Logic*. [See the Misc. section](https://ali-almasi.github.io/misc/) if you want to know more.</span>
 
-* My email address: **<m.aldridge@leeds.ac.uk>**
-* **[MATH5835M Statistical Computing](./math5835)**, a module I'm lecturing in Semester 1 of 2024--25
-* My **survey papers on group testing**: ["Pooled testing and its applications in the COVID-19 pandemic"](https://arxiv.org/abs/2105.08845) (with David Ellis) and ["Group testing: an information theory perspective" \[book/ebook/paper](https://doi.org/10.1561/0100000099), [arXiv preprint](https://arxiv.org/abs/1902.06002)] (with Oliver Johnson and Jonathan Scarlett)
-* My office, which is 9.10n in the "Maths Research Deck" area at staircase 1 of the EC Stoner building
+
+## Projects and Publications
+
+-   See the [Publications section](https://ali-almasi.github.io/projects).
+
+## Talks and Presentations 
+
+-  See the [Talks section](https://ali-almasi.github.io/talks/).
+
+## Other activities
+
+I was a member of the [Students Scientific Association (Hamband)](https://hamband.math.sharif.ir/wiki/%D8%A7%D8%B9%D8%B6%D8%A7%DB%8C_%D9%87%D9%85%D8%A8%D9%86%D8%AF/%D8%AF%D8%A7%D9%86%D8%B4%D9%86%D8%A7%D9%85%D9%87) at Sharif University of Technology, where we organized several math and CS related events for the students. I am also an active editor of [Sharif Mathematics Journal](https://sharif-math-journal.github.io/), a student journal conducted by current and former students of the mathematics department at Sharif University of Technology (the journal itself is not affiliated with the university). [See the Misc. section](https://ali-almasi.github.io/misc/) if you want to know more.
+
