@@ -34,11 +34,11 @@ using a different factorization of $n$. Can you provide a proof?
 
 # Thakkar's Proof
 Here, I will only outline Thakkar's proof, and leave working out the details for the reader. The proof is based on the fact that the class of [regular languages](https://en.wikipedia.org/wiki/Regular_language) is closed under finite union. Consider the following family of languages over the alphabet $\\{ 0,1 \\}$:
-$$ \mathcal{L}_n = \{ w \in \{ 0,1 \}^* : #_0(w) - #_1(w) \equiv 0 \pmod{n} \}, $$
-where $#_0(w)$ and $#_1(w)$ denote the number of zeros and ones in the string $w$, respectively. You can easily verify that $\mathcal{L}_n$ is a regular language for any $n \in \mathbb{N}$. In particular, $\mathcal{L}_p$ is regular for any prime $p$. For the sake of contradiction, assume that the set of primes is finite. This implies that 
-\\[ \mathcal{L} = \bigcup_{p \in \mathcal{P}} \mathcal{L}_p, \\]
+$$ \mathcal{L}_n = \{ w \in \{ 0,1 \}^* : \#_0(w) - \#_1(w) \equiv 0 \pmod{n} \}, $$
+where $\#_0(w)$ and $\#_1(w)$ denote the number of zeros and ones in the string $w$, respectively. You can easily verify that $\mathcal{L}_n$ is a regular language for any $n \in \mathbb{N}$. In particular, $\mathcal{L}_p$ is regular for any prime $p$. For the sake of contradiction, assume that the set of primes is finite. This implies that 
+$$ \mathcal{L} = \bigcup_{p \in \mathcal{P}} \mathcal{L}_p, $$
 where $\mathcal{P}$ is the set of all primes, is a finite union of regular languages, hence regular. To arrive at a contradiction, it is easier to use another fact about regular languages: the class of regular languages is closed under complementation. Consider the complement of $\mathcal{L}$, and observe that it is 
-\\[ \overline{\mathcal{L}} = \{ w \in \{ 0,1 \}^* : #_0(w) - #_1(w) = \pm 1 \}. \\]
+$$ \overline{\mathcal{L}} = \{ w \in \{ 0,1 \}^* : \#_0(w) - \#_1(w) = \pm 1 \}. $$
 Using the [Pumping Lemma](https://en.wikipedia.org/wiki/Pumping_lemma_for_regular_languages), or the [Myhill-Nerode Theorem](https://en.wikipedia.org/wiki/Myhill%E2%80%93Nerode_theorem), one can show that $\overline{\mathcal{L}}$ is not regular, which is a contradiction. Therefore, the set of primes is infinite.
 
 # Acknowledgements
@@ -46,5 +46,5 @@ The first time I came across Chaitin's proof was actually in the final exam of a
 
 # Bibliography
 [1] Meštrović, R. (2012). Euclid's theorem on the infinitude of primes: a historical survey of its proofs (300 BC--2022) and another new proof. *arXiv preprint* arXiv:1202.3670.\
-[2] Chaitin, G. J. (1977). Toward a Mathematical Definition of Life, 2. *IBM Thomas J. Watson Research Division*.
+[2] Chaitin, G. J. (1977). Toward a Mathematical Definition of Life, 2. *IBM Thomas J. Watson Research Division*.\
 [3] Thakkar, A. (2018). Infinitude of Primes Using Formal Languages. *The American Mathematical Monthly*, 125(8), 745–749. https://doi.org/10.1080/00029890.2018.1496761
