@@ -10,7 +10,12 @@ You can find my CV [here](assets/pdf/Resume.pdf).
 
 I like quantum information science, mostly the information-theoretic and complexity-theoretic aspects. I enjoy using tools from optimization theory, mathematical analysis, and discrete mathematics to tackle problems in these areas.
 
-## Other activities
+<div dir="rtl">
+## معرفی کوتاه به فارسی
+سلام دنیا
+</div>
+
+
 رده‌بندی موضوعاتی که به آن‌ها علاقه‌مندم:
 - تئوری اطلاعات کوانتومی
 - پیچیدگی محاسباتی
