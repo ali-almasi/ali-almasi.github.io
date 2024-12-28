@@ -37,7 +37,7 @@ Here, I will only outline Thakkar's proof, and leave working out the details for
 
 $$ \mathcal{L}_n = \{ w \in \{ 0,1 \}^* : \#_0(w) - \#_1(w) \equiv 0 \pmod{n} \}, $$
 
-where $\#_0 (w)$ and $\#_1 (w)$ denote the number of zeros and ones in the string $w$, respectively. You can easily verify that $ \mathcal{L}_n $ is a regular language for any $n \in \mathbb{N}$. In particular, $\mathcal{L}_p$ is regular for any prime $p$. For the sake of contradiction, assume that the set of primes is finite. This implies that 
+where \(#_0  (w)\) and $\#_1  (w)$ denote the number of zeros and ones in the string $w$, respectively. You can easily verify that $ \mathcal{L}_n $ is a regular language for any $n \in \mathbb{N}$. In particular, $\mathcal{L}_p$ is regular for any prime $p$. For the sake of contradiction, assume that the set of primes is finite. This implies that 
 
 $$ \mathcal{L} = \bigcup_{p \in \mathcal{P}} \mathcal{L}_p, $$
 
