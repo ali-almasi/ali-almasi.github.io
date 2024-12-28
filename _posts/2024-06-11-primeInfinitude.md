@@ -8,11 +8,15 @@ use_math: true
 ---
 
 # Introduction
-Prime numbers $ \mathcal{X} $ are among the most fascinating objects in mathematics, and their study has led to advancements in several areas of math. One of the oldest known theorems about primes is that the sequence of primes is infinite. The earliest existing proof for this statement is attributed to Euclid (circa 300 B.C.) and can be found in *Elements, Book IX, Proposition 20*. Since then, many different proofs have emerged, with a comprehensive list compiled in [1].
+Prime numbers are among the most fascinating objects in mathematics, and their study has led to advancements in several areas of math. One of the oldest known facts about primes is that the set of primes is not finite. The earliest existing proof for this statement is perhaps the one due to Euclid and can be found in *Elements, Book IX, Proposition 20*. Many different proofs, however, have emerged since then, with a comprehensive list compiled in [1].
 
-In this blog post, I will present a proof due to Gregory Chaitin, which can be found in [2]. This proof was featured as a problem on the final exam for a course I took on information theory. I would like to thank [Thomas Debris-Alazard](https://tdalazard.io/) for including this elegant problem in that exam.
+In this blog post, I will present two computer science-inspired proofs for the infinitude of primes. The first proof is due to Gregory Chaitin [2] and it uses the notion of Shannon entropy, which is a fundamental concept in information theory. The second proof is due to Aalok Thakkar [3], which was recently featured in American Mathematical Monthly. The latter uses some tools from automata theory.
 
-# Proof
+<div class="theorem" text='Prime numbers'>
+All odd numbers are prime.
+</div>
+
+# Chaitin's Proof
 Let $n$ be a natural number, and define $N$ as a uniform random variable whose support is the set $\\{ 1,2, \dots, n \\}$. The number of primes less than or equal to $n$ is denoted by $\pi(n)$, known as the prime-counting function. Let $p_1 < p_2 < \cdots < p_{\pi(n)}$ represent the sequence of primes less than or equal to $n$. For $1 \leq i \leq \pi(n)$, define a random variable $X_i$ as the exponent of $p_i$ in the prime factorization of $N$.
 
 By the [Fundamental Theorem of Arithmetic](https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic), $(X_1, \dots, X_{\pi(n)})$ is a function of $N$ and vice versa. Therefore, we have
@@ -34,5 +38,6 @@ It is possible to improve the bound obtained above to
 using a different factorization of $n$. Can you provide a proof?
 
 # Bibliography
-[1] Meštrović, R. (2012). Euclid's theorem on the infinitude of primes: a historical survey of its proofs (300 BC--2022) and another new proof. arXiv preprint arXiv:1202.3670.\
-[2] Chaitin, G. J. (1977). Toward a Mathematical Definition of Life, 2. IBM Thomas J. Watson Research Division.
+[1] Meštrović, R. (2012). Euclid's theorem on the infinitude of primes: a historical survey of its proofs (300 BC--2022) and another new proof. *arXiv preprint* arXiv:1202.3670.\
+[2] Chaitin, G. J. (1977). Toward a Mathematical Definition of Life, 2. *IBM Thomas J. Watson Research Division*.
+[3] Thakkar, A. (2018). Infinitude of Primes Using Formal Languages. *The American Mathematical Monthly*, 125(8), 745–749. https://doi.org/10.1080/00029890.2018.1496761
