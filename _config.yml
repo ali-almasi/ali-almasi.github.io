@@ -28,7 +28,6 @@ url: "https://ali-almasi.github.io" # the base hostname & protocol for your site
 github_username:  ali-almasi
 
 header_pages:
- - about.md
  - research.md
  - misc.md
  - blog.md
