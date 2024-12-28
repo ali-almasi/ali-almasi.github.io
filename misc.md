@@ -3,51 +3,42 @@ layout: page
 title: Miscellaneous
 permalink: /misc/
 ---
+### Materials from My Past Teachings at Sharif University of Technology (in Persian)
+-   **Mathematical Logic (Fall 2022)**
+  [Midterm Exam](/assets/teaching_materials/logic2022/mid.pdf), [Final Exam](/assets/teaching_materials/logic2022/final.pdf)
 
-## Current teaching
+- **Automata Theory, ([Fall](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%A9%D8%AF%D9%87/%D8%AF%D8%B1%D9%88%D8%B3/22873/14011/main) and [Spring 2022](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%A9%D8%AF%D9%87/%D8%AF%D8%B1%D9%88%D8%B3/22873/14002/main),  
+[Fall 2021](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%A9%D8%AF%D9%87/%D8%AF%D8%B1%D9%88%D8%B3/22873/14001/main))**
+[Problem Set 0](/assets/teaching_materials/automata_theory/PS0.pdf), [Problem Set 1](/assets/teaching_materials/automata_theory/PS1.pdf), [Problem Set 2](/assets/teaching_materials/automata_theory/PS2.pdf), [Problem Set 3](/assets/teaching_materials/automata_theory/PS3.pdf), [Problem Set 4](/assets/teaching_materials/automata_theory/PS4.pdf), [Problem Set 5](/assets/teaching_materials/automata_theory/PS5.pdf), [Problem Set 6](/assets/teaching_materials/automata_theory/PS6.pdf), [Problem Set 7, 8 & 9](/assets/teaching_materials/automata_theory/PS7-8-9.pdf), [Final Exam](/assets/teaching_materials/automata_theory/Final.pdf), [Non-regular Languages](/assets/teaching_materials/automata_theory/nonregular_languages.pdf), [Converting lambda-NFA to NFA](/assets/teaching_materials/automata_theory/epsilonNFA_to_NFA.pdf)
 
-### [MATH5835M Statistical Computing](../math5835/)
+- **Theory of Computer Science, ([Spring 2022](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%A9%D8%AF%D9%87/%D8%AF%D8%B1%D9%88%D8%B3/22772/14002/main))**
+[Problem Set 1](/assets/teaching_materials/Theory_of_CS2022/PS1.pdf), [Problem Set 2](/assets/teaching_materials/Theory_of_CS2022/PS2.pdf), [Problem Set 3](/assets/teaching_materials/Theory_of_CS2022/PS3.pdf), [Problem Set 4](/assets/teaching_materials/Theory_of_CS2022/PS4.pdf), [Quiz](/assets/teaching_materials/Theory_of_CS2022/Quiz1.pdf), [Midterm Exam](/assets/teaching_materials/Theory_of_CS2022/Midterm-TOCS.pdf)
 
-In 2024–25, Semester 1, I am the module leader for **MATH5835M Statistical Computing**. [The main module webpage is here.](../math5835/)
+- **Elementary Functional Analysis ([Spring 2022](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%A9%D8%AF%D9%87/%D8%AF%D8%B1%D9%88%D8%B3/22475/14002/main))**
+[Problem Set 1](/assets/teaching_materials/functional_analysis2022/EFA_HW1.pdf), [Problem Set 2](/assets/teaching_materials/functional_analysis2022/EFA_HW2.pdf), [Problem Set 3](/assets/teaching_materials/functional_analysis2022/EFA_HW3.pdf), [Problem Set 4](/assets/teaching_materials/functional_analysis2022/EFA_HW4.pdf), [Problem Set 5](/assets/teaching_materials/functional_analysis2022/EFA_HW5.pdf), [Problem Set 6](/assets/teaching_materials/functional_analysis2022/EFA_HW6.pdf)
 
-### OMAT5203M Statistical Computing
+-  **Probability and Applications ([Fall 2021](https://hamband.math.sharif.edu/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%A9%D8%AF%D9%87/%D8%AF%D8%B1%D9%88%D8%B3/22089/14001/main))**
+[Problem Set](/assets/teaching_materials/probability2021/probability_problem_set.pdf) (prepared with the help of [Niyousha Najmaei](https://niyoushanajmaei.github.io/))
 
-I am designing the module OMAT5203M Statistical Computing for the online programme [MSc Data Science (Statistics)](https://www.coursera.org/degrees/msc-data-science-ul), which runs on the [Coursera](https://www.coursera.org/degrees/msc-data-science-ul) platform. It will run for the first time in early 2025.
+-  **Linear Algebra, (Spring 2020)**
+	[Problem Set 1](/assets/teaching_materials/linear_algebra2020/PS1.pdf), [Hints for Problem Set 1](/assets/teaching_materials/linear_algebra2020/PS1_Hints.pdf), [Problem-Solving Workshop](/assets/teaching_materials/linear_algebra2020/WS1.pdf), [Problem Set 3 (part 2)](/assets/teaching_materials/linear_algebra2020/PS3-part2.pdf), [Hints for Problem Set 3 (part 2)](/assets/teaching_materials/linear_algebra2020/PS3_Part2_Hints.pdf), [Homework 1 (Bonus)](/assets/teaching_materials/linear_algebra2020/HW1.pdf), [Homework 2 (Bonus)](/assets/teaching_materials/linear_algebra2020/HW2.pdf)
+ 
+-   **Calculus 1 Problem-Solving Workshop (Fall 2019)**, Hamband Student Association 
+[Problem Set 1](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems1.pdf), [Problem Set 2](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems2.pdf), [Problem Set 3](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems3.pdf), [Problem Set 4](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems4.pdf), [Problem Set 5](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems5.pdf), [Problem Set 6](/assets/teaching_materials/Calculus1_problemSolving_workshop/problems6.pdf)
 
-### MATH5825M Independent Learning and Skills Project
+### My Artworks
+* [My Profile](https://www.saatchiart.com/alialmasi) on Saatchi Art, where some of my works are exhibited
 
-In 2024–25, Semester 2, I am the module leader for MATH5825M Independent Learning and Skills Project. Material for this module is on Minerva.
 
-### Other things
+### My Op-eds in *[Derayeh](https://t.me/deraye_mag)* ([Hamband](https://hamband.math.sharif.edu/wiki/)'s Student Newsletter)
 
-* MATH2900 Maths at Work: I advise a project on "Statistics in the media".
-* MATH3001 Project in Mathematics: I advise a project on "Data compression"
-* MATH5971M/MATH5872M Dissertation in Statisitcs / Data Science and Analytics: I advise various projects, including "Statistics, politics, law, and gerrymandering", "Pooled testing for Covid-19", and "MRP: Multilevel regression with post-stratification".
+*  (March 2024) On Being a Freshman, in Derayeh (8,1). ([Exerpt](/assets/Miscellaneous_materials/Derayeh/excerpts/Deraye8_1_freshmen.pdf), [Issue](/assets/Miscellaneous_materials/Derayeh/Full_version/Deraye8_1.pdf))
+*  (August 2023) On Undergraduate Research in Mathematics at Sharif University, in Derayeh (7,3). ([Exerpt](/assets/Miscellaneous_materials/Derayeh/excerpts/Deraye7_3_undergrad_research.pdf), [Issue](/assets/Miscellaneous_materials/Derayeh/Full_version/Deraye7_3.pdf))
+*  (March 2023) On How friendly Hamband is to strangers, in Derayeh (7,2). ([Exerpt](/assets/Miscellaneous_materials/Derayeh/excerpts/Deraye7_2_How_welcoming_hamband_is.pdf), [Issue](/assets/Miscellaneous_materials/Derayeh/Full_version/Deraye7_2.pdf))
+*  (November 2021) On Sharif Mathematics Summer School, in Derayeh (6,2). ([Exerpt](/assets/Miscellaneous_materials/Derayeh/excerpts/Deraye6_2_Sharif_summer_School.pdf), [Issue](/assets/Miscellaneous_materials/Derayeh/Full_version/Deraye6_2.pdf))
+*  (October 2019) On Calculus 1 (Part 2), in Derayeh (4,4). ([Exerpt](/assets/Miscellaneous_materials/Derayeh/excerpts/Derayeh4_4_calculus1_part2.pdf), [Issue](/assets/Miscellaneous_materials/Derayeh/Full_version/Derayeh4_4.pdf))
+*  (October 2019) On Calculus 1 (Part 1), in Derayeh (4,3). ([Exerpt](/assets/Miscellaneous_materials/Derayeh/excerpts/Derayeh4_3_calculus1_part1.pdf), [Issue](/assets/Miscellaneous_materials/Derayeh/Full_version/Derayeh4_3.pdf))  
 
-## Past teaching
+### Issues of *[Derayeh](https://t.me/deraye_mag)* for which I was the editor-in-chief 
+*  (October 2019) [Derayeh (4,1)](/assets/Miscellaneous_materials/Derayeh/Full_version/Derayeh4_1.pdf), [Derayeh (4,2)](/assets/Miscellaneous_materials/Derayeh/Full_version/Derayeh4_2.pdf), [Derayeh (4,3)](/assets/Miscellaneous_materials/Derayeh/Full_version/Derayeh4_3.pdf), [Derayeh (4,4)](/assets/Miscellaneous_materials/Derayeh/Full_version/Derayeh4_4.pdf)
 
-### [MATH1710 Probability & Statistics I](../math1710/)
-
-From 2021–22 to 2023–24, I lectured the module **[MATH1710 Probability and Statistics I](../math1710/)**. The main website for this module was [here](https://mpaldridge.github.io/math1710/). This material is similar, but not identical, to how the first half of the current MATH1700 Probability and Statistics is taught.
-
-### [MATH2750 Introduction to Markov Processes](../math2750/)
-
-From 2018-19 to 2020-21, I lectured the module **[MATH2750 Introduction to Markov Processes](../math2750/)**. The main website for this module was [here](https://mpaldridge.github.io/math2750/). This site very closely, but not quite perfectly, represents the module as it is currently taught.
-
-### MATH3015 History of Mathematics
-
-In 2019-20, I lectured one third of [MATH3015 History of Mathematics](./math3015/), on History of Statistics, with Dr Phil Walker and Dr Nicola Gambino. Some material is available [here](./math3015/). I'm not sure how closely this represents the module as it is currently taught.
-
-### MA40042 Measure Theory and Integration (Bath)
-
-In 2016-17 at the University of Bath, I lectured one half of [MA40042 Measure Theory and Integration](./ma40042/), on Measure Theory, with Dr Matt Roberts. Some material is available [here](./ma40042/). I don't know if or in what form this module still exists.
-
-### MATH30002/MATHM0009 Topics in Discrete Mathematics (Bristol)
-
-In 2013-14 at the University of Bristol, I lectured one third of of [MATH30002/MATHM0009 Topics in Discrete Mathematics](./math30002/), on Introduction to Graph Theory, with Dr Jonathan Bober and Dr Karen Gunderson. Some material is available [here](./math30002/). If this module still exists then it now covers entirely different topics.
-
-## Other
-
-### R Markdown
-
-I have [some notes on using R Markdown and Bookdown](../rmarkdown-draft/). The intended audience is people (particularly people in the School of Mathematics at the University of Leeds) wanting to write accessible online lecture notes. It's somewhat out of date.
