@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Teaching
-permalink: /teaching/
+title: Miscellaneous
+permalink: /misc/
 ---
 
 ## Current teaching
