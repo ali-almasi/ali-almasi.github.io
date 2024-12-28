@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "An Information Theoretic Proof for the Infinitude of Primes"
+title:  "Two CS-inspired Proofs for the Infinitude of Primes"
 date:   2024-06-11
 categories: maths
 permalink: /blog/prime-infinitude1.html
