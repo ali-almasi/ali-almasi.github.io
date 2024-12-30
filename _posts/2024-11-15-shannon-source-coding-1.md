@@ -22,7 +22,7 @@ In the rest of this blog post, I will use uppercase letters to denote random var
 
 I use $p(X)$ to denote the probability mass function of $X$, and also extend this notation to $p(X^n)$ for the joint probability mass function of $n$ i.i.d. random variables $(X_1, X_2, \ldots, X_n)$.
 
-# Compression: A Rigorous Definition, and a Fundamental Limititation
+# Compression: A Rigorous Definition, and a Fundamental Threshold
 A naive way of encoding $n$ uses of the source into a binary string gives us a code of length $n \log |\mathcal{X}|$. Can we do better? What do we exactly mean by "better"? 
 
 **Definition** (Fixed-length Compression Schemes): Let $n$ be a positive integer, $\alpha > 0$ and $\delta \in [0,1]$. A fixed-length $(n, \alpha, \delta)$ compression scheme is a pair of functions $(f,g)$, where $f: \mathcal{X}^n \to \\{0,1\\}^{\lceil \alpha n \rceil}$ and $g: \\{0,1\\}^{\lceil \alpha n \rceil} \to \mathcal{X}^n$, are encoding and decoding functions, respectively, such that 
