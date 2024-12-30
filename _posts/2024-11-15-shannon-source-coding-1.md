@@ -7,7 +7,11 @@ permalink: /blog/source-coding1.html
 use_math: true
 ---
 
-**Disclaimer**: There are many excellent resources available on source coding from different viewpoints, varying from pure mathematical treatments (e.g., see [this mini-course](https://perso.imcce.fr/alain-chenciner/Shannon.pdf) by Alain Chenciner) to those that have a more engineering flavor. There are also many textbooks that include source coding as a chapter. This blog post is intended to gather some of the ideas around source coding that I have found interesting, important or insightful, and that is just it. 
+<span style="color:green;font-weight:700;font-size:12px">
+It’s unfortunate that there aren’t many good open-source fonts designed specifically for dyslexic readers. However, there’s a helpful [Chrome extension](https://chromewebstore.google.com/detail/opendyslexic-for-chrome/cdnapgfjopgaggbmfgbiinmmbdcglnam?pli=1) that can change the font of the text you read online, making it easier to follow.</span>
+
+
+**Disclaimer**: There are many excellent resources available on source coding from different viewpoints, varying from pure mathematical treatments (e.g., see [this mini-course](https://perso.imcce.fr/alain-chenciner/Shannon.pdf) by Alain Chenciner) to those that have a more engineering flavor. There are also many textbooks, such as [Cover and Thomas](https://onlinelibrary.wiley.com/doi/book/10.1002/047174882X) that include a chapter on source coding. This blog post is intended to only gather some of the ideas around source coding that I have found interesting, important or insightful.
 
 # Introduction
 As it is customary in information theory, we model the source of information as a stochastic process over a finite alphabet $\mathcal{X}$. The source emits symbols from $\mathcal{X}$ according to some probability distribution. Here, we limit ourselves to the case of memoryless sources with i.i.d. outputs, i.e. there is a random variable $X$ such that for all $i$, $X_i \sim X$, and for all $i \neq j$, $X_i$ and $X_j$ are independent.
@@ -98,7 +102,7 @@ We are now ready to prove Shannon's source coding theorem for fixed-length codes
 
 ### Proof of Achievability
 
-Assume that $\alpha > H(X)$. We wish to show that there exists a $T_{n,\epsilon}$ such that $|T_{n,\epsilon}| \leq 2^{\lceil n\alpha \rceil}$. If we can show the existence of such a typical set, defining a compression scheme is easy. Let $F: \mathcal{X}^n \to T_{n,\epsilon}$ be a function whose restriction to $T_{n,\epsilon}$ is identity, and it is arbitrary elsewhere. Index all the elements of $T_{n,\epsilon}$ in some way, and define $f(\mathbf{x})$ to be the index of $F(\mathbf{x})$. Now, define $g$ to be the inverse of $f$. This way, the set $G$ corresponding to the compression scheme $(f,g)$ is exactly $T_{n,\epsilon}$, and we know that for any $\delta > 0$, for large enough $n$, $T_{n,\epsilon}$ has probability at least $1-\delta$. Hence, the probability of correct decoding is at least $1-\delta$.
+Assume that $\alpha > H(X)$. We wish to show that there exists a $T_{n,\epsilon}$ such that $\|T_{n,\epsilon}\| \leq 2^{\lceil n\alpha \rceil}$. If we can show the existence of such a typical set, defining a compression scheme is easy. Let $F: \mathcal{X}^n \to T_{n,\epsilon}$ be a function whose restriction to $T_{n,\epsilon}$ is identity, and it is arbitrary elsewhere. Index all the elements of $T_{n,\epsilon}$ in some way, and define $f(\mathbf{x})$ to be the index of $F(\mathbf{x})$. Now, define $g$ to be the inverse of $f$. This way, the set $G$ corresponding to the compression scheme $(f,g)$ is exactly $T_{n,\epsilon}$, and we know that for any $\delta > 0$, for large enough $n$, $T_{n,\epsilon}$ has probability at least $1-\delta$. Hence, the probability of correct decoding is at least $1-\delta$.
 
 Now, let us show the existence of such a typical set.
 
