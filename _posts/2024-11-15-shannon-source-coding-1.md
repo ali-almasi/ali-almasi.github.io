@@ -94,4 +94,43 @@ which implies that $\|T_{n,\epsilon}\| \geq 2^{n(H(X)-\epsilon)}(1-\delta)$. Sim
 
 # Proof of Shannon's Source Coding Theorem For Fixed-Length Codes
 
+We are now ready to prove Shannon's source coding theorem for fixed-length codes. The proof consists of two parts: the achievability part, which concerns the first bullet point of the theorem, and the converse part, which concerns the second bullet point.
 
+### Proof of Achievability
+
+Assume that $\alpha > H(X)$. We wish to show that there exists a $T_{n,\epsilon}$ such that $|T_{n,\epsilon}| \leq 2^{\lceil n\alpha \rceil}$. If we can show the existence of such a typical set, defining a compression scheme is easy. Let $F: \mathcal{X}^n \to T_{n,\epsilon}$ be a function whose restriction to $T_{n,\epsilon}$ is identity, and it is arbitrary elsewhere. Index all the elements of $T_{n,\epsilon}$ in some way, and define $f(\mathbf{x})$ to be the index of $F(\mathbf{x})$. Now, define $g$ to be the inverse of $f$. This way, the set $G$ corresponding to the compression scheme $(f,g)$ is exactly $T_{n,\epsilon}$, and we know that for any $\delta > 0$, for large enough $n$, $T_{n,\epsilon}$ has probability at least $1-\delta$. Hence, the probability of correct decoding is at least $1-\delta$.
+
+Now, let us show the existence of such a typical set.
+
+Since $\alpha > H(X)$, there exists an $\epsilon > 0$ such that $\alpha > H(X) + 2\epsilon$. Take $n$ large enough so that $n \geq \frac{1}{\epsilon}$, and it is also large enough so that $\mathbb{P} [X^n \in T_{n,\epsilon}] \geq 1 - \delta$. We have
+
+$$ |T_{n,\epsilon}| \leq 2^{n(H(X)+\epsilon)} \leq 2^{n\alpha - n \epsilon} \leq 2^{n\alpha - 1} \leq 2^{\lceil n\alpha \rceil}. $$
+
+This completes the proof of the achievability part.
+
+### Proof of Converse
+
+Assume that $\alpha < H(X)$, and let $(f,g)$ be a fixed-length $(n,\alpha,\delta)$ compression scheme. Consider the set $G = \{ x^n \in \mathcal{X}^n : g(f(x^n)) = x^n \}$. Take $\epsilon > 0$ such that $\alpha < H(X) - \epsilon$. We have
+
+$$ \begin{align}
+\mathbb{P} [X^n \in G] & = \mathbb{P} [X^n \in G \cap T_{n,\epsilon}] + \mathbb{P} [X^n \in G \cap T_{n,\epsilon}^c] \\
+& \leq \mathbb{P} [X^n \in G \cap T_{n,\epsilon}] + \mathbb{P} [X^n \in T_{n,\epsilon}^c] \\
+& \leq |G| 2^{-n(H(X)-\epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c] \\
+& = 2^{\lceil n\alpha \rceil - n(H(X)-\epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c].
+& \leq 2^{n(\alpha - H(X) + \epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c].
+\end{align} $$
+
+For large enough $n$, we know that $\mathbb{P} [X^n \in T_{n,\epsilon}^c] \leq \frac{\eta}{2}$ for any $\eta > 0$. Moreover, we have $\alpha - H(X) + \epsilon < 0$. This means that for large enough $n$, we have $2^{n(\alpha - H(X) + \epsilon)} \leq \frac{\eta}{2}$. This implies that for large enough $n$, $\mathbb{P} [X^n \in G] \leq \eta$, for any $\eta > 0$, which means that the probability of correct decoding is not lower bounded by $1-\delta$ for any $\delta \in (0,1)$.
+
+Thus, a fixed-length $(n,\alpha,\delta)$ compression scheme does not exist for large enough $n$, which completes the proof of the converse part.
+
+
+# What's Next?
+
+In the future blog posts, I will discuss how we can reconsider some of the assumptions we made in this post, and how we can extend the results to differnt or more general settings. Two assumptions that are in particular interesting to reconsider are
+- We assumed that the source is i.i.d. Can we extend the results to more general sources?
+- We assumed that the coding scheme is fixed-length. However, we could also let the length of the codeword be different, and possibly achieve better rates. Is it really possible?
+
+# Acknowledgement
+
+In writing this blog post, I greatly benefited from the lecture materials from Thomas Debris-Alazard's course on Information Theory and Peter Brown's course on Quantum Information Theory. I would like to thank them for their excellent teaching and the resources they provided.
