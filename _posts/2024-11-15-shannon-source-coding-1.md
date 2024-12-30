@@ -120,7 +120,7 @@ $$ \begin{align}
 \mathbb{P} [X^n \in G] & = \mathbb{P} [X^n \in G \cap T_{n,\epsilon}] + \mathbb{P} [X^n \in G \cap T_{n,\epsilon}^c] \\
 & \leq \mathbb{P} [X^n \in G \cap T_{n,\epsilon}] + \mathbb{P} [X^n \in T_{n,\epsilon}^c] \\
 & \leq |G| 2^{-n(H(X)-\epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c] \\
-& = 2^{\lfloor n\alpha \rfloor - n(H(X)-\epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c].
+& = 2^{\lfloor n\alpha \rfloor - n(H(X)-\epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c]\\
 & \leq 2^{n(\alpha - H(X) + \epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c].
 \end{align} $$
 
