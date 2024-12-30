@@ -20,9 +20,9 @@ You may say that compression is not possible if one wants to strictly shorten th
 # Fixing Some Notation
 In the rest of this blog post, I will use uppercase letters to denote random variables, and lowercase letters to denote their realizations. For example, $X$ is a random variable and $x$ is a possible realization of $X$. By $x^n$, I mean an output of $n$ uses of the source, i.e. $x^n = x_1x_2\ldots x_n$. Similarly, by $X^n$, I mean the random variable corresponding to $n$ uses of the source, i.e. $X^n = (X_1, X_2, \ldots, X_n)$.
 
-I use $p(x)$ to denote the probability mass function of $X$, and also extend this notation to $p(x^n)$ for the joint probability mass function of $n$ i.i.d. random variables $(X_1, X_2, \ldots, X_n)$.
+I use $p(X)$ to denote the probability mass function of $X$, and also extend this notation to $p(X^n)$ for the joint probability mass function of $n$ i.i.d. random variables $(X_1, X_2, \ldots, X_n)$.
 
-# Compression: A Rigorous Definition
+# Compression: A Rigorous Definition, and a Fundamental Limititation
 A naive way of encoding $n$ uses of the source into a binary string gives us a code of length $n \log |\mathcal{X}|$. Can we do better? What do we exactly mean by "better"? 
 
 **Definition** (Fixed-length Compression Schemes): Let $n$ be a positive integer, $\alpha > 0$ and $\delta \in [0,1]$. A fixed-length $(n, \alpha, \delta)$ compression scheme is a pair of functions $(f,g)$, where $f: \mathcal{X}^n \to \\{0,1\\}^{\lceil \alpha n \rceil}$ and $g: \\{0,1\\}^{\lceil \alpha n \rceil} \to \mathcal{X}^n$, are encoding and decoding functions, respectively, such that 
@@ -78,4 +78,20 @@ $$ \mathbb{P} [X^n \in T_{n,\epsilon}] \geq 1 - \delta, $$
 for large enough $n$, or equivalently, 
 
 $$ \lim_{n \to \infty} \mathbb{P} [X^n \in T_{n,\epsilon}] = 1. $$
+
+What we obtained above also tells us something about the cardinality of the typical set. For any $\epsilon, \delta > 0$, we showed that 
+
+$$ \mathbb{P} [X^n \in T_{n,\epsilon}] \geq 1 - \delta, $$
+
+We have
+
+$$ \begin{align}
+(1-\delta) \leq \mathbb{P} [X^n \in T_{n,\epsilon}] & = \sum_{x^n \in T_{n,\epsilon}} p(x^n) \\
+& \leq |T_{n,\epsilon}| 2^{-n(H(X)-\epsilon)},
+\end{align} $$
+
+which implies that $|T_{n,\epsilon}| \geq 2^{n(H(X)-\epsilon)}(1-\delta)$. Similarly, we can show that $|T_{n,\epsilon}| \leq 2^{n(H(X)+\epsilon)}$. This means that the typical set has a cardinality approximately equal to $2^{nH(X)}$.
+
+# Proof of Shannon's Source Coding Theorem For Fixed-Length Codes
+
 
