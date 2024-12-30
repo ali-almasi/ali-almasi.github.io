@@ -6,6 +6,8 @@ categories: maths
 permalink: /blog/prime-infinitude1.html
 use_math: true
 ---
+<span style="color:green;font-weight:700;font-size:12px">
+It’s unfortunate that there aren’t many good open-source fonts designed specifically for dyslexic readers. However, there’s a helpful [Chrome extension](https://chromewebstore.google.com/detail/opendyslexic-for-chrome/cdnapgfjopgaggbmfgbiinmmbdcglnam?pli=1) that can change the font of the text you read online, making it easier to follow.</span>
 
 # Introduction
 Prime numbers are among the most fascinating objects in mathematics, and their study has led to advancements in several areas of math. One of the oldest known facts about primes is that the set of primes is not finite. The earliest existing proof for this statement is perhaps the one due to Euclid and can be found in *Elements, Book IX, Proposition 20*. Many different proofs, however, have emerged since then, with a comprehensive list compiled in [1].

@@ -100,7 +100,7 @@ which implies that $\|T_{n,\epsilon}\| \geq 2^{n(H(X)-\epsilon)}(1-\delta)$. Sim
 
 We are now ready to prove Shannon's source coding theorem for fixed-length codes. The proof consists of two parts: the achievability part, which concerns the first bullet point of the theorem, and the converse part, which concerns the second bullet point.
 
-### Proof of Achievability
+#### Proof of Achievability
 
 Assume that $\alpha > H(X)$. We wish to show that there exists a $T_{n,\epsilon}$ such that $\|T_{n,\epsilon}\| \leq 2^{\lfloor n\alpha \rfloor}$. If we can show the existence of such a typical set, defining a compression scheme is easy. Let $F: \mathcal{X}^n \to T_{n,\epsilon}$ be a function whose restriction to $T_{n,\epsilon}$ is identity, and it is arbitrary elsewhere. Index all the elements of $T_{n,\epsilon}$ in some way, and define $f(x^n)$ to be the index of $F(x^n)$. Now, define $g$ to be the inverse of $f$. This way, the set $G$ corresponding to the compression scheme $(f,g)$ is exactly $T_{n,\epsilon}$, and we know that for any $\delta > 0$, for large enough $n$, $T_{n,\epsilon}$ has probability at least $1-\delta$. Hence, the probability of correct decoding is at least $1-\delta$.
 
@@ -112,7 +112,7 @@ $$ |T_{n,\epsilon}| \leq 2^{n(H(X)+\epsilon)} \leq 2^{n\alpha - n \epsilon} \leq
 
 This completes the proof of the achievability part.
 
-### Proof of Converse
+#### Proof of Converse
 
 Assume that $\alpha < H(X)$, and let $(f,g)$ be a fixed-length $(n,\alpha,\delta)$ compression scheme. Consider the set $G = \{ x^n \in \mathcal{X}^n : g(f(x^n)) = x^n \}$. Take $\epsilon > 0$ such that $\alpha < H(X) - \epsilon$. We have
 
@@ -138,3 +138,11 @@ In the future blog posts, I will discuss how we can reconsider some of the assum
 # Acknowledgement
 
 In writing this blog post, I greatly benefited from the lecture materials from [Thomas Debris-Alazard](https://tdalazard.io/)'s course on Information Theory and [Peter Brown](https://peterjbrown519.github.io/)'s course on Quantum Information Theory. I would like to thank them for their excellent teaching and the resources they provided.
+
+# Bibliography
+
+The proof of Shannon's source coding theorem given here is based on the proof of Theorem 5.40 in Watrous' wonderful book, *The theory of quantum information*. You can (legally) find parts of the book online (e.g. [here](https://cs.uwaterloo.ca/~watrous/TQI/TQI.5.pdf#page=35.10)).
+
+Another excellent resource that I humbly suggest you to read is the famous
+easy-to-read paper by Shannon, [A Mathematical Theory of Communication](https://ieeexplore.ieee.org/document/6773024). It is one of the best examples of "old but gold".
+
