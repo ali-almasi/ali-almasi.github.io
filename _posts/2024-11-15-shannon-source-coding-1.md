@@ -90,7 +90,7 @@ $$ \begin{align}
 & \leq |T_{n,\epsilon}| 2^{-n(H(X)-\epsilon)},
 \end{align} $$
 
-which implies that $|T_{n,\epsilon}| \geq 2^{n(H(X)-\epsilon)}(1-\delta)$. Similarly, we can show that $|T_{n,\epsilon}| \leq 2^{n(H(X)+\epsilon)}$. This means that the typical set has a cardinality approximately equal to $2^{nH(X)}$.
+which implies that $\|T_{n,\epsilon}\| \geq 2^{n(H(X)-\epsilon)}(1-\delta)$. Similarly, we can show that $\|T_{n,\epsilon}\| \leq 2^{n(H(X)+\epsilon)}$. This means that the typical set has a cardinality approximately equal to $2^{nH(X)}$.
 
 # Proof of Shannon's Source Coding Theorem For Fixed-Length Codes
 
