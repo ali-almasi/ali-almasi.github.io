@@ -29,7 +29,7 @@ I use $p(X)$ to denote the probability mass function of $X$, and also extend thi
 # Compression: A Rigorous Definition, and a Fundamental Threshold
 A naive way of encoding $n$ uses of the source into a binary string gives us a code of length $n \log |\mathcal{X}|$. Can we do better? What do we exactly mean by "better"? 
 
-**Definition** (Fixed-length Compression Schemes): Let $n$ be a positive integer, $\alpha > 0$ and $\delta \in [0,1]$. A fixed-length $(n, \alpha, \delta)$ compression scheme is a pair of functions $(f,g)$, where $f: \mathcal{X}^n \to \\{0,1\\}^{\lceil \alpha n \rceil}$ and $g: \\{0,1\\}^{\lceil \alpha n \rceil} \to \mathcal{X}^n$, are encoding and decoding functions, respectively, such that 
+**Definition** (Fixed-length Compression Schemes): Let $n$ be a positive integer, $\alpha > 0$ and $\delta \in [0,1]$. A fixed-length $(n, \alpha, \delta)$ compression scheme is a pair of functions $(f,g)$, where $f: \mathcal{X}^n \to \\{0,1\\}^{\lfloor \alpha n \rfloor}$ and $g: \\{0,1\\}^{\lfloor \alpha n \rfloor} \to \mathcal{X}^n$, are encoding and decoding functions, respectively, such that 
 
 $$ \mathbb{P} [X^n \in G] \geq 1 - \delta, $$
 
@@ -102,13 +102,13 @@ We are now ready to prove Shannon's source coding theorem for fixed-length codes
 
 ### Proof of Achievability
 
-Assume that $\alpha > H(X)$. We wish to show that there exists a $T_{n,\epsilon}$ such that $\|T_{n,\epsilon}\| \leq 2^{\lceil n\alpha \rceil}$. If we can show the existence of such a typical set, defining a compression scheme is easy. Let $F: \mathcal{X}^n \to T_{n,\epsilon}$ be a function whose restriction to $T_{n,\epsilon}$ is identity, and it is arbitrary elsewhere. Index all the elements of $T_{n,\epsilon}$ in some way, and define $f(\mathbf{x})$ to be the index of $F(\mathbf{x})$. Now, define $g$ to be the inverse of $f$. This way, the set $G$ corresponding to the compression scheme $(f,g)$ is exactly $T_{n,\epsilon}$, and we know that for any $\delta > 0$, for large enough $n$, $T_{n,\epsilon}$ has probability at least $1-\delta$. Hence, the probability of correct decoding is at least $1-\delta$.
+Assume that $\alpha > H(X)$. We wish to show that there exists a $T_{n,\epsilon}$ such that $\|T_{n,\epsilon}\| \leq 2^{\lfloor n\alpha \rfloor}$. If we can show the existence of such a typical set, defining a compression scheme is easy. Let $F: \mathcal{X}^n \to T_{n,\epsilon}$ be a function whose restriction to $T_{n,\epsilon}$ is identity, and it is arbitrary elsewhere. Index all the elements of $T_{n,\epsilon}$ in some way, and define $f(\mathbf{x})$ to be the index of $F(\mathbf{x})$. Now, define $g$ to be the inverse of $f$. This way, the set $G$ corresponding to the compression scheme $(f,g)$ is exactly $T_{n,\epsilon}$, and we know that for any $\delta > 0$, for large enough $n$, $T_{n,\epsilon}$ has probability at least $1-\delta$. Hence, the probability of correct decoding is at least $1-\delta$.
 
 Now, let us show the existence of such a typical set.
 
 Since $\alpha > H(X)$, there exists an $\epsilon > 0$ such that $\alpha > H(X) + 2\epsilon$. Take $n$ large enough so that $n \geq \frac{1}{\epsilon}$, and it is also large enough so that $\mathbb{P} [X^n \in T_{n,\epsilon}] \geq 1 - \delta$. We have
 
-$$ |T_{n,\epsilon}| \leq 2^{n(H(X)+\epsilon)} \leq 2^{n\alpha - n \epsilon} \leq 2^{n\alpha - 1} \leq 2^{\lceil n\alpha \rceil}. $$
+$$ |T_{n,\epsilon}| \leq 2^{n(H(X)+\epsilon)} \leq 2^{n\alpha - n \epsilon} \leq 2^{n\alpha - 1} \leq 2^{\lfloor n\alpha \rfloor}. $$
 
 This completes the proof of the achievability part.
 
@@ -120,7 +120,7 @@ $$ \begin{align}
 \mathbb{P} [X^n \in G] & = \mathbb{P} [X^n \in G \cap T_{n,\epsilon}] + \mathbb{P} [X^n \in G \cap T_{n,\epsilon}^c] \\
 & \leq \mathbb{P} [X^n \in G \cap T_{n,\epsilon}] + \mathbb{P} [X^n \in T_{n,\epsilon}^c] \\
 & \leq |G| 2^{-n(H(X)-\epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c] \\
-& = 2^{\lceil n\alpha \rceil - n(H(X)-\epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c].
+& = 2^{\lfloor n\alpha \rfloor - n(H(X)-\epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c].
 & \leq 2^{n(\alpha - H(X) + \epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c].
 \end{align} $$
 
@@ -137,4 +137,4 @@ In the future blog posts, I will discuss how we can reconsider some of the assum
 
 # Acknowledgement
 
-In writing this blog post, I greatly benefited from the lecture materials from Thomas Debris-Alazard's course on Information Theory and Peter Brown's course on Quantum Information Theory. I would like to thank them for their excellent teaching and the resources they provided.
+In writing this blog post, I greatly benefited from the lecture materials from [Thomas Debris-Alazard](https://tdalazard.io/)'s course on Information Theory and [Peter Brown](https://peterjbrown519.github.io/)'s course on Quantum Information Theory. I would like to thank them for their excellent teaching and the resources they provided.
