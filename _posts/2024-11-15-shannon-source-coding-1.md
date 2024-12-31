@@ -133,7 +133,7 @@ Thus, a fixed-length $(n,\alpha,\delta)$ compression scheme does not exist for l
 
 In the future blog posts, I will discuss how we can reconsider some of the assumptions we made in this post, and how we can extend the results to differnt or more general settings. Two assumptions that are in particular interesting to reconsider are
 - We assumed that the source is i.i.d. Can we extend the results to more general sources?
-- We assumed that the coding scheme is fixed-length. However, we could also let the length of the codeword be different, and possibly achieve better rates. Is it really possible?
+- We assumed that the coding scheme is fixed-length. However, we could also let the length of the codewords be different, and possibly achieve better rates. Is it really possible?
 
 # Acknowledgement
 
