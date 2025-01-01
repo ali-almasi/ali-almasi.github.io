@@ -29,11 +29,11 @@ $$ \left( \bra{0}^{\otimes a} \otimes I_{2^k} \right) U \left( \ket{0}^{\otimes 
 
 An example of a block-encoding is the following:
 
-Suppose that we have a control-qubit $C$ and a target-system $\mathcal{H}_T$, and there is a Hermitian operator $H$ acting on the target-system. The following is a block-encoding of $H$:
+Suppose that we have a control-qubit $C$ and a target-system $T$ with Hilbert space $\mathcal{H}_T$, and there is a Hermitian operator $H$ acting on the target-system. The following is a block-encoding of $H$:
 
 $$ U = \ket{0}\bra{0}_C \otimes H_T + \ket{0}\bra{1}_C \otimes \sqrt{I - H^2}_T + \ket{1}\bra{0}_C \otimes \sqrt{I - H^2}_T + \ket{1}\bra{1}_C \otimes -H_T, $$
 
-when $\mid H \mid \leq 1$.
+when $\| H \| \leq 1$.
 
 Having the spectral decomposition of $H$ as 
 
@@ -46,4 +46,41 @@ $$ U = \sum_{i} \left( \ket{0}\bra{0}_C \lambda_i + \ket{0}\bra{1}_C \sqrt{1 - \
 which can be written in the matrix form as
 
 $$ U = \sum_{i=1}^{\dim(\mathcal{H}_T)} \begin{bmatrix} \lambda_i & \sqrt{1 - \lambda_i^2} \\ \sqrt{1 - \lambda_i^2} & -\lambda_i \end{bmatrix} \otimes \ket{\lambda_i}\bra{\lambda_i}. $$
+
+Block-encodings are in some sense a generalization of unitary operations, in the sense that if $U$ is a block-encoding of $H$, then by applying $U$ on the state $\ket{0}^{\otimes a} \otimes \ket{\psi}$, and then measuring the ancilla register, we obtain the state $\frac{H\ket{\psi}}{\|H\ket{\psi}\|}$ with probability $\|H\ket{\psi}\|^2$.
+
+Now suppose that we have access to a block-encoding of $H$. Consider a matrix $A$ that is a function of $H$, say $A = f(H)$. Can we find a block-encoding of $A$?
+
+# Quantum Signal Processing (QSP)
+
+Let us start with the simplest case: consider your matrix $H$ to be a $1\times 1$ matrix, i.e., a scalar $a \in [-1,1]$. The following unitary is a block-encoding of $H$:
+
+$$ U(a) = \begin{bmatrix} a & i\sqrt{1 - a^2} \\ i\sqrt{1 - a^2} & a \end{bmatrix}. $$
+
+This unitary can be seen as a rotation of the Bloch sphere around the $X$-axis by an angle $-2\arccos(a)$. 
+
+Now, assume that we have also access to another unitary $S(\phi)$, that realizes a rotation with angle $-2\phi$ around the $Z$-axis, which means that
+
+$$ S(\phi) = \begin{bmatrix} e^{i\phi} & 0 \\ 0 & e^{-i\phi} \end{bmatrix}. $$
+
+This latter unitary is in fact a family of unitaries, giving a gate $S(\phi)$ for each $\phi \in [0,2\pi]$.
+
+Now, the question is, "having access to $U(a)$ and $S(\phi)$, what sort of unitaries can we construct?". In other words, if for $\phi = (\phi_0, \phi_1, \dots, \phi_{d})$, we define
+
+$$ U_{\phi} = S(\phi_0) \Pi_{i=1}^{d} U(a) S(\phi_i), $$
+
+then, how can we characterize the set of unitaries $U_{\phi}$?
+
+The answer to this question is given by the main theorem of Quantum Signal Processing (QSP), which is as follows:
+
+**Theorem (QSP)**: A QSP sequence as defined above can be expressed as
+
+$$ \begin{bmatrix} P(a) & iQ(a)\sqrt{1 - a^2} \\ iQ(a)\sqrt{1 - a^2} & P^*(a) \end{bmatrix}, $$
+
+for $a \in [-1,1]$, where $P(a)$ and $Q(a)$ are polynomials satisfying
+- $\deg(P) \leq d$, and $\deg(Q) \leq d-1$,
+- $P$ has parity $d \mod 2$ and $Q$ has parity $(d-1) \mod 2$,
+- For all $a \in [-1,1]$, $|P(a)|^2 + (1 - a^2)|Q(a)|^2 = 1$.
+Moreover, for any $P$ and $Q$ satisfying the above conditions, there exists a QSP sequence realizing the unitary above.
+
 
