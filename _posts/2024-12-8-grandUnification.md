@@ -19,9 +19,9 @@ There are roughly two main lines of designing quantum algorithms, and many of th
 
 In block-encoding, we want to encode an arbitrary matrix $A \in \mathbb{C}^{r \times c}$ in a unitary matrix $U \in \mathbb{C}^{d \times d}$, in a way that the top-left $r \times c$ block of $U$ is $A$. This condition can be formulated as 
 
-$$ \mathsd{1}_{r,d} U \mathsd{1}_{d,c} = A, $$
+$$ I_{r,d} U I_{d,c} = A, $$
 
-where $\mathsd{1}_{r,d}$ is first $r$ rows of the identity matrix of size $d \times d$, and $\mathsd{1}_{d,c}$ is the first $c$ columns of the identity matrix of size $d \times d$.
+where $I_{r,d}$ is first $r$ rows of the identity matrix of size $d \times d$, and $I_{d,c}$ is the first $c$ columns of the identity matrix of size $d \times d$.
 
 Let us think of the matrix $A$ as an operator acting on a $s$-qubit system, and $U$ as a unitary acting on the $k$-qubit system plus an ancilla $a$-qubit register. Then, $U$ is a block-encoding of $A$ if
 
@@ -29,7 +29,7 @@ $$ \left( \bra{0}^{\otimes a} \otimes \mathsd{1}_{2^k} \right) U \left( \ket{0}^
 
 An example of a block-encoding is the following:
 
-Suppose that we have a control-system $\mathcal{H}_C$ and a target-system $\mathcal{H}_T$, and there is a Hermitian operator $H$ acting on the target-system. The following is a block-encoding of $H$:
+Suppose that we have a control-qubit $C$ and a target-system $\mathcal{H}_T$, and there is a Hermitian operator $H$ acting on the target-system. The following is a block-encoding of $H$:
 
 $$ U = \ket{0}\bra{0}_C \otimes H_T + \ket{0}\bra{1}_C \otimes \mathsd{\sqrt{1 - H^2}}_T + \ket{1}\bra{0}_C \otimes \mathsd{\sqrt{1 - H^2}}_T + \ket{1}\bra{1}_C \otimes -H_T, $$
 
