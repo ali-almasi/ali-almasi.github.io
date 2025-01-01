@@ -25,13 +25,13 @@ where $I_{r,d}$ is first $r$ rows of the identity matrix of size $d \times d$, a
 
 Let us think of the matrix $A$ as an operator acting on a $s$-qubit system, and $U$ as a unitary acting on the $k$-qubit system plus an ancilla $a$-qubit register. Then, $U$ is a block-encoding of $A$ if
 
-$$ \left( \bra{0}^{\otimes a} \otimes \mathsd{1}_{2^k} \right) U \left( \ket{0}^{\otimes a} \otimes \mathsd{1}_{2^k} \right) = A. $$
+$$ \left( \bra{0}^{\otimes a} \otimes I_{2^k} \right) U \left( \ket{0}^{\otimes a} \otimes I_{2^k} \right) = A. $$
 
 An example of a block-encoding is the following:
 
 Suppose that we have a control-qubit $C$ and a target-system $\mathcal{H}_T$, and there is a Hermitian operator $H$ acting on the target-system. The following is a block-encoding of $H$:
 
-$$ U = \ket{0}\bra{0}_C \otimes H_T + \ket{0}\bra{1}_C \otimes \mathsd{\sqrt{1 - H^2}}_T + \ket{1}\bra{0}_C \otimes \mathsd{\sqrt{1 - H^2}}_T + \ket{1}\bra{1}_C \otimes -H_T, $$
+$$ U = \ket{0}\bra{0}_C \otimes H_T + \ket{0}\bra{1}_C \otimes \sqrt{I - H^2}_T + \ket{1}\bra{0}_C \otimes \sqrt{I - H^2}_T + \ket{1}\bra{1}_C \otimes -H_T, $$
 
 when $\mid H \mid \leq 1$.
 
