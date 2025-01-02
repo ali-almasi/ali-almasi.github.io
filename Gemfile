@@ -1,7 +1,4 @@
 source 'https://rubygems.org'
-gem "bundler"
-gem "jekyll"
-gem "jekyll-sitemap"
-gem 'jekyll-tagging'
-
-gem "webrick", "~> 1.7"
+gem 'nokogiri'
+gem 'rack', '~> 2.2.4'
+gem 'rspec'

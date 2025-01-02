@@ -78,9 +78,9 @@ The answer to this question is given by the main theorem of Quantum Signal Proce
 $$ \begin{bmatrix} P(a) & iQ(a)\sqrt{1 - a^2} \\ iQ^*(a)\sqrt{1 - a^2} & P^*(a) \end{bmatrix}, $$
 
 for $a \in [-1,1]$, where $P(a)$ and $Q(a)$ are polynomials satisfying
-- $\deg(P) \leq d$, and $\deg(Q) \leq d-1$,
-- $P$ has parity $d \mod 2$ and $Q$ has parity $(d-1) \mod 2$,
-- For all $a \in [-1,1]$, $\vert P(a)\vert^2 + (1 - a^2)\vert Q(a)\vert^2 = 1$.
+1. $\deg(P) \leq d$, and $\deg(Q) \leq d-1$,
+2. $P$ has parity $d \mod 2$ and $Q$ has parity $(d-1) \mod 2$,
+3. For all $a \in [-1,1]$, $\vert P(a)\vert^2 + (1 - a^2)\vert Q(a)\vert^2 = 1$.
 
 Moreover, for any $P$ and $Q$ satisfying the above conditions, there exists a QSP sequence realizing the unitary above.
 
@@ -97,6 +97,7 @@ This implies that for any *real* polynomial $P$ of degree at most $d$ that has p
 
 #### Proof of the Direct Part
 
+We first prove by induction that (1) and (2) hold for any QSP sequence.
 Let $U_{\phi} = S(\phi_0) \Pi_{i=1}^{d} U(a) S(\phi_i)$. For $d = 0$, we have 
 
 $$U_{\phi} = S(\phi_0) = \begin{bmatrix} e^{i\phi_0} & 0 \\ 0 & e^{-i\phi_0} \end{bmatrix}, $$
@@ -111,6 +112,15 @@ U_{\phi} &= \left( S(\phi_0) \Pi_{i=1}^{k-1} U(a) S(\phi_i) \right) U(a) S(\phi_
 &= \begin{bmatrix} \widetilde{P}(a) a e^{i\phi_k} - \widetilde{Q}(a)(1-a^2)e^{i\phi_k} & i\widetilde{P}(a)\sqrt{1 - a^2} e^{-i\phi_k} + i\widetilde{Q}(a)a\sqrt{1 - a^2} e^{-i\phi_k} \\ i\widetilde{Q}^*(a)a\sqrt{1 - a^2} e^{i\phi_k} + i\widetilde{P}^*(a)\sqrt{1 - a^2} e^{i\phi_k} & -\widetilde{Q}^*(a)(1 - a^2)e^{-i\phi_k} + \widetilde{P}^*(a)a e^{-i\phi_k} \end{bmatrix}.
 \end{align} $$
 
+Defining 
 
+$$ P(a) = \widetilde{P}(a) a e^{i\phi_k} - \widetilde{Q}(a)(1-a^2)e^{i\phi_k},$$
 
+and
+
+$$ Q(a) = \widetilde{P}(a)e^{-i\phi_k} + \widetilde{Q}(a)a e^{-i\phi_k}, $$
+
+we see that $P$ and $Q$ are polynomials of degree at most $k$ and $k-1$, respectively, and that the parity of $P$ and $Q$ are the opposite of the parity of $\widetilde{P}$ and $\widetilde{Q}$, respectively. 
+
+Finally, we note that since $U_{\phi}$ is unitary, we have $\vert P(a)\vert^2 + (1 - a^2)\vert Q(a)\vert^2 = 1$.
 
