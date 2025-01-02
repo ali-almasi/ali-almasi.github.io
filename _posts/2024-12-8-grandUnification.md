@@ -75,12 +75,26 @@ The answer to this question is given by the main theorem of Quantum Signal Proce
 
 **Theorem (QSP)**: A QSP sequence as defined above can be expressed as
 
-$$ \begin{bmatrix} P(a) & iQ(a)\sqrt{1 - a^2} \\ iQ(a)\sqrt{1 - a^2} & P^*(a) \end{bmatrix}, $$
+$$ \begin{bmatrix} P(a) & iQ(a)\sqrt{1 - a^2} \\ iQ^*(a)\sqrt{1 - a^2} & P^*(a) \end{bmatrix}, $$
 
 for $a \in [-1,1]$, where $P(a)$ and $Q(a)$ are polynomials satisfying
 - $\deg(P) \leq d$, and $\deg(Q) \leq d-1$,
 - $P$ has parity $d \mod 2$ and $Q$ has parity $(d-1) \mod 2$,
 - For all $a \in [-1,1]$, $|P(a)|^2 + (1 - a^2)|Q(a)|^2 = 1$.
+
 Moreover, for any $P$ and $Q$ satisfying the above conditions, there exists a QSP sequence realizing the unitary above.
+
+As you can see, in this simple case, we have a rather neat characterization of achievable functions of $H$, which was the matrix whose block-encoding we had access to. 
+
+You may wonder if we can get rid of the dependency to $Q$ in the third condition.
+To this end, you can instead consider the possible transformations on the subspace spanned by $\ket{+}$, since
+
+$$ \bra{+} \begin{bmatrix} P(a) & iQ(a)\sqrt{1 - a^2} \\ iQ^*(a)\sqrt{1 - a^2} & P^*(a) \end{bmatrix} \ket{+} = \operatorname{Re}(P(a)) + \operatorname{Re}(Q(a))i\sqrt{1 - a^2}. $$
+
+This implies that for any *real* polynomial $P$ of degree at most $d$ that has parity $d \mod 2$, and for any $a \in [-1,1]$, $|P(a)| \leq 1$, there exists a QSP sequence realizing this polynomial on the subspace spanned by $\ket{+}$.
+
+# Proof of the QSP Theorem
+
+
 
 
