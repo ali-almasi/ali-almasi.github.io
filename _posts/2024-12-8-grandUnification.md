@@ -80,7 +80,7 @@ $$ \begin{bmatrix} P(a) & iQ(a)\sqrt{1 - a^2} \\ iQ^*(a)\sqrt{1 - a^2} & P^*(a) 
 for $a \in [-1,1]$, where $P(a)$ and $Q(a)$ are polynomials satisfying
 - $\deg(P) \leq d$, and $\deg(Q) \leq d-1$,
 - $P$ has parity $d \mod 2$ and $Q$ has parity $(d-1) \mod 2$,
-- For all $a \in [-1,1]$, $\mid P(a)\mid^2 + (1 - a^2)\mid Q(a)\mid^2 = 1$.
+- For all $a \in [-1,1]$, $\vert P(a)\vert^2 + (1 - a^2)\vert Q(a)\vert^2 = 1$.
 
 Moreover, for any $P$ and $Q$ satisfying the above conditions, there exists a QSP sequence realizing the unitary above.
 
@@ -91,9 +91,25 @@ To this end, you can instead consider the possible transformations on the subspa
 
 $$ \bra{+} \begin{bmatrix} P(a) & iQ(a)\sqrt{1 - a^2} \\ iQ^*(a)\sqrt{1 - a^2} & P^*(a) \end{bmatrix} \ket{+} = \operatorname{Re}(P(a)) + \operatorname{Re}(Q(a))i\sqrt{1 - a^2}. $$
 
-This implies that for any *real* polynomial $P$ of degree at most $d$ that has parity $d \mod 2$, and for any $a \in [-1,1]$, $\mid P(a)\mid \leq 1$, there exists a QSP sequence realizing this polynomial on the subspace spanned by $\ket{+}$.
+This implies that for any *real* polynomial $P$ of degree at most $d$ that has parity $d \mod 2$, and for any $a \in [-1,1]$, $\vert P(a)\vert \leq 1$, there exists a QSP sequence realizing this polynomial on the subspace spanned by $\ket{+}$.
 
 # Proof of the QSP Theorem
+
+#### Proof of the Direct Part
+
+Let $U_{\phi} = S(\phi_0) \Pi_{i=1}^{d} U(a) S(\phi_i)$. For $d = 0$, we have 
+
+$$U_{\phi} = S(\phi_0) = \begin{bmatrix} e^{i\phi_0} & 0 \\ 0 & e^{-i\phi_0} \end{bmatrix}, $$
+
+and we see that $P(a) = e^{i\phi_0}$ and $Q(a) = 0$, which are polynomials of degree $0$ and $-\infty$, and parity $0$ and $1$, respectively.
+
+Now, assume that the conditions hold for $d=k-1$. For $d=k$, we have
+
+$$ \begin{align}
+U_{\phi} &= \left( S(\phi_0) \Pi_{i=1}^{k-1} U(a) S(\phi_i) \right) U(a) S(\phi_k)\\
+&= \begin{bmatrix} \widetilde{P}(a) & i\widetilde{Q}(a)\sqrt{1 - a^2} \\ i\widetilde{Q}^*(a)\sqrt{1 - a^2} & \widetilde{P}^*(a) \end{bmatrix} \begin{bmatrix} a e^{i\phi_k} & i\sqrt{1 - a^2} e^{-i\phi_k} \\ i\sqrt{1 - a^2} e^{i\phi_k} & a e^{-i\phi_k} \end{bmatrix}\\
+&= \begin{bmatrix} \widetilde{P}(a) a e^{i\phi_k} - \widetilde{Q}(a)(1-a^2)e^{i\phi_k} & i\widetilde{P}(a)\sqrt{1 - a^2} e^{-i\phi_k} + i\widetilde{Q}(a)a\sqrt{1 - a^2} e^{-i\phi_k} \\ i\widetilde{Q}^*(a)a\sqrt{1 - a^2} e^{i\phi_k} + i\widetilde{P}^*(a)\sqrt{1 - a^2} e^{i\phi_k} & -\widetilde{Q}^*(a)(1 - a^2)e^{-i\phi_k} + \widetilde{P}^*(a)a e^{-i\phi_k} \end{bmatrix}.
+\end{align} $$
 
 
 
