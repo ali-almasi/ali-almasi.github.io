@@ -82,7 +82,7 @@ for $a \in [-1,1]$, where $P(a)$ and $Q(a)$ are polynomials satisfying
 2. $P$ has parity $d \mod 2$ and $Q$ has parity $(d-1) \mod 2$,
 3. For all $a \in [-1,1]$, $\vert P(a)\vert^2 + (1 - a^2)\vert Q(a)\vert^2 = 1$.
 
-Moreover, for any $P$ and $Q$ satisfying the above conditions, there exists a QSP sequence realizing the unitary above.
+Moreover, for any $P$ and $Q$ satisfying the above conditions, there exists a QSP sequence realizing the above unitary.
 
 As you can see, in this simple case, we have a rather neat characterization of achievable functions of $H$, which was the matrix whose block-encoding we had access to. 
 
@@ -120,7 +120,53 @@ and
 
 $$ Q(a) = \widetilde{P}(a)e^{-i\phi_k} + \widetilde{Q}(a)a e^{-i\phi_k}, $$
 
-we see that $P$ and $Q$ are polynomials of degree at most $k$ and $k-1$, respectively, and that the parity of $P$ and $Q$ are the opposite of the parity of $\widetilde{P}$ and $\widetilde{Q}$, respectively. 
+we see that $P$ and $Q$ are polynomials of degree at most $k$ and $k-1$, and that the parity of $P$ and $Q$ are the opposite of the parity of $\widetilde{P}$ and $\widetilde{Q}$, respectively. 
 
-Finally, we note that since $U_{\phi}$ is unitary, we have $\vert P(a)\vert^2 + (1 - a^2)\vert Q(a)\vert^2 = 1$.
+Finally, we note that since $U_{\phi}$ is a unitary, we have $\vert P(a)\vert^2 + (1 - a^2)\vert Q(a)\vert^2 = 1$.
 
+#### Proof of the Converse Part
+
+For the converse part, let us assume that 
+
+$$ T = \begin{bmatrix} P(a) & iQ(a)\sqrt{1 - a^2} \\ iQ^*(a)\sqrt{1 - a^2} & P^*(a) \end{bmatrix}, $$
+
+where $P$ and $Q$ are polynomials satisfying (1), (2), and (3), for some $d$. We want to show that a vector of angles $\phi = (\phi_0, \phi_1, \dots, \phi_d)$ exists such that $U_{\phi} = T$.
+
+We prove this by induction on $\deg(P)$. For $\deg(P) = 0$, $P$ is a constant, and for $a \in [-1,1]$, $P(a) = P(1)$. From (3), we have $\vert P(1)\vert = 1$, and since for infinitely many $a \in [-1,1]$, $\vert Q(a)\vert^2 (1 - a^2) = 0$, by the fundamental theorem of algebra, we conclude that $Q(a) = 0$. Since $\vert P(a)\vert = 1$, $P(a) = e^{i\phi_0}$ for some $\phi_0$, and we have $T = S(\phi_0)$.
+
+To choose the rest of the angles, it is easy to see that no matter what the value of $a$ is, we always have
+
+$$ U(a) S(\frac{\pi}{2}) U(a) S(-\frac{\pi}{2}) = I. $$
+
+You can either verify this by direct calculation, or try to convince yourself geometrically by noting that $U(a)$ is a rotation around the $X$-axis by some angle $\theta$, and $S(\frac{\pi}{2})$ and $S(-\frac{\pi}{2})$ are rotations around the $Z$-axis by $-\pi$ and $\pi$, respectively.
+
+Finally, we note that $P$ is a non-zero constant, thus its parity is even, and since (2) holds, $d$ is even. Thus, we can set $\phi_{2i+1} = \pi/2$ and $\phi_{2i} = -\pi/2$ for $i = 0,1,\dots,d/2$, resulting in $U_{\phi} = T$.
+
+Now, assume that the statement holds for $\deg(P) = k-1$. Consider $T$ with polynomial $P$ of degree $k > 0$. 
+
+**Lemma**: If $P$ and $Q$ satisfy (3), and $\deg(P) = k > 0$, then $\deg(Q) = k-1$, and the leading coefficients of $P$ and $Q$ have the same modulus.
+
+**Proof of the Lemma**: Let us write $P$ and $Q$ as
+
+$$ P(a) = \sum_{i=0}^{k} p_i a^i, \quad Q(a) = \sum_{i=0}^{k-1} q_i a^i, $$
+
+where $p_k \neq 0$. From (3), we have
+
+$$ \vert P(a)\vert^2 + (1 - a^2)\vert Q(a)\vert^2 = 1, $$
+
+for all $a \in [-1,1]$. The coefficients of the non-constant terms of the left-hand side have to be zero, thus $\deg(Q) \leq k-1$. Moreover, the coefficient of $a^{2k}$ in the left-hand side is $\vert p_k\vert^2 - \vert q_{k-1}\vert^2$, which has to be zero. This implies that $\deg(Q) = k-1$, and $\vert p_k\vert = \vert q_{k-1}\vert$.
+
+Consider the matrix
+
+$$ T U(a)^\dagger S(\phi_{d})^\dagger, $$
+
+which can be written as 
+
+$$ \begin{align}
+T U(a)^\dagger S(\phi_{d})^\dagger &= \begin{bmatrix} P(a) & iQ(a)\sqrt{1 - a^2} \\ iQ^*(a)\sqrt{1 - a^2} & P^*(a) \end{bmatrix} \begin{bmatrix} a e^{-i\phi_d} & -i\sqrt{1 - a^2} e^{-i\phi_d} \\ -i\sqrt{1 - a^2} e^{i\phi_d} & a e^{i\phi_d} \end{bmatrix}\\
+&= \begin{bmatrix} P(a) a e^{-i\phi_d} + Q(a)(1 - a^2)e^{i \phi_d} & i\sqrt{1 - a^2} \left( P(a) e^{-i\phi_d} + Q(a) a e^{i\phi_d} \right) \\ -i\sqrt{1 - a^2} \left( P^*(a) e^{i\phi_d} + Q^*(a) a e^{-i\phi_d} \right) & P^*(a) a e^{i\phi_d} + Q^*(a)(1 - a^2)e^{-i \phi_d} \end{bmatrix}.
+\end{align} $$ 
+
+We can choose $\phi_d$ such that $e^{2i\phi_d} = \frac{p_k}{q_{k-1}}$ (From the Lemma, we know that this is possible). Then, the $a^{k+1}$ term in $P(a) a e^{-i\phi_d} + Q(a)(1 - a^2)e^{i \phi_d}$ will have a coefficient equal to zero, and since the parity of $P$ and $Q$ are $d \mod 2$ and $(d-1) \mod 2$, respectively, the coefficient of the $a^{k-1}$ in $P(a)$ and $a^{k-2}$ in $Q(a)$ is zero, implying that $P(a) a e^{-i\phi_d} + Q(a)(1 - a^2)e^{i \phi_d}$ is a polynomial of degree at most $k-2$. Similarly, by taking the same $\phi_d$, $P(a) e^{-i \phi_d} + a e^{i\phi_d} Q(a)$ will be a polynomial of degree at most $k-2$. Moreover, the parity of $P(a) a e^{-i\phi_d} + Q(a)(1 - a^2)e^{i \phi_d}$ and $P(a) e^{-i \phi_d} + a e^{i\phi_d} Q(a)$ are $d-1 \mod 2$ and $d - 2 \mod 2$, respectively.
+
+By the induction hypothesis, we can find $\phi_0, \phi_1, \dots, \phi_{d-1}$ such that $T U(a)^\dagger S(\phi_{d})^\dagger $ is a QSP sequence with the corresponding angles. By right-multiplying this unitary with $U(a) S(\phi_d)$, we obtain $T$ as a QSP sequence with angles $\phi_0, \phi_1, \dots, \phi_{d}$.
