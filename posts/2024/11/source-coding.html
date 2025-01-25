@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-03-11">
+<meta name="description" content="The study of Uniformly Minimum Variance Unbiased Estimators (UMVUE) is an old-fashioned but interesting bit of statistical theory. In this post, I consider a very minimal toy-model with no UMVUE and show a family of estimators which are efficient at a single point in space and suboptimal everywhere else.">
+
+<title>Classical and Quantum Source Coding – Ali ALMASI</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-49c3288560fbc7b6495318fc57c7ee99.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap')
+</style>
+<script>
+MathJax = {
+    tex: {
+        tags: 'all'  // should be 'ams', 'none', or 'all'
+    },
+    output: {
+        font: 'mathjax-fira'
+    }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-mml-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Ali ALMASI</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../publications.html"> 
+<span class="menu-text">My research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#fixing-some-notation" id="toc-fixing-some-notation" class="nav-link" data-scroll-target="#fixing-some-notation"><span class="header-section-number">2</span> Fixing Some Notation</a></li>
+  <li><a href="#compression-a-rigorous-definition-and-a-fundamental-threshold" id="toc-compression-a-rigorous-definition-and-a-fundamental-threshold" class="nav-link" data-scroll-target="#compression-a-rigorous-definition-and-a-fundamental-threshold"><span class="header-section-number">3</span> Compression: A Rigorous Definition, and a Fundamental Threshold</a></li>
+  <li><a href="#proof-of-shannons-source-coding-theorem-for-fixed-length-codes" id="toc-proof-of-shannons-source-coding-theorem-for-fixed-length-codes" class="nav-link" data-scroll-target="#proof-of-shannons-source-coding-theorem-for-fixed-length-codes"><span class="header-section-number">4</span> Proof of Shannon’s Source Coding Theorem For Fixed-Length Codes</a></li>
+  <li><a href="#lifting-the-result-to-the-quantum-realm" id="toc-lifting-the-result-to-the-quantum-realm" class="nav-link" data-scroll-target="#lifting-the-result-to-the-quantum-realm"><span class="header-section-number">5</span> Lifting the Result to the Quantum Realm</a></li>
+  <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement"><span class="header-section-number">6</span> Acknowledgement</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography"><span class="header-section-number">7</span> Bibliography</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Classical and Quantum Source Coding</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">classical-information-theory</div>
+    <div class="quarto-category">quantum-information-theory</div>
+    <div class="quarto-category">course-notes</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>The study of Uniformly Minimum Variance Unbiased Estimators (UMVUE) is an old-fashioned but interesting bit of statistical theory. In this post, I consider a very minimal toy-model with no UMVUE and show a family of estimators which are efficient at a single point in space and suboptimal everywhere else.</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 11, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#fixing-some-notation" id="toc-fixing-some-notation"><span class="header-section-number">2</span> Fixing Some Notation</a></li>
+  <li><a href="#compression-a-rigorous-definition-and-a-fundamental-threshold" id="toc-compression-a-rigorous-definition-and-a-fundamental-threshold"><span class="header-section-number">3</span> Compression: A Rigorous Definition, and a Fundamental Threshold</a></li>
+  <li><a href="#proof-of-shannons-source-coding-theorem-for-fixed-length-codes" id="toc-proof-of-shannons-source-coding-theorem-for-fixed-length-codes"><span class="header-section-number">4</span> Proof of Shannon’s Source Coding Theorem For Fixed-Length Codes</a></li>
+  <li><a href="#lifting-the-result-to-the-quantum-realm" id="toc-lifting-the-result-to-the-quantum-realm"><span class="header-section-number">5</span> Lifting the Result to the Quantum Realm</a></li>
+  <li><a href="#acknowledgement" id="toc-acknowledgement"><span class="header-section-number">6</span> Acknowledgement</a></li>
+  <li><a href="#bibliography" id="toc-bibliography"><span class="header-section-number">7</span> Bibliography</a></li>
+  </ul>
+</nav>
+<p><span style="color:green;font-weight:700;font-size:12px"> It’s unfortunate that there aren’t many good open-source fonts designed specifically for dyslexic readers. However, there’s a helpful <a href="https://chromewebstore.google.com/detail/opendyslexic-for-chrome/cdnapgfjopgaggbmfgbiinmmbdcglnam?pli=1">Chrome extension</a> that can change the font of the text you read online, making it easier to follow.</span></p>
+<p><strong>Disclaimer</strong>: There are many excellent resources available on source coding from different viewpoints, varying from pure mathematical treatments (e.g., see <a href="https://perso.imcce.fr/alain-chenciner/Shannon.pdf">this mini-course</a> by Alain Chenciner) to those that have a more engineering flavor. There are also many textbooks, such as <a href="https://onlinelibrary.wiley.com/doi/book/10.1002/047174882X">Cover and Thomas</a> that include a chapter on source coding. This blog post is intended to only gather some of the ideas around source coding that I have found interesting, important or insightful.</p>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>As it is customary in information theory, we model the source of information as a stochastic process over a finite alphabet <span class="math inline">\(\mathcal{X}\)</span>. The source emits symbols from <span class="math inline">\(\mathcal{X}\)</span> according to some probability distribution. Here, we limit ourselves to the case of memoryless sources with i.i.d. outputs, i.e.&nbsp;there is a random variable <span class="math inline">\(X\)</span> such that for all <span class="math inline">\(i\)</span>, <span class="math inline">\(X_i \sim X\)</span>, and for all <span class="math inline">\(i \neq j\)</span>, <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span> are independent. In this case, the source can be characterized by the probability mass function <span class="math inline">\(p(x)\)</span> of <span class="math inline">\(X\)</span>. We may occasionally refer to “<span class="math inline">\(n\)</span> uses of the source”, which means that we are considering a message of length <span class="math inline">\(n\)</span> generated by the source.</p>
+<p>The main problem we are considering in the source coding setting is to find a way to compress the source outputs (say, <span class="math inline">\(n\)</span> uses of the source) in a reliable way, i.e.&nbsp;we want to encode the source output in a way that allows us to recover the original message.</p>
+<p>You may say that compression is not possible if one wants to strictly shorten the message, while having the ability to recover the original message with certainty. However, as <a href="https://scottaaronson.blog/?p=40">Umesh Vazirani used to point out to his students</a>, “If you’ve never missed a flight, you’re spending too much time in airports.” We can sacrifice the perfect recovery of the original message in order to achieve much shorter encodings, while still being able to recover the original message <em>with high probability</em>. Shannon’s source coding theorem tells us there is some fundamental limit, however, on how much we can compress the source outputs while still being able to reliably recover the original message. This limit is governed by the <em>entropy</em> of the source.</p>
+</section>
+<section id="fixing-some-notation" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="fixing-some-notation"><span class="header-section-number">2</span> Fixing Some Notation</h2>
+<p>In the rest of this blog post, I will use uppercase letters to denote random variables, and lowercase letters to denote their realizations. For example, <span class="math inline">\(X\)</span> is a random variable and <span class="math inline">\(x\)</span> is a possible realization of <span class="math inline">\(X\)</span>. By <span class="math inline">\(x^n\)</span>, I mean an output of <span class="math inline">\(n\)</span> uses of the source, i.e.&nbsp;<span class="math inline">\(x^n = x_1x_2\ldots x_n\)</span>. Similarly, by <span class="math inline">\(X^n\)</span>, I mean the random variable corresponding to <span class="math inline">\(n\)</span> uses of the source, i.e.&nbsp;<span class="math inline">\(X^n = (X_1, X_2, \ldots, X_n)\)</span>.</p>
+<p>I use <span class="math inline">\(p(X)\)</span> to denote the probability mass function of <span class="math inline">\(X\)</span>, and also extend this notation to <span class="math inline">\(p(X^n)\)</span> for the joint probability mass function of <span class="math inline">\(n\)</span> i.i.d. random variables <span class="math inline">\((X_1, X_2, \ldots, X_n)\)</span>.</p>
+</section>
+<section id="compression-a-rigorous-definition-and-a-fundamental-threshold" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="compression-a-rigorous-definition-and-a-fundamental-threshold"><span class="header-section-number">3</span> Compression: A Rigorous Definition, and a Fundamental Threshold</h2>
+<p>A naive way of encoding <span class="math inline">\(n\)</span> uses of the source into a binary string gives us a code of length <span class="math inline">\(n \log |\mathcal{X}|\)</span>. Can we do better? What do we exactly mean by “better”?</p>
+<p><strong>Definition</strong> (Fixed-length Compression Schemes): Let <span class="math inline">\(n\)</span> be a positive integer, <span class="math inline">\(\alpha &gt; 0\)</span> and <span class="math inline">\(\delta \in [0,1]\)</span>. A fixed-length <span class="math inline">\((n, \alpha, \delta)\)</span> compression scheme is a pair of functions <span class="math inline">\((f,g)\)</span>, where <span class="math inline">\(f: \mathcal{X}^n \to \\{0,1\\}^{\lfloor \alpha n \rfloor}\)</span> and <span class="math inline">\(g: \\{0,1\\}^{\lfloor \alpha n \rfloor} \to \mathcal{X}^n\)</span>, are encoding and decoding functions, respectively, such that</p>
+<p><span class="math display">\[ \mathbb{P} [X^n \in G] \geq 1 - \delta, \]</span></p>
+<p>where</p>
+<p><span class="math display">\[ G = \{ x^n \in \mathcal{X}^n : g(f(x^n)) = x^n \}. \]</span></p>
+<p>In the above definition, <span class="math inline">\(\alpha\)</span> is the number of bits per source use in the compressed message, and <span class="math inline">\(\delta\)</span> is the probability of decoding error. Ideally, we would like to find a compression scheme that has both <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\delta\)</span> as small as possible. Your first intuition might be that there is a trade-off between <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\delta\)</span>. Well, it turns out that that this intuition is not entirely correct. The following theorem, which is the fixed-length version of what Shannon proved in <a href="https://ieeexplore.ieee.org/document/6773024">his seminal paper</a>, tells us that if the rate chosen is less than the entropy of the source, then even for the error probability tending to one, we cannot find a compression scheme for large enough <span class="math inline">\(n\)</span>.</p>
+<p><strong>Theorem</strong> (Shannon’s Source Coding Theorem): Let <span class="math inline">\(\delta \in (0,1)\)</span>. - If <span class="math inline">\(\alpha &gt; H(X)\)</span>, then for all but finitely many <span class="math inline">\(n\)</span>, there exists a fixed-length <span class="math inline">\((n, \alpha, \delta)\)</span> compression scheme. - If <span class="math inline">\(\alpha &lt; H(X)\)</span>, then for all but finitely many <span class="math inline">\(n\)</span>, there does not exist a fixed-length <span class="math inline">\((n, \alpha, \delta)\)</span> compression scheme.</p>
+<p>Where does this statement come from? There is a simple intuition behind this theorem. When the source is i.i.d. and <span class="math inline">\(n\)</span> is large enough, we know that a word of length <span class="math inline">\(n\)</span> generated by the source has approximately <span class="math inline">\(n p(a)\)</span> occurrences of every symbol <span class="math inline">\(a \in \mathcal{X}\)</span>, <em>with high probability</em>. This is really what enables us to compress the source outputs. Information theorists call this “typicality”, or “Asymptotic Equipartition Property (AEP)”. For a mathematician, this is just a concentration of measure phenomenon.</p>
+<p>To make this more formal, let us define <em>typical sets</em>.</p>
+<p><strong>Definition</strong> (Typical Sets): Let <span class="math inline">\(X\)</span> be an i.i.d. source over the alphabet <span class="math inline">\(\mathcal{X}\)</span>, <span class="math inline">\(n \in \mathbb{N}\)</span> and <span class="math inline">\(\epsilon &gt; 0\)</span>. An <span class="math inline">\((n,\epsilon)\)</span>-typical set with respect to <span class="math inline">\(X\)</span> is the set of all strings <span class="math inline">\(x^n = x_1x_2\ldots x_n \in \mathcal{X}^n\)</span> that satisfy</p>
+<p><span class="math display">\[ 2^{-n(H(X)+\epsilon)} \leq p(x_1)p(x_2)\ldots p(x_n) \leq 2^{-n(H(X)-\epsilon )}. \]</span></p>
+<p>We denote the <span class="math inline">\((n,\epsilon)\)</span>-typical set by <span class="math inline">\(T_{n,\epsilon}^X\)</span>. (we usually drop the superscript <span class="math inline">\(X\)</span> when the source is clear from the context).</p>
+<p>You might also see some authors define the typical set as</p>
+<p><span class="math display">\[\{x^n \in \mathcal{X}^n: |\frac{1}{n}\log \frac{1}{p(x^n)} - H(X)| \leq \epsilon\}.\]</span></p>
+<p>It is a simple exercise to show that these two definitions are equivalent.</p>
+<p>Wait a minute! How did the entropy suddenly come into the play? Let’s go back to the intuition we had earlier. With high probability, a word of length <span class="math inline">\(n\)</span> generated by the source has approximately <span class="math inline">\(n p(a)\)</span> occurrences of every symbol <span class="math inline">\(a \in \mathcal{X}\)</span>. What is the probability for one such word to be generated? It is</p>
+<p><span class="math display">\[ \Pi_{a \in \mathcal{X}} p(a)^{n p(a)} = \Pi_{a \in \mathcal{X}} 2^{\log p(a) n p(a)} = 2^{n\sum_{a \in \mathcal{X}} p(a) \log p(a)} = 2^{-n H(X)}. \]</span></p>
+<p>So instead of characterizing the most likely words by their number of occurrences of each symbol, we may decide to characterize them by their probability of being generated. The latter might be better, as now we can use a powerful tool from probability theory, called the law of large numbers, to really show that these strings are indeed the most likely ones.</p>
+<p>First, let us see that for any <span class="math inline">\(\epsilon &gt; 0\)</span>, the probability that a word generated by the source is in <span class="math inline">\(T_{n,\epsilon}\)</span> tends to one as <span class="math inline">\(n\)</span> grows. It is in fact very simple: All we need to show is that the expectation of the i.i.d. random variables <span class="math inline">\(-\log p(X_i)\)</span> is <span class="math inline">\(H(X)\)</span>. This is a little exercise for one who knows the definition of entropy.</p>
+<p>Now, note that <span class="math inline">\(\frac{1}{n} \log \frac{1}{p(X^n)} = \frac{1}{n} \sum_{i=1}^n \log \frac{1}{p(X_i)}\)</span>. By the (weak) law of large numbers, we have</p>
+<p><span class="math display">\[ \frac{1}{n} \log \frac{1}{p(X^n)} = \frac{1}{n} \sum_{i=1}^n \log \frac{1}{p(X_i)} \xrightarrow{p} H(X), \]</span></p>
+<p>as <span class="math inline">\(n \to \infty\)</span>. This means that for any <span class="math inline">\(\epsilon &gt; 0\)</span> and for any <span class="math inline">\(\delta &gt; 0\)</span>,</p>
+<p><span class="math display">\[ \mathbb{P} [X^n \in T_{n,\epsilon}] \geq 1 - \delta, \]</span></p>
+<p>for large enough <span class="math inline">\(n\)</span>, or equivalently,</p>
+<p><span class="math display">\[ \lim_{n \to \infty} \mathbb{P} [X^n \in T_{n,\epsilon}] = 1. \]</span></p>
+<p>What we obtained above also tells us something about the cardinality of the typical set. For any <span class="math inline">\(\epsilon, \delta &gt; 0\)</span>, we showed that</p>
+<p><span class="math display">\[ \mathbb{P} [X^n \in T_{n,\epsilon}] \geq 1 - \delta, \]</span></p>
+<p>We have</p>
+<p><span class="math display">\[ \begin{align}
+(1-\delta) \leq \mathbb{P} [X^n \in T_{n,\epsilon}] &amp; = \sum_{x^n \in T_{n,\epsilon}} p(x^n) \\
+&amp; \leq |T_{n,\epsilon}| 2^{-n(H(X)-\epsilon)},
+\end{align} \]</span></p>
+<p>which implies that <span class="math inline">\(\|T_{n,\epsilon}\| \geq 2^{n(H(X)-\epsilon)}(1-\delta)\)</span>. Similarly, we can show that <span class="math inline">\(\|T_{n,\epsilon}\| \leq 2^{n(H(X)+\epsilon)}\)</span>. This means that the typical set has a cardinality approximately equal to <span class="math inline">\(2^{nH(X)}\)</span>.</p>
+</section>
+<section id="proof-of-shannons-source-coding-theorem-for-fixed-length-codes" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="proof-of-shannons-source-coding-theorem-for-fixed-length-codes"><span class="header-section-number">4</span> Proof of Shannon’s Source Coding Theorem For Fixed-Length Codes</h2>
+<p>We are now ready to prove Shannon’s source coding theorem for fixed-length codes. The proof consists of two parts: the achievability part, which concerns the first bullet point of the theorem, and the converse part, which concerns the second bullet point.</p>
+<section id="proof-of-achievability" class="level5">
+<h5 class="anchored" data-anchor-id="proof-of-achievability">Proof of Achievability</h5>
+<p>Assume that <span class="math inline">\(\alpha &gt; H(X)\)</span>. We wish to show that there exists a <span class="math inline">\(T_{n,\epsilon}\)</span> such that <span class="math inline">\(\|T_{n,\epsilon}\| \leq 2^{\lfloor n\alpha \rfloor}\)</span>. If we can show the existence of such a typical set, defining a compression scheme is easy. Let <span class="math inline">\(F: \mathcal{X}^n \to T_{n,\epsilon}\)</span> be a function whose restriction to <span class="math inline">\(T_{n,\epsilon}\)</span> is identity, and it is arbitrary elsewhere. Index all the elements of <span class="math inline">\(T_{n,\epsilon}\)</span> in some way, and define <span class="math inline">\(f(x^n)\)</span> to be the index of <span class="math inline">\(F(x^n)\)</span>. Now, define <span class="math inline">\(g\)</span> to be the inverse of <span class="math inline">\(f\)</span>. This way, the set <span class="math inline">\(G\)</span> corresponding to the compression scheme <span class="math inline">\((f,g)\)</span> is exactly <span class="math inline">\(T_{n,\epsilon}\)</span>, and we know that for any <span class="math inline">\(\delta &gt; 0\)</span>, for large enough <span class="math inline">\(n\)</span>, <span class="math inline">\(T_{n,\epsilon}\)</span> has probability at least <span class="math inline">\(1-\delta\)</span>. Hence, the probability of correct decoding is at least <span class="math inline">\(1-\delta\)</span>.</p>
+<p>Now, let us show the existence of such a typical set.</p>
+<p>Since <span class="math inline">\(\alpha &gt; H(X)\)</span>, there exists an <span class="math inline">\(\epsilon &gt; 0\)</span> such that <span class="math inline">\(\alpha &gt; H(X) + 2\epsilon\)</span>. Take <span class="math inline">\(n\)</span> large enough so that <span class="math inline">\(n \geq \frac{1}{\epsilon}\)</span>, and it is also large enough so that <span class="math inline">\(\mathbb{P} [X^n \in T_{n,\epsilon}] \geq 1 - \delta\)</span>. We have</p>
+<p><span class="math display">\[ |T_{n,\epsilon}| \leq 2^{n(H(X)+\epsilon)} \leq 2^{n\alpha - n \epsilon} \leq 2^{n\alpha - 1} \leq 2^{\lfloor n\alpha \rfloor}. \]</span></p>
+<p>This completes the proof of the achievability part.</p>
+</section>
+<section id="proof-of-converse" class="level5">
+<h5 class="anchored" data-anchor-id="proof-of-converse">Proof of Converse</h5>
+<p>Assume that <span class="math inline">\(\alpha &lt; H(X)\)</span>, and let <span class="math inline">\((f,g)\)</span> be a fixed-length <span class="math inline">\((n,\alpha,\delta)\)</span> compression scheme. Consider the set <span class="math inline">\(G = \{ x^n \in \mathcal{X}^n : g(f(x^n)) = x^n \}\)</span>. Take <span class="math inline">\(\epsilon &gt; 0\)</span> such that <span class="math inline">\(\alpha &lt; H(X) - \epsilon\)</span>. We have</p>
+<p><span class="math display">\[ \begin{align}
+\mathbb{P} [X^n \in G] &amp; = \mathbb{P} [X^n \in G \cap T_{n,\epsilon}] + \mathbb{P} [X^n \in G \cap T_{n,\epsilon}^c] \\
+&amp; \leq \mathbb{P} [X^n \in G \cap T_{n,\epsilon}] + \mathbb{P} [X^n \in T_{n,\epsilon}^c] \\
+&amp; \leq |G| 2^{-n(H(X)-\epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c] \\
+&amp; = 2^{\lfloor n\alpha \rfloor - n(H(X)-\epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c]\\
+&amp; \leq 2^{n(\alpha - H(X) + \epsilon)} + \mathbb{P} [X^n \in T_{n,\epsilon}^c].
+\end{align} \]</span></p>
+<p>For large enough <span class="math inline">\(n\)</span>, we know that <span class="math inline">\(\mathbb{P} [X^n \in T_{n,\epsilon}^c] \leq \frac{\eta}{2}\)</span> for any <span class="math inline">\(\eta &gt; 0\)</span>. Moreover, we have <span class="math inline">\(\alpha - H(X) + \epsilon &lt; 0\)</span>. This means that for large enough <span class="math inline">\(n\)</span>, we have <span class="math inline">\(2^{n(\alpha - H(X) + \epsilon)} \leq \frac{\eta}{2}\)</span>. This implies that for large enough <span class="math inline">\(n\)</span>, <span class="math inline">\(\mathbb{P} [X^n \in G] \leq \eta\)</span>, for any <span class="math inline">\(\eta &gt; 0\)</span>, which means that the probability of correct decoding is not lower bounded by <span class="math inline">\(1-\delta\)</span> for any <span class="math inline">\(\delta \in (0,1)\)</span>.</p>
+<p>Thus, a fixed-length <span class="math inline">\((n,\alpha,\delta)\)</span> compression scheme does not exist for large enough <span class="math inline">\(n\)</span>, which completes the proof of the converse part.</p>
+</section>
+</section>
+<section id="lifting-the-result-to-the-quantum-realm" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="lifting-the-result-to-the-quantum-realm"><span class="header-section-number">5</span> Lifting the Result to the Quantum Realm</h2>
+<p>In the quantum setting, an i.i.d. source is modelled by a quantum ensemble <span class="math inline">\(\\{p(x), \ket{\psi_x}\\}\)</span>, or equivalently, the density operator <span class="math inline">\(\rho = \sum_{x} p(x) \ket{\psi_x}\bra{\psi_x}\)</span>. The question is, how many qubits do we need to encode <span class="math inline">\(n\)</span> uses of the source reliably? A naive answer is <span class="math inline">\(n \log \operatorname{dim}(\rho)\)</span>. However, as in the classical case, we can do better.</p>
+<section id="quantum-compression-schemes" class="level5">
+<h5 class="anchored" data-anchor-id="quantum-compression-schemes">Quantum Compression Schemes</h5>
+<p>The density matrix corresponding to the <span class="math inline">\(n\)</span> uses of the channel is <span class="math inline">\(\rho^{\otimes n}\)</span>. A quantum compression scheme is a pair of quantum channels <span class="math inline">\((\mathcal{E}, \mathcal{D})\)</span>, where <span class="math inline">\(\mathcal{E}: \mathcal{L}(A^{\otimes n}) \to \mathcal{L}(\mathbb{C}^{2^{\lfloor \alpha n \rfloor}})\)</span> is the encoding channel, and <span class="math inline">\(\mathcal{D}: \mathcal{L}(\mathbb{C}^{2^{\lfloor \alpha n \rfloor}}) \to \mathcal{L}(A^{\otimes n})\)</span> is the decoding channel, and <span class="math inline">\(\alpha\)</span> is the rate of the compression scheme.</p>
+<p>The merit with which we define the reliablity is a bit more subtle in the quantum case. We require that <em>the composition of the encoding and decoding channels is close to the identity channel</em>. However, we have to be careful with the presence of entnaglement. It might be the case that the source is entangled with a reference system, in which case we want to recover with high probability this entanglement after decoding. In this case, we require that not only the channel <span class="math inline">\(\mathcal{D} \circ \mathcal{E} : \mathcal{L}(A^{\otimes n}) \to \mathcal{L}(A^{\otimes n})\)</span> to be close to the identity channel, but for any reference system <span class="math inline">\(R\)</span>, the channel <span class="math inline">\(\mathcal{D} \circ \mathcal{E} \otimes \operatorname{id}_R\)</span> has also be close to the identity channel on <span class="math inline">\(\mathcal{L}(A^{\otimes n} \otimes R)\)</span>.</p>
+<p>This shows that why the following is not an adequate merit for relaibliity:</p>
+<p><span class="math display">\[ \Vert \rho_A^{\otimes n} - \mathcal{D} \circ \mathcal{E}(\rho_A^{\otimes n}) \Vert \leq \epsilon. \]</span></p>
+<p>With this merit, you can easily see that for any source <span class="math inline">\(\rho_A\)</span>,</p>
+<p><span class="math display">\[\mathcal{E}(M) := \operatorname{Tr}(M), \]</span></p>
+<p>and</p>
+<p><span class="math display">\[\mathcal{D}(\lambda) := \lambda \rho_A^{\otimes n}, \]</span></p>
+<p>define a reliable compression scheme that compresses <span class="math inline">\(n\)</span> uses of the source into zero qubits! This is non-sense. You can verify that when we compress one qubit of a bipartite maximally entangled state using this scheme, we end up with the maximally mixed state as the state of the compound system, showing that the entanglement is totally destroyed.</p>
+<p>Any choice of a merit for reliability should take into account the entanglement of the source with a reference system. Here is a number of possible choices:</p>
+<ul>
+<li>The channel fidelity with respect to <span class="math inline">\(\mathcal{D} \circ \mathcal{E}\)</span>:</li>
+</ul>
+<p><span class="math display">\[ F(\rho_A^{\otimes n}, \mathcal{D} \circ \mathcal{E}(\rho_A^{\otimes n})) &gt; 1 - \delta. \]</span></p>
+<ul>
+<li>We consider a purification of the source, <span class="math inline">\(\ket{\psi}_{AR}\)</span>, and require that the normalized trace distance between this state and the state after encoding and decoding is small:</li>
+</ul>
+<p><span class="math display">\[ \frac{1}{2}   \Vert \ket{\psi}\bra{\psi}_{AR}^{\otimes n} - (\mathcal{D} \circ \mathcal{E} \otimes \operatorname{id}_R)(\ket{\psi}\bra{\psi}_{AR}^{\otimes n}) \Vert_1 \leq \delta. \]</span></p>
+<ul>
+<li>The average ensemble trace distance: We can write</li>
+</ul>
+<p><span class="math display">\[ \rho_A^{\otimes n} = \sum_{x^n} p(x^n) \ket{\psi_{x^n}}\bra{\psi_{x^n}}, \]</span></p>
+<p>where <span class="math inline">\(\ket{\psi_{x^n}} = \ket{\psi_{x_1}}\ket{\psi_{x_2}}\dots \ket{\psi_{x_n}}\)</span>, and <span class="math inline">\(p(x^n) = p(x_1)p(x_2)\cdots p(x_n)\)</span>. Then, we require that</p>
+<p><span class="math display">\[ \frac{1}{2} \sum_{x^n} p(x^n) \Vert \ket{\psi_{x^n}}\bra{\psi_{x^n}} - \mathcal{D} \circ \mathcal{E}(\ket{\psi_{x^n}}\bra{\psi_{x^n}}) \Vert_1 \leq \delta. \]</span></p>
+<p>For the relationship between the first and the second, see Section 3.2.3 of <a href="https://cs.uwaterloo.ca/~watrous/TQI/TQI.3.pdf">Watrous’ book</a>. We show here that the second implies the third.</p>
+<p>Let us first show that the second condition is independent of the choice of the purification of the source. Let <span class="math inline">\(\ket{\phi}\)</span> be another purification of the source. Then, since <span class="math inline">\(\ket{\psi}\)</span> and <span class="math inline">\(\ket{\phi}\)</span> are equal up to a local unitary on the reference system, we have</p>
+<p><span class="math display">\[ \begin{align}
+\frac{1}{2} \Vert (U_R)^{\otimes n} \ket{\psi}\bra{\psi}_{AR}^{\otimes n} (U_R^{\dagger})^{\otimes n} &amp;- \mathcal{D} \circ \mathcal{E} [(U_R\ket{\psi}\bra{\psi}_{AR}U_R^\dagger)^{\otimes n}] \Vert_1\\
+&amp;= \frac{1}{2} \Vert U_R^{\otimes n} \left( \ket{\phi}\bra{\phi}_{AR}^{\otimes n} - \mathcal{D} \circ \mathcal{E}(\ket{\phi}\bra{\phi}_{AR}^{\otimes n}) \right) (U_R^{\dagger})^{\otimes n} \Vert_1 \\
+&amp; = \frac{1}{2} \Vert \ket{\phi}\bra{\phi}_{AR}^{\otimes n} - (\mathcal{D} \circ \mathcal{E} \otimes \operatorname{id}_R)(\ket{\phi}\bra{\phi}_{AR}^{\otimes n}) \Vert_1.
+\end{align} .\]</span></p>
+<p>To prove that the second condition implies the third one, we consider the purification</p>
+<p><span class="math display">\[ \ket{\psi}_{AR} = \sum_{x} \sqrt{p(x)} \ket{\psi_x} \ket{x}, \]</span></p>
+<p>and the application of the channel</p>
+<p><span class="math display">\[ \Phi(M) = \sum_{x^n} \ket{x^n}\bra{x^n} M \ket{x^n}\bra{x^n} \]</span></p>
+<p>to the reference system. Using the data processing inequality for the trace distance, we have</p>
+<p><span class="math display">\[ \begin{align}
+\Vert \ket{\psi}\bra{\psi}_{AR}^{\otimes n} - \mathcal{D} \circ \mathcal{E} (\ket{\psi}\bra{\psi}_{AR}^{\otimes n}) \Vert_1 &amp; \geq \Vert \Phi(\ket{\psi}\bra{\psi}_{AR}^{\otimes n}) - \Phi(\mathcal{D} \circ \mathcal{E} (\ket{\psi}\bra{\psi}_{AR}^{\otimes n})) \Vert_1 \\
+&amp; = \Vert \sum_{x^n} p(x^n) \ket{\psi_{x^n}}\bra{\psi_{x^n}} \otimes \ket{x^n}\bra{x^n} - \sum_{x^n} p(x^n) \mathcal{D} \circ \mathcal{E}(\ket{\psi_{x^n}}\bra{\psi_{x^n}}) \otimes \ket{x^n}\bra{x^n} \Vert_1 \\
+&amp; = \sum_{x^n} p(x^n) \Vert \ket{\psi_{x^n}}\bra{\psi_{x^n}} - \mathcal{D} \circ \mathcal{E}(\ket{\psi_{x^n}}\bra{\psi_{x^n}}) \Vert_1.
+\end{align} \]</span></p>
+<p>In the following, we limit ourselves to the second condition, as in <a href="https://markwilde.com/qit-notes.pdf">Mark Wilde’s book</a>. A proof based on the first condition can be found in <a href="https://cs.uwaterloo.ca/~watrous/TQI/TQI.5.pdf">Watrous’ book</a>, or in Mike &amp; Ike.</p>
+</section>
+<section id="schumachers-theorem" class="level5">
+<h5 class="anchored" data-anchor-id="schumachers-theorem">Schumacher’s Theorem</h5>
+<p>The nice thing that we will see in a moment is that a similar regime as in the classical case holds in the quantum case: the rate of reliable compressions is governed by entropy of the source, which in the quantum case is the von Neumann entropy of the density operator <span class="math inline">\(\rho\)</span>.</p>
+<p><strong>Theorem</strong> (Schumacher’s Quantum Source Coding Theorem): Let <span class="math inline">\(\delta \in (0,1)\)</span>, and <span class="math inline">\(\rho\)</span> be a density operator on the system <span class="math inline">\(A\)</span>. - If <span class="math inline">\(\alpha &gt; H(A)_{\rho}\)</span>, then for all but finitely many <span class="math inline">\(n\)</span>, there exists an <span class="math inline">\((n, \alpha, \delta)\)</span> quantum compression scheme. - If <span class="math inline">\(\alpha &lt; H(A)_{\rho}\)</span>, then for all but finitely many <span class="math inline">\(n\)</span>, there does not exist an <span class="math inline">\((n, \alpha, \delta)\)</span> quantum compression scheme.</p>
+<p>It is a good place to make a remark. Assume that instead of using a quantum compression scheme, we wanted to compress the source classically. Then, we could model our quantum source as a classical source <span class="math inline">\(X\)</span> that generates a symbol <span class="math inline">\(x \in \mathcal{X}\)</span> with probability <span class="math inline">\(p(x)\)</span>. For any $ &gt; H(X)$ and <span class="math inline">\(\delta \in (0,1)\)</span>, there exists an <span class="math inline">\((n, \alpha, \delta)\)</span> classical compression scheme for large enough <span class="math inline">\(n\)</span>. Upon decoding then, we would generate the state <span class="math inline">\(\ket{\psi_x}\)</span> according to the classically decoded string <span class="math inline">\(x\)</span>. This shows that the rates greater than <span class="math inline">\(H(X)\)</span> are achievable. However, recall that <span class="math inline">\(H(X) \geq H(A)_{\rho}\)</span>, which together with the above theorem implies that in compressing quantum data, better rates may be achieved by using quantum compression schemes.</p>
+</section>
+<section id="typical-subspaces" class="level5">
+<h5 class="anchored" data-anchor-id="typical-subspaces">Typical Subspaces</h5>
+<p>As in the classical case, the main ingredient of source coding is the notion of typicality. In the quantum case, however, instead of considering typical sets of the ensemble distribution, we look at the typical sets with respect to the distribution given by the eigenvalues of the density operator.</p>
+<p>Assume <span class="math inline">\(\rho\)</span> has a spectral decomposition <span class="math inline">\(\rho = \sum_i \lambda_i \ket{x_i}\bra{x_i}\)</span>. We define the typical set <span class="math inline">\(T_{n,\epsilon}\)</span> as</p>
+<p><span class="math display">\[ T_{n,\epsilon} = \{ x^n \in \mathcal{X}^n : 2^{-n(H(A)_{\rho}+\epsilon)} \leq \Pi_{i=1}^n \lambda_{x_i} \leq 2^{-n(H(A)_{\rho}-\epsilon)} \}, \]</span></p>
+<p>and the typical subspace <span class="math inline">\(V_{n,\epsilon}\)</span> as</p>
+<p><span class="math display">\[ V_{n,\epsilon} = \operatorname{span} \{ \ket{x^n} : x^n \in T_{n,\epsilon} \}. \]</span></p>
+<p>We also denote the orthogonal projection onto <span class="math inline">\(V_{n,\epsilon}\)</span> by <span class="math inline">\(\Pi_{n,\epsilon}\)</span>. As in the classical case, typical subspaces have nice properties:</p>
+<p><strong>Proposition</strong> (Properties of Typical Subspaces): - For any <span class="math inline">\(\epsilon &gt; 0\)</span>, <span class="math inline">\(\lim_{n \to \infty} \operatorname{Tr}(\Pi_{n,\epsilon}\rho^{\otimes n}) = 1\)</span>. - For any <span class="math inline">\(\epsilon &gt; 0\)</span> and <span class="math inline">\(\delta &gt; 0\)</span>,</p>
+<p><span class="math display">\[ (1-\delta) 2^{n(H(A)_{\rho}-\epsilon)} \leq \operatorname{dim}(V_{n,\epsilon}) \leq 2^{n(H(A)_{\rho}+\epsilon)}. \]</span></p>
+<p>Having these properties, we can now prove Schumacher’s theorem.</p>
+</section>
+<section id="proof-of-schumachers-theorem-achievability" class="level5">
+<h5 class="anchored" data-anchor-id="proof-of-schumachers-theorem-achievability">Proof of Schumacher’s Theorem: Achievability</h5>
+<p>Let <span class="math inline">\(\alpha &gt; {H(A)}_{\rho}\)</span>. Similar to the proof of Shannon’s theorem, consider a typical set <span class="math inline">\(T_{n,\epsilon}\)</span> whose dimension suits the rate <span class="math inline">\(\alpha\)</span>. We define the encoding and decoding channels as</p>
+<p><span class="math display">\[ \mathcal{E}(M) = K_n M K_n^{\dagger} + \operatorname{Tr}(M (I - K_n^\dagger K_n))\sigma, \]</span></p>
+<p>and</p>
+<p><span class="math display">\[ \mathcal{D}(N) = K_n^{\dagger} N K_n + \operatorname{Tr}(N (I - K_n K_n^\dagger))\tau, \]</span></p>
+<p>where</p>
+<p><span class="math display">\[ K_n = \sum_{x^n \in T_{n,\epsilon}} \ket{x^n}\bra{x^n}, \]</span></p>
+<p>and <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\tau\)</span> are arbitrary density operators on the system <span class="math inline">\(\mathbb{C}^{2^{\lfloor \alpha n \rfloor}}\)</span> and <span class="math inline">\(A^{n}\)</span>, respectively.</p>
+<p>Note that</p>
+<p><span class="math display">\[ \{K_n\} \cup \{\sqrt{\lambda_j} \ket{\phi_j}\bra{i} \sqrt{I - K_n^\dagger K_n}\}_{i,j} \]</span></p>
+<p>is a Kraus decomposition of <span class="math inline">\(\mathcal{E}\)</span>, with <span class="math inline">\(\sigma = \sum_{j} \lambda_j \ket{\phi_j}\bra{\phi_j}\)</span>. Thus, <span class="math inline">\(\mathcal{E}\)</span> (and similarly <span class="math inline">\(\mathcal{D}\)</span>) is indeed a quantum channel.</p>
+<p>It is not difficult to see that for <span class="math inline">\(\ket{\psi}_{AR}\)</span>, the purification of <span class="math inline">\(\rho_A\)</span>, we have</p>
+<p><span class="math display">\[ \mathcal{D} \circ \mathcal{E}(\ket{\psi}\bra{\psi}_{AR}^{\otimes n}) = \Pi_{n,\epsilon} \ket{\psi}\bra{\psi}_{AR}^{\otimes n} \Pi_{n,\epsilon} + \operatorname{Tr}_{A^n}\left( (I - \Pi_{n,\epsilon}) \ket{\psi}\bra{\psi}_{AR}^{\otimes n} \right) \otimes \mathcal{D}(\sigma). \]</span></p>
+<p>Then,</p>
+<p><span class="math display">\[ \Vert \ket{\psi}\bra{\psi}_{AR}^{\otimes n} - \mathcal{D} \circ \mathcal{E}(\ket{\psi}\bra{\psi}_{AR}^{\otimes n}) \Vert_1 \leq \Vert \ket{\psi}\bra{\psi}_{AR}^{\otimes n} - \Pi_{n,\epsilon} \ket{\psi}\bra{\psi}_{AR}^{\otimes n} \Pi_{n,\epsilon} \Vert_1 + \Vert \operatorname{Tr}_{A^n}\left( (I - \Pi_{n,\epsilon}) \ket{\psi}\bra{\psi}_{AR}^{\otimes n} \right) \otimes \mathcal{D}(\sigma) \Vert_1. \]</span></p>
+<p>Now, we need to bound each term on the right-hand side. To do this, we recall two lemmas:</p>
+<p><strong>Lemma</strong> (Gentle Measurement Lemma): Let <span class="math inline">\(\rho\)</span> be a density operator on the system <span class="math inline">\(A\)</span>, and <span class="math inline">\(P\)</span> be a positive operator on the system <span class="math inline">\(A\)</span> such that <span class="math inline">\(I - P\)</span> is also positive. If <span class="math inline">\(\operatorname{Tr}(\rho P) \geq 1 - \epsilon\)</span>, then</p>
+<p><span class="math display">\[ \Vert \rho - P \rho P \Vert_1 \leq 2\sqrt{\epsilon}. \]</span></p>
+<p><strong>Lemma</strong> (A Partial Trace Identity): For <span class="math inline">\(X_{AB} \in \mathcal{L}(AB)\)</span>, and <span class="math inline">\(N, M \in \mathcal{L}(A)\)</span>, we have</p>
+<p><span class="math display">\[ \operatorname{Tr}_{B}((N \otimes I) X_{AB} (M \otimes I)) = N \operatorname{Tr}_{B}(X_{AB}) M. \]</span></p>
+<p>Using the above lemma, for any <span class="math inline">\(\delta &gt; 0\)</span>, we have</p>
+<p><span class="math display">\[ \begin{align}
+\operatorname{Tr}(\Pi_{n,\epsilon} \ket{\psi}\bra{\psi}_{AR}^{\otimes n}) &amp; = \operatorname{Tr}(\operatorname{Tr}_{R^n}(\Pi_{n,\epsilon} \ket{\psi}\bra{\psi}_{AR}^{n})) \\
+&amp; = \operatorname{Tr}(\Pi_{n,\epsilon} \rho_A^{\otimes n}) \\
+&amp; \geq 1 - \delta,
+\end{align} \]</span></p>
+<p>for large enough <span class="math inline">\(n\)</span>. Using the Gentle Measurement Lemma, we conclude that</p>
+<p><span class="math display">\[ \Vert \ket{\psi}\bra{\psi}_{AR}^{\otimes n} - \Pi_{n,\epsilon} \ket{\psi}\bra{\psi}_{AR}^{\otimes n} \Pi_{n,\epsilon} \Vert_1 \leq 2\sqrt{\delta}. \]</span></p>
+<p>Similarly, for any <span class="math inline">\(\delta &gt; 0\)</span>, we have</p>
+<p><span class="math display">\[ \begin{align}
+\Vert \operatorname{Tr}_{A^n}\left( (I - \Pi_{n,\epsilon}) \ket{\psi}\bra{\psi}_{AR}^{\otimes n} \right) \otimes \mathcal{D}(\sigma) \Vert_1 &amp; = \operatorname{Tr}( (I - \Pi_{n,\epsilon}) \ket{\psi}\bra{\psi}_{AR}^{\otimes n}) \operatorname{Tr}(\mathcal{D}(\sigma)) \\
+&amp; = \operatorname{Tr}( (I - \Pi_{n,\epsilon}) \ket{\psi}\bra{\psi}_{AR}^{\otimes n})\\
+&amp; = \operatorname{Tr}(\operatorname{Tr}_{R^n}((I - \Pi_{n,\epsilon}) \ket{\psi}\bra{\psi}_{AR}^{\otimes n})) \\
+&amp; = \operatorname{Tr}((I - \Pi_{n,\epsilon}) \rho_A^{\otimes n}) \\
+&amp; = 1 - \operatorname{Tr}(\Pi_{n,\epsilon} \rho_A^{\otimes n}) \\
+&amp; \leq \delta,
+\end{align} \]</span></p>
+<p>for large enough <span class="math inline">\(n\)</span>. This completes the proof of the achievability part.</p>
+</section>
+</section>
+<section id="acknowledgement" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="acknowledgement"><span class="header-section-number">6</span> Acknowledgement</h2>
+<p>In writing this blog post, I greatly benefited from the lecture materials from <a href="https://tdalazard.io/">Thomas Debris-Alazard</a>’s course on Information Theory and <a href="https://peterjbrown519.github.io/">Peter Brown</a>’s course on Quantum Information Theory. I would like to thank them for their excellent teaching and the resources they provided.</p>
+</section>
+<section id="bibliography" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="bibliography"><span class="header-section-number">7</span> Bibliography</h2>
+<p>The proof of Shannon’s source coding theorem given here is based on the proof of Theorem 5.40 in Watrous’ wonderful book, <em>The theory of quantum information</em>. You can (legally) find parts of the book online (e.g.&nbsp;<a href="https://cs.uwaterloo.ca/~watrous/TQI/TQI.5.pdf">here</a>).</p>
+<p>Another excellent resource that I humbly suggest you to read is the famous easy-to-read paper by Shannon, <a href="https://ieeexplore.ieee.org/document/6773024">A Mathematical Theory of Communication</a>. It is one of the best examples of “old but gold”.</p>
+<p>For the quantum part, the proof presented here is based on the proof of Schumacher’s theorem in <a href="https://markwilde.com/qit-notes.pdf">Mark Wilde’s book</a>.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ali-almasi\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Die Mathematiker sind eine Art Franzosen. Spricht man zu ihnen, so übersetzen sie alles in ihre eigene Sprache, und so wird es alsobald etwas ganz anderes. -Goethe
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
