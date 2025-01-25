@@ -18,7 +18,7 @@
     "href": "misc.html",
     "title": "Misc.",
     "section": "",
-    "text": "Here.\n\n\n\n\n\n\n\n\n\n\n\n\n\nTwo CS-inspired Proofs for the Infinitude of Primes\n\n\n\n\n\n\nprimes\n\n\nclassical-information-theory\n\n\nautomata-theory\n\n\n\n\n\n\n\n\n\nJun 11, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Some art, some literature and a bunch of personal stuff.\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome of My Digital Artworks\n\n\n\n\n\n\ndigital-art\n\n\npainting\n\n\n\n\n\n\n\n\n\nJul 4, 2023\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "index.html",
@@ -245,46 +245,11 @@
     "text": "5 Bibliography\n[1] Meštrović, R. (2012). Euclid’s theorem on the infinitude of primes: a historical survey of its proofs (300 BC–2022) and another new proof. arXiv preprint arXiv:1202.3670.\n[2] Chaitin, G. J. (1977). Toward a Mathematical Definition of Life, 2. IBM Thomas J. Watson Research Division.\n[3] Thakkar, A. (2018). Infinitude of Primes Using Formal Languages. The American Mathematical Monthly, 125(8), 745–749."
   },
   {
-    "objectID": "misc_posts/PrimeInfinitude.html",
-    "href": "misc_posts/PrimeInfinitude.html",
-    "title": "Two CS-inspired Proofs for the Infinitude of Primes",
+    "objectID": "misc_posts/digital-works.html",
+    "href": "misc_posts/digital-works.html",
+    "title": "Some of My Digital Artworks",
     "section": "",
-    "text": "1 Introduction\n  2 Chaitin’s Proof\n  3 Thakkar’s Proof\n  4 Acknowledgement\n  5 Bibliography\nIt’s unfortunate that there aren’t many good open-source fonts designed specifically for dyslexic readers. However, there’s a helpful Chrome extension that can change the font of the text you read online, making it easier to follow."
-  },
-  {
-    "objectID": "misc_posts/PrimeInfinitude.html#introduction",
-    "href": "misc_posts/PrimeInfinitude.html#introduction",
-    "title": "Two CS-inspired Proofs for the Infinitude of Primes",
-    "section": "1 Introduction",
-    "text": "1 Introduction\nPrime numbers are among the most fascinating objects in mathematics, and their study has led to advancements in several areas of math. One of the oldest known facts about primes is that the set of primes is not finite. The earliest existing proof for this statement is perhaps the one due to Euclid and can be found in Elements, Book IX, Proposition 20. Many different proofs, however, have emerged since then, with a comprehensive list compiled in [1].\nIn this blog post, I will present two computer science-inspired proofs for the infinitude of primes. The first proof is due to Gregory Chaitin [2] and it uses the notion of Shannon entropy, which is a fundamental concept in information theory. The second proof is due to Aalok Thakkar [3], which was recently featured in American Mathematical Monthly. The latter uses some tools from automata theory."
-  },
-  {
-    "objectID": "misc_posts/PrimeInfinitude.html#chaitins-proof",
-    "href": "misc_posts/PrimeInfinitude.html#chaitins-proof",
-    "title": "Two CS-inspired Proofs for the Infinitude of Primes",
-    "section": "2 Chaitin’s Proof",
-    "text": "2 Chaitin’s Proof\nLet \\(n\\) be a natural number, and define \\(N\\) as a uniform random variable whose support is the set \\(\\{ 1,2, \\dots, n \\}\\). The number of primes less than or equal to \\(n\\) is denoted by \\(\\pi(n)\\), known as the prime-counting function. Let \\(p_1 &lt; p_2 &lt; \\cdots &lt; p_{\\pi(n)}\\) represent the sequence of primes less than or equal to \\(n\\). For \\(1 \\leq i \\leq \\pi(n)\\), define a random variable \\(X_i\\) as the exponent of \\(p_i\\) in the prime factorization of \\(N\\).\nBy the fundamental theorem of arithmetic, \\((X_1, \\dots , X_{\\pi(n)})\\) is a function of \\(N\\) and vice versa. Therefore, we have \\[ H(X_1, \\dots, X_{\\pi(n)}) = H(N), \\] where \\(H(\\cdot)\\) denotes Shannon entropy. Since \\(N\\) is a uniform random variable on a support of size \\(n\\), \\(H(N) = \\log n\\). On the other hand, we can bound \\(H(X_1, \\dots, X_{\\pi(n)})\\), using the inequality \\[ H(X_1, \\dots, X_{\\pi(n)}) \\leq \\sum_{i=1}^{\\pi(n)} H(X_i). \\] The cardinality of the support of \\(X_i\\) is \\(\\lbrack \\log_{p_i} n \\rbrack + 1 \\leq \\log n + 1\\), thus, \\[ H(X_i) \\leq \\log (\\log n + 1), \\] which leads to the inequality \\[ \\pi(n) \\geq \\frac{\\log n}{\\log (\\log n + 1)}. \\] As \\(n \\to \\infty\\), the right-hand side of this inequality tends to infinity, implying that \\(\\pi(n)\\) becomes arbitrarily large.\n\nIt is worth noting that this approach not only proves the infinitude of primes, but also provides a lower bound on the prime-counting function, which is of great interest to many mathematicians.\n\nAn Excercise\nIt is possible to improve the bound obtained above to\n\\[ \\pi(n) \\geq \\frac{ \\log n}{2 \\log 2}, \\]\nusing a different factorization of \\(n\\). Can you provide a proof?"
-  },
-  {
-    "objectID": "misc_posts/PrimeInfinitude.html#thakkars-proof",
-    "href": "misc_posts/PrimeInfinitude.html#thakkars-proof",
-    "title": "Two CS-inspired Proofs for the Infinitude of Primes",
-    "section": "3 Thakkar’s Proof",
-    "text": "3 Thakkar’s Proof\nHere, I will only outline Thakkar’s proof and leave working out the details for the reader. The proof is based on the fact that the class of regular languages is closed under finite union. Consider the following family of languages over the alphabet \\(\\{ 0,1 \\}\\):\n\\[ \\mathcal{L}_n = \\{ w \\in \\{ 0,1 \\}^* : \\#_0(w) - \\#_1(w) \\equiv 0 \\pmod{n} \\}, \\]\nwhere \\(\\#_0(w)\\) and \\(\\#_1(w)\\) denote the number of occurrences of \\(0\\) and \\(1\\) in the string \\(w\\), respectively. You can easily verify that \\(\\mathcal{L}_n\\) is a regular language for any \\(n \\in \\mathbb{N}\\). In particular, \\(\\mathcal{L}_p\\) is regular for any prime \\(p\\). For the sake of contradiction, assume that the set of primes is finite. This implies that\n\\[ \\mathcal{L} = \\bigcup_{p \\in \\mathcal{P}} \\mathcal{L}_p, \\]\nwhere \\(\\mathcal{P}\\) is the set of all primes, is a finite union of regular languages, hence regular. To arrive at a contradiction, it is easier to use another fact about regular languages: the class of regular languages is closed under complementation. Consider the complement of \\(\\mathcal{L}\\), and observe that it is\n\\[ \\overline{\\mathcal{L}} = \\{ w \\in \\{ 0,1 \\}^* : \\#_0(w) - \\#_1(w) = \\pm 1 \\}. \\]\nUsing the pumping Lemma, or the Myhill-Nerode theorem, one can show that \\(\\overline{\\mathcal{L}}\\) is not regular, which is a contradiction. Therefore, the set of primes is infinite."
-  },
-  {
-    "objectID": "misc_posts/PrimeInfinitude.html#acknowledgement",
-    "href": "misc_posts/PrimeInfinitude.html#acknowledgement",
-    "title": "Two CS-inspired Proofs for the Infinitude of Primes",
-    "section": "4 Acknowledgement",
-    "text": "4 Acknowledgement\nThe first time I came across Chaitin’s proof was in the final exam of a course I had on information theory taught by Thomas Debris-Alazard. Thanks to Thomas for his excellent teaching and evaluation methods!"
-  },
-  {
-    "objectID": "misc_posts/PrimeInfinitude.html#bibliography",
-    "href": "misc_posts/PrimeInfinitude.html#bibliography",
-    "title": "Two CS-inspired Proofs for the Infinitude of Primes",
-    "section": "5 Bibliography",
-    "text": "5 Bibliography\n[1] Meštrović, R. (2012). Euclid’s theorem on the infinitude of primes: a historical survey of its proofs (300 BC–2022) and another new proof. arXiv preprint arXiv:1202.3670.\n[2] Chaitin, G. J. (1977). Toward a Mathematical Definition of Life, 2. IBM Thomas J. Watson Research Division.\n[3] Thakkar, A. (2018). Infinitude of Primes Using Formal Languages. The American Mathematical Monthly, 125(8), 745–749."
+    "text": "An elephant\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "publications.html",
