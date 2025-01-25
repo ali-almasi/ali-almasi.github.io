@@ -7,5 +7,11 @@
       "/posts/2024/11/source-coding.html",
       "/posts/2024/06/PrimeInfinitude.html"
     ]
+  },
+  {
+    "listing": "/misc.html",
+    "items": [
+      "/misc_posts/PrimeInfinitude.html"
+    ]
   }
 ]
