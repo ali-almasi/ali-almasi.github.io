@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-4172ca48a7dd8fc29f2f1c7b52e4a84d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-49c3288560fbc7b6495318fc57c7ee99.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -212,7 +212,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Aligning a DICOM to a NIFTI, pixel-by-pixel</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title">Aligning a DICOM to a NIFTI, pixel-by-pixel</h1>
   <div class="quarto-categories">
     <div class="quarto-category">random</div>
   </div>
@@ -425,7 +425,6 @@ M_{\text{RAS} \leftarrow \text{NIFTI}}
 </ol>
 
 
-
 </section>
 
 
@@ -527,57 +526,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
     clipboardModal.on('success', onCopySuccess);
   }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/ali-almasi\.github\.io\/");
@@ -599,8 +547,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           if (link.getAttribute("rel") === null) {
             link.setAttribute("rel", "noopener");
           }
-          // default icon
-          link.classList.add("external");
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -913,207 +859,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Aligning a DICOM to a NIFTI, pixel-by-pixel"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    I have struggled at work to find how to align pixels.</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    These pixels are particuarly vexing:</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    they came from a DICOM file or a NIFTI file,</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    which are both formats with *awful* documentation.</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    If this helps a single person deal with this issue,</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    then this post has reached its goal.</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "04/23/2024"</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">  - random</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># The problem</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>We encountered the following situation at work. We had two files:</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a <span class="co">[</span><span class="ot">DICOM file</span><span class="co">](https://en.wikipedia.org/wiki/DICOM)</span> with a MRI scan of the subjects brain.</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a <span class="co">[</span><span class="ot">NIFTI file</span><span class="co">](https://en.wikipedia.org/wiki/Neuroimaging_Informatics_Technology_Initiative)</span> with the segmentation of the brain into regions.</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>These are essentially 3D arrays of numbers, with a little bit of meta-data.</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>The issue is that the DICOM file and the NIFTI file can have arbitrary orientations with respect to one-another:</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the axes might not be in the same order. For example, maybe we have:</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="in">```python</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    dicom.shape <span class="op">==</span> <span class="dv">400</span>, <span class="dv">300</span>, <span class="dv">200</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    nifti.shape <span class="op">==</span> <span class="dv">300</span>, <span class="dv">400</span>, <span class="dv">200</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="in">```</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the pixels of each axis might not be in the same order: maybe the first pixel in one format is the last pixel of the other format.</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>The problem is thus quite simple to state: there are 48 possibilities^<span class="co">[</span><span class="ot">$3!=6$ possibilities for the order of the axes; $2^3=8$ possibilities for the order of each axis.</span><span class="co">]</span>. Let's just open the docs, read the correct header keys, figure out how the arrays are organized, code the correct re-ordering and call it a day. Right? *Right?*</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>Well, that's certainly *a* plan. However, *No plan survives first contact with the enemy*^[<span class="co">[</span><span class="ot">History of this quote</span><span class="co">](https://quoteinvestigator.com/2021/05/04/no-plan/)</span>], and I can state with absolute certainty that the "documentation" of the DICOM and NIFTI standards (and ancillary software) is definitely hostile. Our initial hopes for a quick adventure were thus immediately blown to bits.</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>Still, I pushed through and, after many bloopers, I have found the solution. I hope it can help somebody else in the future to tackle these f...antastic file formats.</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="fu"># The solution</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## A bit of geometry</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>To understand the solution, it is important to understand *projective geometry*. Do not sweat, we don't need to understand everything^<span class="co">[</span><span class="ot">Seriously, don't worry if you don't quite get it: this projective geometry stuff is a bit crazy.</span><span class="co">]</span>. We just need to know that, if we want to transform coordinates between two reference frames, then that can be reframed as a matrix multiplication.</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>A change of reference frame from $R_1$ to $R_2$ can be represented by a $4,4$ (or sometimes $3,3$) matrix $M_{R_2 \leftarrow R_1}$.</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Computing the inverse of the matrix gives the matrix for the opposite change of reference frame:</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    $$</span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    \left(M_{R_2 \leftarrow R_1}\right)^{-1} = M_{R_1 \leftarrow R_2}</span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    $$</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Computing the matrix product $M_{R_3 \leftarrow R_2} M_{R_2 \leftarrow R_1}$ gives the matrix for change of reference frame from $R_1$ to $R_3$.</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>That's all we need to know, so feel free to skip to the next section: @sec-finding-matrices, or read my detailed explanations below.</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>For example:</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>let $x,y,z$ denote the coordinates in the MRI room, with respect to the earth: $x$ is the south-north axis, $y$ is the west-east axis, $z$ is the down-up axis. Let the origin be the middle of the door into the room.</span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>let $a,b,c$ denote the coordinates in the patient space. $a$ is the left-right axis of the patient, $b$ is the back-to-front axis, $c$ is the feet-to-head axis. The origin point is the middle of the head of the patient.</span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>Then, there exists a matrix $M$ of shape $4, 4$ which can be used to translate from $x,y,z$ coordinates to $a,b,c$:</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>a <span class="sc">\\</span> b <span class="sc">\\</span> c <span class="sc">\\</span> 1</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>M</span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>x <span class="sc">\\</span> y <span class="sc">\\</span> z <span class="sc">\\</span> 1</span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>Wait, why do we have constant coordinates $1$ here? Why are the vectors 4D instead of 3? It's needed so that we can also represent the change of origin using $M$. If we are representing transformations between reference frames with the same origin, we can work with a $3, 3$ matrix instead. However, I wanted to present the 4D case, because it is what is described in the DICOM and NIFTI docs.</span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>Inverting the matrix reverses the direction of the change of variables:</span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>a <span class="sc">\\</span> b <span class="sc">\\</span> c <span class="sc">\\</span> 1</span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>M</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>x <span class="sc">\\</span> y <span class="sc">\\</span> z <span class="sc">\\</span> 1</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="sc">\\</span></span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>M^{-1}</span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>a <span class="sc">\\</span> b <span class="sc">\\</span> c <span class="sc">\\</span> 1</span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>x <span class="sc">\\</span> y <span class="sc">\\</span> z <span class="sc">\\</span> 1</span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>Similary, if we had three frames of reference, then applying sequentially a change of reference from $R_1$ to $R_2$ then a second from $R_2$ to $R_3$ would give an overall change from $R_1$ to $R_3$. The same property holds for the associated matrices:</span>
-<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>M_{R_3 \leftarrow R_2} M_{R_2 \leftarrow R_1} = M_{R_3 \leftarrow R_1}</span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Finding the matrices {#sec-finding-matrices}</span></span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>So now we know that we need to go looking for matrices.</span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>For the NIFTI file format, this is immediate: the matrix is encoded as a header key^<span class="co">[</span><span class="ot">Technically three but nibabel automatically chooses the most appropriate one.</span><span class="co">]</span>. <span class="co">[</span><span class="ot">If using nibabel, it is immediately accessible</span><span class="co">](https://nipy.org/nibabel/nifti_images.html#the-nifti-affines)</span>.</span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>Carefully reading the docs specifies that this affine matrix specifies the transformation between the voxel indices $i,j,k$ and the RAS patient-space (the acronym gives the order and direction of the axes: Right then Anterior (i.e. back-to-front) then Superior (foot-to-head)).</span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>Surely, the dicom format must be similarly simple. *Nope*. However, since I know have digested the docs, here are the steps:</span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>First, there is a transposition between what the DICOM format calls voxels and how the array is organized on disk^<span class="co">[</span><span class="ot">Possibly due to the differences between Fortran and C array layouts on disk?</span><span class="co">]</span>. <span class="co">[</span><span class="ot">This is explained here</span><span class="co">](https://nipy.org/nibabel/dicom/dicom_orientation.html#i-j-columns-rows-in-dicom)</span>.</span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Then, the <span class="in">`ImageOrientationPatient`</span> header specifies the first two columns of the matrix.</span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>    <span class="in">```python</span></span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> np.array(dicom.ImageOrientationPatient[:<span class="dv">3</span>])</span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.array(dicom.ImageOrientationPatient[<span class="dv">3</span>:])</span>
-<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>    matrix <span class="op">=</span> np.zeros((<span class="dv">4</span>, <span class="dv">4</span>))   <span class="co">#&lt;1&gt;</span></span>
-<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>    matrix[<span class="dv">3</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="dv">1</span>            <span class="co">#&lt;1&gt;</span></span>
-<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a>    matrix[:<span class="dv">3</span>, <span class="dv">0</span>] <span class="op">=</span> b   <span class="co">#&lt;2&gt;</span></span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>    matrix[:<span class="dv">3</span>, <span class="dv">0</span>] <span class="op">=</span> a   <span class="co">#&lt;2&gt;</span></span>
-<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>    <span class="in">```</span></span>
-<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>Initializing the matrix and specifying the fourth column.</span>
-<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a><span class="ss">    2. </span>Note the change of order with respect to <span class="in">`ImageOrientationPatient`</span>. This is due to the transposition.</span>
-<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Finally, by considering the change of position between two different dicom slices, we can find the third column.</span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>    <span class="in">```python</span></span>
-<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>    slice_diff <span class="op">=</span> (np.array(dicom2.ImagePositionPatient) <span class="op">-</span> np.array(dicom.ImagePositionPatient)) <span class="op">/</span> (</span>
-<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>        dicom2.InstanceNumber <span class="op">-</span> dicom.InstanceNumber</span>
-<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> slice_diff <span class="op">/</span> np.<span class="bu">sum</span>(slice_diff<span class="op">**</span><span class="dv">2</span>) <span class="op">**</span> <span class="fl">0.5</span>   <span class="co">#&lt;1&gt;</span></span>
-<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>    <span class="in">```</span></span>
-<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>Normalizing the vector so that it has norm 1.</span>
-<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>This gives us the matrix to transform from the DICOM array coordinates $i,j,k$ to the LPS patient-space. This is almost the same as the RAS space used by the NIFTI format: the first two axes are just pointing in the opposite direction.</span>
-<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>Overall, we are now able to combine:</span>
-<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The matrix from DICOM coordinates to LPS,</span>
-<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The matrix from LPS to RAS,</span>
-<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The matrix from NIFTI coordinates to RAS,</span>
-<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>in order to find the matrix corresponding to the change of variable we want:</span>
-<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>M_{\text{DICOM} \leftarrow \text{NIFTI}}</span>
-<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a>\left<span class="co">[</span><span class="ot"> M_{\text{RAS} \leftarrow \text{LPS}} M_{\text{LPS} \leftarrow \text{DICOM}} \right</span><span class="co">]</span>^{-1}</span>
-<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a>M_{\text{RAS} \leftarrow \text{NIFTI}}</span>
-<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a>And that's it. We can now analyze the matrix to find how it swaps axes around and reorders them, and apply that transformation to the NIFTI array:</span>
-<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a>matrix_dicom_from_nifti <span class="op">=</span> ...</span>
-<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a>ornt <span class="op">=</span> nib.orientations.io_orientation(matrix_dicom_from_nifti)</span>
-<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a>reoriented_nifti <span class="op">=</span> nib.orientations.apply_orientation(nifti, ornt)</span>
-<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a>Honestly, the only way you've made it this far is if you are yourself trying to deal with this exact problem. If so, then best of luck and *bon courage*. You will need both.</span>
-<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a><span class="fu"># Bloopers</span></span>
-<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>I can't resist but tell you about all of the *hilarious* moments along the way were the DICOM spec blew up in my face.</span>
-<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The DICOM  format does not define an ordering of DICOM slices. This means that different tools could choose different orderings. If you struggle with a mismatch of direction along the axis over which the slices are gathered, then the underlying issue might be that your tools do not align along this axis in the same way. NB: the difference in ordering in our case manifests in less than 5% of cases, so that was very tricky to debug.</span>
-<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>After a little bit of (unsuccesfully) poking around and trying to read the docs, I asked a colleague about the issue. We quickly went from: "Oh, but all dicoms have the same orientation." to "No wait, there are two." to "Well technically it's maybe three.". We then found a fourth one later in our tests.</span>
-<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The nibabel documentation, and the NIFTI docs I have found all repeat: "the NIFTI format uses a RAS reference frame" throughout. Imagine my surprise when I discovered the existence of the <span class="in">`affine`</span> header.</span>
-<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>In my first calculation of the shift between two DICOM slices, I initially naively thought that the slices would be in order and that the first file (with name <span class="in">`slice_00000`</span>) would actually be the first slice. *Ha*. *Ha*. *Ha*. They are in a random order instead.</span>
-<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
-<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Nibabel documentation on the orientation of dicom files</span><span class="co">](https://nipy.org/nibabel/dicom/dicom_orientation.html)</span>.</span>
-<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Nibabel documentation on the transposition between voxels and the array coordinates</span><span class="co">](https://nipy.org/nibabel/dicom/dicom_orientation.html#i-j-columns-rows-in-dicom)</span>.</span>
-<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Nibabel documentation: full formula for the DICOM affine matrix</span><span class="co">](https://nipy.org/nibabel/dicom/dicom_orientation.html#d-affine-formulae)</span>.</span>
-<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Nibabel documentation: the nifti affines</span><span class="co">](https://nipy.org/nibabel/nifti_images.html#the-nifti-affines)</span>.</span>
-<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Innolitics DICOM documentation: Image Orientation Patient</span><span class="co">](https://dicom.innolitics.com/ciods/rt-dose/image-plane/00200037)</span>.</span>
-<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Innolitics DICOM documentation: Image Position Patient</span><span class="co">](https://dicom.innolitics.com/ciods/rt-dose/image-plane/00200032)</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
