@@ -270,13 +270,6 @@
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "1 Quantum Algorithms\n  \n  1.1 Survey Articles"
-  },
-  {
-    "objectID": "resources.html#quantum-algorithms",
-    "href": "resources.html#quantum-algorithms",
-    "title": "Resources",
-    "section": "1 Quantum Algorithms",
-    "text": "1 Quantum Algorithms\n\n1.1 Survey Articles\n\nQuantum algorithms for algebraic problems by Andrew M. Childs, Wim van Dam\n\nThis is an excellent source for learning about a large class of quantum algorithms that are similar to the seminal algorithm by Peter Shor for factoring integers. My suggestion to beginners is to start with reading Appendix B, then move on to Section III.1\n\n\n1 Childs also has a set of lecture notes on quantum algorithms that may be helpful in reading this survey."
+    "text": "On this page\n   \n  \n  1 Quantum Algorithms\n  2 ZX-Calculus\n  3 Quantum Information Theory\n  4 Quantum Complexity Theory\n  \n\n\n1 Quantum Algorithms\n\n1.1 Survey Articles\n\nQuantum algorithms for algebraic problems by Andrew M. Childs and Wim van Dam\n\nThis is an excellent source for learning about a large class of quantum algorithms that are similar to the seminal algorithm by Peter Shor for factoring integers. My suggestion to beginners is to start with reading Appendix B, then move on to Section III.1\n1 Childs also has a set of lecture notes on quantum algorithms that may be helpful in reading this survey.\n\n\n2 ZX-Calculus\n\n2.1 Survey Articles\n\nZX-calculus for the working quantum computer scientist by John van de Wetering\n\nA wonderful easy-to-read and succinct introduction to ZX-calculus. If you are completely new to ZX, I believe that reading Section 3-6 and Section 10 will give you an idea of what ZX-calculus is and how it is useful.\n\n\n\n3 Quantum Information Theory\n\n\n4 Quantum Complexity Theory\n\nQuantum Computational Complexity by John Watrous\nQuantum Hamiltonian Complexity by Gharibian et al.\nQuantum Proofs by Thomas Vidick and John Watrous\n\n\n\n\n\n\n Back to top"
   }
 ]
