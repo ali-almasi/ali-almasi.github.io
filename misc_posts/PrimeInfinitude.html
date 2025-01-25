@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-01-02">
+<meta name="dcterms.date" content="2024-06-11">
 
-<title>Quantifying and Classifying Entanglement – Ali ALMASI</title>
+<title>Two CS-inspired Proofs for the Infinitude of Primes – Ali ALMASI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,22 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-b434f5be98ebd0220d0739558ca7cdaa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b434f5be98ebd0220d0739558ca7cdaa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -121,7 +121,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Ali ALMASI</span>
     </a>
   </div>
@@ -132,21 +132,21 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html"> 
+    <a class="nav-link" href="../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../resources.html"> 
+    <a class="nav-link" href="../resources.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../misc.html"> 
+    <a class="nav-link" href="../misc.html"> 
 <span class="menu-text">misc.html</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -165,12 +165,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#some-black-magic-calculus" id="toc-some-black-magic-calculus" class="nav-link active" data-scroll-target="#some-black-magic-calculus"><span class="header-section-number">1</span> Some “Black Magic Calculus”</a></li>
-  <li><a href="#deciding-entanglement-is-hard" id="toc-deciding-entanglement-is-hard" class="nav-link" data-scroll-target="#deciding-entanglement-is-hard"><span class="header-section-number">2</span> Deciding Entanglement is Hard</a></li>
-  <li><a href="#practical-vs.-foundational" id="toc-practical-vs.-foundational" class="nav-link" data-scroll-target="#practical-vs.-foundational"><span class="header-section-number">3</span> Practical vs.&nbsp;Foundational</a></li>
-  <li><a href="#schmidt-number" id="toc-schmidt-number" class="nav-link" data-scroll-target="#schmidt-number"><span class="header-section-number">4</span> Schmidt Number</a></li>
-  <li><a href="#conditional-entropy" id="toc-conditional-entropy" class="nav-link" data-scroll-target="#conditional-entropy"><span class="header-section-number">5</span> Conditional Entropy</a></li>
-  <li><a href="#distillable-entanglement-and-entanglement-cost" id="toc-distillable-entanglement-and-entanglement-cost" class="nav-link" data-scroll-target="#distillable-entanglement-and-entanglement-cost"><span class="header-section-number">6</span> Distillable Entanglement and Entanglement Cost</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#chaitins-proof" id="toc-chaitins-proof" class="nav-link" data-scroll-target="#chaitins-proof"><span class="header-section-number">2</span> Chaitin’s Proof</a></li>
+  <li><a href="#thakkars-proof" id="toc-thakkars-proof" class="nav-link" data-scroll-target="#thakkars-proof"><span class="header-section-number">3</span> Thakkar’s Proof</a></li>
+  <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement"><span class="header-section-number">4</span> Acknowledgement</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography"><span class="header-section-number">5</span> Bibliography</a></li>
   </ul>
 </nav>
     </div>
@@ -179,10 +178,11 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quantifying and Classifying Entanglement</h1>
+<h1 class="title">Two CS-inspired Proofs for the Infinitude of Primes</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">quantum-information-theory</div>
-    <div class="quarto-category">course-notes</div>
+    <div class="quarto-category">primes</div>
+    <div class="quarto-category">classical-information-theory</div>
+    <div class="quarto-category">automata-theory</div>
   </div>
   </div>
 
@@ -194,7 +194,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 2, 2025</p>
+      <p class="date">June 11, 2024</p>
     </div>
   </div>
   
@@ -209,99 +209,51 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#some-black-magic-calculus" id="toc-some-black-magic-calculus"><span class="header-section-number">1</span> Some “Black Magic Calculus”</a></li>
-  <li><a href="#deciding-entanglement-is-hard" id="toc-deciding-entanglement-is-hard"><span class="header-section-number">2</span> Deciding Entanglement is Hard</a></li>
-  <li><a href="#practical-vs.-foundational" id="toc-practical-vs.-foundational"><span class="header-section-number">3</span> Practical vs.&nbsp;Foundational</a></li>
-  <li><a href="#schmidt-number" id="toc-schmidt-number"><span class="header-section-number">4</span> Schmidt Number</a></li>
-  <li><a href="#conditional-entropy" id="toc-conditional-entropy"><span class="header-section-number">5</span> Conditional Entropy</a></li>
-  <li><a href="#distillable-entanglement-and-entanglement-cost" id="toc-distillable-entanglement-and-entanglement-cost"><span class="header-section-number">6</span> Distillable Entanglement and Entanglement Cost</a></li>
+  <li><a href="#introduction" id="toc-introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#chaitins-proof" id="toc-chaitins-proof"><span class="header-section-number">2</span> Chaitin’s Proof</a></li>
+  <li><a href="#thakkars-proof" id="toc-thakkars-proof"><span class="header-section-number">3</span> Thakkar’s Proof</a></li>
+  <li><a href="#acknowledgement" id="toc-acknowledgement"><span class="header-section-number">4</span> Acknowledgement</a></li>
+  <li><a href="#bibliography" id="toc-bibliography"><span class="header-section-number">5</span> Bibliography</a></li>
   </ul>
 </nav>
-<p><span style="color:red;font-weight:700;font-size:18px"> This post is not complete yet!</span></p>
 <p><span style="color:green;font-weight:700;font-size:12px"> It’s unfortunate that there aren’t many good open-source fonts designed specifically for dyslexic readers. However, there’s a helpful <a href="https://chromewebstore.google.com/detail/opendyslexic-for-chrome/cdnapgfjopgaggbmfgbiinmmbdcglnam?pli=1">Chrome extension</a> that can change the font of the text you read online, making it easier to follow.</span></p>
-<p><strong>Disclaimer</strong>: There are many excellent resources available on this topic (see for example <a href="https://arxiv.org/abs/quant-ph/0702225">this excellent survey</a> by the Horodeckis). This blog post is intended to only gather some of the ideas around entanglement quantification that I have learned and found interesting.</p>
-<section id="some-black-magic-calculus" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="some-black-magic-calculus"><span class="header-section-number">1</span> Some “Black Magic Calculus”</h2>
-<blockquote class="blue-edge blockquote">
-<p lang="en" dir="ltr">
-When two systems, of which we know the states by their respective representatives, enter into temporary physical interaction due to known forces between them, and when after a time of mutual influence the systems separate again, then they can no longer be described in the same way as before, viz.&nbsp;by endowing each of them with a representative of its own. I would not call that one but rather the characteristic trait of quantum mechanics, the one that enforces its entire departure from classical lines of thought.<br>-Erwin Schrödinger, <a href="https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/abs/discussion-of-probability-relations-between-separated-systems/C1C71E1AA5BA56EBE6588AAACB9A222D">Discussion of Probability Relations between Separated Systems</a>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>Prime numbers are among the most fascinating objects in mathematics, and their study has led to advancements in several areas of math. One of the oldest known facts about primes is that the set of primes is not finite. The earliest existing proof for this statement is perhaps the one due to Euclid and can be found in <em>Elements, Book IX, Proposition 20</em>. Many different proofs, however, have emerged since then, with a comprehensive list compiled in [1].</p>
+<p>In this blog post, I will present two computer science-inspired proofs for the infinitude of primes. The first proof is due to Gregory Chaitin [2] and it uses the notion of Shannon entropy, which is a fundamental concept in information theory. The second proof is due to Aalok Thakkar [3], which was recently featured in American Mathematical Monthly. The latter uses some tools from automata theory.</p>
+</section>
+<section id="chaitins-proof" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="chaitins-proof"><span class="header-section-number">2</span> Chaitin’s Proof</h2>
+<p>Let <span class="math inline">\(n\)</span> be a natural number, and define <span class="math inline">\(N\)</span> as a uniform random variable whose support is the set <span class="math inline">\(\{ 1,2, \dots, n \}\)</span>. The number of primes less than or equal to <span class="math inline">\(n\)</span> is denoted by <span class="math inline">\(\pi(n)\)</span>, known as the prime-counting function. Let <span class="math inline">\(p_1 &lt; p_2 &lt; \cdots &lt; p_{\pi(n)}\)</span> represent the sequence of primes less than or equal to <span class="math inline">\(n\)</span>. For <span class="math inline">\(1 \leq i \leq \pi(n)\)</span>, define a random variable <span class="math inline">\(X_i\)</span> as the exponent of <span class="math inline">\(p_i\)</span> in the prime factorization of <span class="math inline">\(N\)</span>.</p>
+<p>By the <a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic">fundamental theorem of arithmetic</a>, <span class="math inline">\((X_1, \dots , X_{\pi(n)})\)</span> is a function of <span class="math inline">\(N\)</span> and vice versa. Therefore, we have <span class="math display">\[ H(X_1, \dots, X_{\pi(n)}) = H(N), \]</span> where <span class="math inline">\(H(\cdot)\)</span> denotes <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Shannon entropy</a>. Since <span class="math inline">\(N\)</span> is a uniform random variable on a support of size <span class="math inline">\(n\)</span>, <span class="math inline">\(H(N) = \log n\)</span>. On the other hand, we can bound <span class="math inline">\(H(X_1, \dots, X_{\pi(n)})\)</span>, using the inequality <span class="math display">\[ H(X_1, \dots, X_{\pi(n)}) \leq \sum_{i=1}^{\pi(n)} H(X_i). \]</span> The cardinality of the support of <span class="math inline">\(X_i\)</span> is <span class="math inline">\(\lbrack \log_{p_i} n \rbrack + 1 \leq \log n + 1\)</span>, thus, <span class="math display">\[ H(X_i) \leq \log (\log n + 1), \]</span> which leads to the inequality <span class="math display">\[ \pi(n) \geq \frac{\log n}{\log (\log n + 1)}. \]</span> As <span class="math inline">\(n \to \infty\)</span>, the right-hand side of this inequality tends to infinity, implying that <span class="math inline">\(\pi(n)\)</span> becomes arbitrarily large.<br>
 </p>
-</blockquote>
-<blockquote class="blue-edge blockquote">
-<p lang="en" dir="ltr">
-Quantum mechanics: Real Black Magic Calculus. <br>-Attributed to Albert Einstein
-</p>
-</blockquote>
-<p>We all have seen magical information-theoretic applications of shared entanglement, such as <a href="https://en.wikipedia.org/wiki/Quantum_teleportation">teleportation</a>, <a href="https://en.wikipedia.org/wiki/Superdense_coding">superdense coding</a>, and <a href="https://en.wikipedia.org/wiki/Quantum_entanglement#Entanglement_swapping">entanglement swapping</a>. Below, you can revisit these three protocols and their verification using the language of <a href="https://en.wikipedia.org/wiki/ZX-calculus">ZX-calculus</a>.</p>
-<p>Understanding entanglement and studying it from an information-theoretic perspective is in fact at the heart of quantum information theory, and it is a very active area of research, with many open and challenging problems.</p>
-<figure class="figure">
-<img src="../../../assets/img/teleportation.gif" alt="Teleportation, revisited in ZX-calculus" style="width:100%" class="figure-img">
-<figcaption>
-Teleportation, revisited in ZX-calculus
-</figcaption>
-</figure>
-<figure class="figure">
-<img src="../../../assets/img/entanglement_swapping.gif" alt="Entanglement Swapping, revisited in ZX-calculus" style="width:100%" class="figure-img">
-<figcaption>
-Entanglement Swapping, revisited in ZX-calculus
-</figcaption>
-</figure>
-<figure class="figure">
-<img src="../../../assets/img/superdense_coding.gif" alt="Superdense Coding, revisited in ZX-calculus" style="width:100%" class="figure-img">
-<figcaption>
-Superdense Coding, revisited in ZX-calculus
-</figcaption>
-</figure>
-<p>In this post, I will discuss some of the ways to quantify entanglement and classify it. It is however important to ask why we even need to quantify or characterize it.</p>
+<p>It is worth noting that this approach not only proves the infinitude of primes, but also provides a lower bound on the prime-counting function, which is of great interest to many mathematicians.</p>
+<section id="an-excercise" class="level5">
+<h5 class="anchored" data-anchor-id="an-excercise">An Excercise</h5>
+<p>It is possible to improve the bound obtained above to</p>
+<p><span class="math display">\[ \pi(n) \geq \frac{ \log n}{2 \log 2}, \]</span></p>
+<p>using a different factorization of <span class="math inline">\(n\)</span>. Can you provide a proof?</p>
 </section>
-<section id="deciding-entanglement-is-hard" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="deciding-entanglement-is-hard"><span class="header-section-number">2</span> Deciding Entanglement is Hard</h2>
 </section>
-<section id="practical-vs.-foundational" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="practical-vs.-foundational"><span class="header-section-number">3</span> Practical vs.&nbsp;Foundational</h2>
+<section id="thakkars-proof" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="thakkars-proof"><span class="header-section-number">3</span> Thakkar’s Proof</h2>
+<p>Here, I will only outline Thakkar’s proof and leave working out the details for the reader. The proof is based on the fact that the class of <a href="https://en.wikipedia.org/wiki/Regular_language">regular languages</a> is closed under finite union. Consider the following family of languages over the alphabet <span class="math inline">\(\{ 0,1 \}\)</span>:</p>
+<p><span class="math display">\[ \mathcal{L}_n = \{ w \in \{ 0,1 \}^* : \#_0(w) - \#_1(w) \equiv 0 \pmod{n} \}, \]</span></p>
+<p>where <span class="math inline">\(\#_0(w)\)</span> and <span class="math inline">\(\#_1(w)\)</span> denote the number of occurrences of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> in the string <span class="math inline">\(w\)</span>, respectively. You can easily verify that <span class="math inline">\(\mathcal{L}_n\)</span> is a regular language for any <span class="math inline">\(n \in \mathbb{N}\)</span>. In particular, <span class="math inline">\(\mathcal{L}_p\)</span> is regular for any prime <span class="math inline">\(p\)</span>. For the sake of contradiction, assume that the set of primes is finite. This implies that</p>
+<p><span class="math display">\[ \mathcal{L} = \bigcup_{p \in \mathcal{P}} \mathcal{L}_p, \]</span></p>
+<p>where <span class="math inline">\(\mathcal{P}\)</span> is the set of all primes, is a finite union of regular languages, hence regular. To arrive at a contradiction, it is easier to use another fact about regular languages: the class of regular languages is closed under complementation. Consider the complement of <span class="math inline">\(\mathcal{L}\)</span>, and observe that it is</p>
+<p><span class="math display">\[ \overline{\mathcal{L}} = \{ w \in \{ 0,1 \}^* : \#_0(w) - \#_1(w) = \pm 1 \}. \]</span></p>
+<p>Using the <a href="https://en.wikipedia.org/wiki/Pumping_lemma_for_regular_languages">pumping Lemma</a>, or the <a href="https://en.wikipedia.org/wiki/Myhill%E2%80%93Nerode_theorem">Myhill-Nerode theorem</a>, one can show that <span class="math inline">\(\overline{\mathcal{L}}\)</span> is not regular, which is a contradiction. Therefore, the set of primes is infinite.</p>
 </section>
-<section id="schmidt-number" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="schmidt-number"><span class="header-section-number">4</span> Schmidt Number</h2>
+<section id="acknowledgement" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="acknowledgement"><span class="header-section-number">4</span> Acknowledgement</h2>
+<p>The first time I came across Chaitin’s proof was in the final exam of a course I had on information theory taught by <a href="https://tdalazard.io/">Thomas Debris-Alazard</a>. Thanks to Thomas for his excellent teaching and evaluation methods!</p>
 </section>
-<section id="conditional-entropy" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="conditional-entropy"><span class="header-section-number">5</span> Conditional Entropy</h2>
-<p>This way of quantifying entanglement roots back to about a century ago:</p>
-<blockquote class="blue-edge blockquote">
-<p lang="en" dir="ltr">
-Thus one disposes provisionally (until the entanglement is resolved by actual observation) of only a common description of the two in that space of higher dimension. This is the reason that knowledge of the individual systems can decline to the scantiest, even to zero, while that of the combined system remains continually maximal. Best possible knowledge of a whole does not include best possible knowledge of its parts — and this is what keeps coming back to haunt us<br>-Erwin Schrödinger, <a href="https://link.springer.com/article/10.1007/BF01491891">Die gegenwärtige Situation in der Quantenmechanik </a>
-</p>
-</blockquote>
-<p>In the late 90s, when the operational meaning of von Neumann entropy was established by Schumacher, people realized that what Schrödinger was talking about can actually be quantified in terms of the von Neumann entropy.</p>
-<p>Recall that in the classical setting, the conditional entropy of a random variable <span class="math inline">\(X\)</span> given another random variable <span class="math inline">\(Y\)</span>, <span class="math inline">\(H(X\vert Y)\)</span>, is always positive. Writing <span class="math inline">\(H(X\vert Y) = H(X,Y) - H(Y)\)</span>, this is equivalent to saying that <span class="math inline">\(H(X,Y) \geq H(Y)\)</span>. In other words, the entropy of a compound system is as large as the entropy of its subsystems. In particular, we can say that being certain about the state of a compound system implies certainty about the states of its subsystems.</p>
-<p>This is not the case in the quantum setting. Consider a bipartite quantum system whose state is</p>
-<p><span class="math display">\[ \ket{\phi^+}_{AB} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11}).\]</span></p>
-<p>There is no uncertainty about the state of the compound system, since <span class="math inline">\(H(AB) = 0\)</span>. However, if you calculate the reduced density matrix of one of the subsystems, say <span class="math inline">\(A\)</span>, you will find that <span class="math inline">\(H(A) = 1\)</span>. Here as you can see, the conditional entropy can be negative unlike its classical counterpart.</p>
-<p>It turns out that this only happens when the compound system is entangled.</p>
-<p><strong>Proposition</strong>: For a bipartite quantum state <span class="math inline">\(\rho_{AB}\)</span>, if <span class="math inline">\(H(A \vert B) &lt; 0\)</span>, then <span class="math inline">\(\rho_{AB}\)</span> is entangled. Moreover, if a <em>pure</em> bipartite quantum state <span class="math inline">\(\ket{\psi}_{AB}\)</span> is entangled, then <span class="math inline">\(H(A\vert B) &lt; 0\)</span>.</p>
-<p><strong>Proof</strong>: Let us first assume that <span class="math inline">\(\rho_{AB}\)</span> is a pure state, <span class="math inline">\(\ket{\psi}\bra{\psi}\)</span>. If <span class="math inline">\(\psi\)</span> is a product state, then the reduced density matrix of <span class="math inline">\(B\)</span> is a pure state, thus <span class="math inline">\(H(A\vert B) = 0\)</span>. If <span class="math inline">\(\psi\)</span> is entangled, then its Scmidt number is at least 2, thus the reduced density matrix of <span class="math inline">\(B\)</span> has rank at least 2. This implies that <span class="math inline">\(H(B) &gt; 0\)</span>. Since <span class="math inline">\(H(A,B) = 0\)</span>, we have <span class="math inline">\(H(A\vert B) &lt; 0\)</span>.</p>
-<p>For a mixed state <span class="math inline">\(\rho_{AB}\)</span>, let us first consider the case that <span class="math inline">\(\rho_{AB}\)</span> is a product state. Then <span class="math inline">\(H(AB) = H(A) + H(B)\)</span>, thus <span class="math inline">\(H(A\vert B) = H(A) \geq 0\)</span>. For a separable state <span class="math inline">\(\rho_{AB} = \sum_{i} p_{i} \sigma_{i} \otimes \tau_{i}\)</span>, we use the concavity of the conditional von Neumann entropy, as</p>
-<p><span class="math display">\[ H(A\vert B)_{\sum_{i} p_{i} \sigma_{i} \otimes \tau_{i}} \geq \sum_{i} p_{i} H(A\vert B)_{\sigma_{i} \otimes \tau_{i}} \geq 0.\]</span></p>
-<p>The above theorem implies that the mapping</p>
-<p><span class="math display">\[ \rho_{AB} \mapsto \max\{0, -H(A\vert B)_{\rho}\} \]</span></p>
-<p>is a possible entanglemeent quantuifier. Note that when a state is mapped to <span class="math inline">\(0\)</span>, it is not necessarily separable. However, if it is mapped to a non-zero value, it is entangled.</p>
-<p>It is a good place to make a remark: How can we determine if a given state has neqgative conditional entropy in the lab? Conditional entropy is not an observable, thus we cannot measure it directly. It turns out that this is not that much of a problem, as pointed out in <a href="https://arxiv.org/abs/2001.11237#:~:text=Quantum%20states%20that%20possess%20negative,and%20one%2Dway%20entanglement%20distillation.">this paper</a>.</p>
-<p>Using the fact that the conditional entropy is concave, it is easy to show that the set of bipartite states of a certain dimension that have non-negative conditional entropy is convex. Moreover, as the conditional entropy is a continuous function (see <a href="https://link.springer.com/article/10.1007/s00220-016-2609-8">this paper</a> for a proof), and the set of non-negative values that the conditional entropy can take is closed, the set of states with non-negative conditional entropy is closed, and thus compact. Now, by Hahn-Banach theorem, for any state <span class="math inline">\(\rho_{AB}\)</span> with negative conditional entropy, there exists a Hermitian operator <span class="math inline">\(W\)</span> such that <span class="math inline">\(\operatorname{Tr}(W \rho_{AB}) &lt; 0\)</span> and for any state <span class="math inline">\(\sigma_{AB}\)</span> with non-negative conditional entropy, <span class="math inline">\(\operatorname{Tr}(W \sigma_{AB}) \geq 0\)</span>. This means that there exists an observable whose expectation tells us whether a given state has negative conditional entropy or not.</p>
-<p>What can this observable be? In fact, there is an obvious natural choice: recall that the conditional entropy can be formulated in terms of the relative entropy: <span class="math inline">\(H(A\vert B) = - D(\rho_{AB} \mid I_{A} \otimes \rho_{B})\)</span>. Now you can convince yourself that if we take <span class="math inline">\(W = \log(I_{A} \otimes \rho_{B}) - \log(\rho_{AB})\)</span>, then <span class="math inline">\(\operatorname{Tr}(W \rho_{AB}) &lt; 0\)</span>. The other part is less obvious, but it is still simple to prove. You can do it by using the fact that the relative entropy is monotone.</p>
-</section>
-<section id="distillable-entanglement-and-entanglement-cost" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="distillable-entanglement-and-entanglement-cost"><span class="header-section-number">6</span> Distillable Entanglement and Entanglement Cost</h2>
-<p>Remember from our discussion at the beginning of this post that if Alice and Bob share an EPR pair, they can use it to teleport a qubit, or do superdense coding. In practice, in the presence of noise, however, when Alice produces an EPR pair and sends one of the qubits to Bob, the state that Bob receives may change, and the final shared state between Alice and Bob may not be an EPR pair. Can we still use this state to perform information-theoretic tasks that require shared EPR pairs?</p>
-<p>This motivates the definition of two important measures of entanglement: the distillable entanglement and the entanglement cost.</p>
-<p><strong>Definition</strong>: Given a bipartite quantum state <span class="math inline">\(\rho_{AB}\)</span>, a rate of distillation <span class="math inline">\(\alpha\)</span> is said to be achievable if there exists a sequence of LOCC channels <span class="math inline">\(\mathcal{E}_{n}: \mathcal{L}(A^n B^n) \to \mathcal{L}\left((\mathbb{C^{2}}\otimes \mathbb{C^{2}})^{\otimes \lfloor \alpha n \rfloor}\right)\)</span> such that</p>
-<p><span class="math display">\[ \lim_{n \to \infty} \Vert \mathcal{E}_{n}(\rho_{AB}^{\otimes n}) - \ket{\phi^{+}}\bra{\phi^{+}}^{\otimes \lfloor \alpha n \rfloor} \Vert_{1} = 0.\]</span></p>
-<p>Then, the distillable entanglement of <span class="math inline">\(\rho_{AB}\)</span> is defined as</p>
-<p><span class="math display">\[ E_{D}(\rho_{AB}) = \sup \{\alpha: \alpha \text{ is achievable}\}.\]</span></p>
-<p><strong>Definition</strong>: Given a bipartite quantum state <span class="math inline">\(\rho_{AB}\)</span>, a rate of entanglement cost <span class="math inline">\(\alpha\)</span> is said to be achievable if there exists a sequence of LOCC channels <span class="math inline">\(\mathcal{E}_{n}: \mathcal{L}\left((\mathbb{C^{2}}\otimes \mathbb{C^{2}})^{\otimes \lfloor \alpha n \rfloor}\right) \to \mathcal{L}(A^n B^n)\)</span> such that</p>
-<p><span class="math display">\[ \lim_{n \to \infty} \Vert \mathcal{E}_{n}(\ket{\phi^{+}}\bra{\phi^{+}}^{\otimes \lfloor \alpha n \rfloor}) - \rho_{AB}^{\otimes n} \Vert_{1} = 0.\]</span></p>
-<p>Then, the entanglement cost of <span class="math inline">\(\rho_{AB}\)</span> is defined as</p>
-<p><span class="math display">\[ E_{C}(\rho_{AB}) = \inf \{\alpha: \alpha \text{ is achievable}\}.\]</span></p>
-<p>When you think about it operationally, it should be clear that <span class="math inline">\(E_{C}(\rho_{AB}) \geq E_{D}(\rho_{AB})\)</span>. This can be proved formally.</p>
-<p>As we mentioned earlier, these two quantities can be used to quantify the amount of entanglement in a given state. To see this, first note that for any separable state <span class="math inline">\(\rho_{AB} = \sum_{x} p_{x} \sigma_{x} \otimes \tau_{x}\)</span>, we have <span class="math inline">\(E_{D}(\rho_{AB}) = E_{C}(\rho_{AB}) = 0\)</span>. The reason is that for sharing such a state between Alice and Bob, we don’t even need to use any EPR pairs. Alice and Bob can locally prepare the states <span class="math inline">\(\sigma_{x}\)</span> and <span class="math inline">\(\tau_{x}\)</span>, respectively, and then the state <span class="math inline">\(\rho_{AB}\)</span> can be prepared by the convex combination of the corresponding LOCC channels. Thus, the entanglement cost of a separable state is 0, as well as its distillable entanglement.</p>
+<section id="bibliography" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="bibliography"><span class="header-section-number">5</span> Bibliography</h2>
+<p>[1] Meštrović, R. (2012). <a href="https://arxiv.org/abs/1202.3670">Euclid’s theorem on the infinitude of primes: a historical survey of its proofs (300 BC–2022) and another new proof</a>. <em>arXiv preprint</em> arXiv:1202.3670.<br>
+[2] Chaitin, G. J. (1977). Toward a Mathematical Definition of Life, 2. <em>IBM Thomas J. Watson Research Division</em>.<br>
+[3] Thakkar, A. (2018). <a href="https://arxiv.org/abs/2005.10372">Infinitude of Primes Using Formal Languages</a>. <em>The American Mathematical Monthly</em>, 125(8), 745–749.</p>
 
 
 </section>
