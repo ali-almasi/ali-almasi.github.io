@@ -11,28 +11,14 @@
     "href": "index.html",
     "title": "Ali ALMASI",
     "section": "",
-    "text": "My goal is to tackle interesting AI problems by combining expert knowledge of deep learning, Bayesian inference, statistical theory and Python.\nWebsite - Blog - Email - LinkedIn"
+    "text": "I am interested in quantum information science, mostly the information-theoretic and complexity-theoretic aspects. I enjoy using tools from optimization theory, mathematical analysis, and discrete mathematics to tackle problems in these areas.\nEmail - LinkedIn"
   },
   {
     "objectID": "index.html#sec-header",
     "href": "index.html#sec-header",
     "title": "Ali ALMASI",
     "section": "",
-    "text": "My goal is to tackle interesting AI problems by combining expert knowledge of deep learning, Bayesian inference, statistical theory and Python.\nWebsite - Blog - Email - LinkedIn"
-  },
-  {
-    "objectID": "index.html#sec-professional-experience",
-    "href": "index.html#sec-professional-experience",
-    "title": "Ali ALMASI",
-    "section": " Professional experience",
-    "text": "Professional experience\n\nArtificial Intelligence Engineer\n\nGeodaisics | Sept. 2023\n\nCreation and implementation of the internal validation procedures of AI models.\nCreation of a shared workflow and tooling for the research team.\nWrote and reviewed developpement procedures for the internal Quality Management System in accordance with ISO 13485 / 14971 / 62304 / …\n\n\n\n\nSenior data Engineer\n\nMarelli - Smart Me Up | July 2022 - July 2023\n\nProject supervision: embedded gesture recognition (precision &gt;95%).\nDefinition of data needs for the Grenoble teams.\nResponsible for the internal online data annotation tool.\nSupervision of the annotation team (12 people). Creation and supervision of the data sharing procedures.\n\n\n\n\nR&D computer vision engineer\n\nMarelli Smart Me Up | April 2020 - June 2022\n\nCreation and implementation of an unsupervised stereo vision algorithm.\nCreation of an internal library to standardize R&D activity on neural networks.\nFeatures: automated code standards, unit testing, web visualization of results, reproducibility.\nTechnology watch on computer vision. Algorithms adapted: SwAV, Mean teacher, depth estimation, transformer.\n\n\n\n\nAssistant professor in Statistics\n\nEcole Polytechnique Fédérale de Lausanne | Sept. 2016 - April 2020\n\nNeurips 2016 AABI workshop Disney Research Paper Awards awarded for: Expectation Propagation performs a smoothed gradient descent, G. Dehaene.\nCreation and implementation of a method to validate the results of a Bayesian statistical analysis\nSupervision of one PhD. and three master theses."
-  },
-  {
-    "objectID": "index.html#sec-skills",
-    "href": "index.html#sec-skills",
-    "title": "Ali ALMASI",
-    "section": " Skills",
-    "text": "Skills\n\nPrograming\n\n\n\n\n\n\n\nPython  (Django, Pytorch, Tensorflow)\n\n\n\nRust\n\n\n\nJavascript\n\n\n\nHTML, CSS\n\n\n\nGit\n\n\n\nDocker\n\n\n\nLinux admin\n\n\n\n\n\n\nManagement\n\n\n\n\n\n\n\nAgile project management\n\n\n\nR&D supervision\n\n\n\nCI / CD\n\n\n\n\n\n\nArtificial Intelligence\n\n\n\n\n\n\n\nNeural networks\n\n\n\nComputer vision\n\n\n\nStatistical theory\n\n\n\nBayesian statistics\n\n\n\n\n\n\nLanguages\n\n\n\n\n\n\n\nFrench\nNative\n\n\nEnglish\nBilingual"
+    "text": "I am interested in quantum information science, mostly the information-theoretic and complexity-theoretic aspects. I enjoy using tools from optimization theory, mathematical analysis, and discrete mathematics to tackle problems in these areas.\nEmail - LinkedIn"
   },
   {
     "objectID": "index.html#sec-education",
@@ -40,6 +26,13 @@
     "title": "Ali ALMASI",
     "section": " Education",
     "text": "Education\nPh.D. in neuroscience and statistics\nUniversité de Genève, Université Paris- Descartes\n2012-2016\nEcole Polytechnique engineer diploma\nEcole Polytechnique Paris\n2008-2012\nMaster in Cognitive Science\nENS-Paris, EHESS, Université Paris-Descartes\n2011-2012"
+  },
+  {
+    "objectID": "index.html#sec-skills",
+    "href": "index.html#sec-skills",
+    "title": "Ali ALMASI",
+    "section": " Skills",
+    "text": "Skills\n\nPrograming\n\n\n\n\n\n\n\nPython  (Django, Pytorch, Tensorflow)\n\n\n\nRust\n\n\n\nJavascript\n\n\n\nHTML, CSS\n\n\n\nGit\n\n\n\nDocker\n\n\n\nLinux admin\n\n\n\n\n\n\nManagement\n\n\n\n\n\n\n\nAgile project management\n\n\n\nR&D supervision\n\n\n\nCI / CD\n\n\n\n\n\n\nArtificial Intelligence\n\n\n\n\n\n\n\nNeural networks\n\n\n\nComputer vision\n\n\n\nStatistical theory\n\n\n\nBayesian statistics\n\n\n\n\n\n\nLanguages\n\n\n\n\n\n\n\nFrench\nNative\n\n\nEnglish\nBilingual"
   },
   {
     "objectID": "index.html#sec-publications",
