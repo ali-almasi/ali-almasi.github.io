@@ -1,0 +1,38 @@
+---
+title: "Installing spotify's annoy on a Windows machine"
+description: |
+    Spotify has shared the `annoy` library for nearest-neighbor calculations.
+    However, trying to install it on Windows can give cryptic errors if python does not have access to the latest C compiler.
+    In this post, I tell you how to fix this issue.
+date: "04/23/2024"
+categories:
+  - python
+---
+
+# Installation errors for annoy
+
+When trying to install [the annoy python library](https://pypi.org/project/annoy/), you might encounter a cryptic error like: `error: command 'gcc'. failed with exit status 1`
+This error is due to python not having access to the latest C compiler.
+
+When searching for a solution to this problem, I found many poor solutions which instead advised to use pre-compiled versions. Please, please, please never use random compiled code from unvetted third parties: that's a major security risk!
+Instead, this error is very easy to fix: we just have to install the latest version of the C compiler.
+
+# Installing the C compiler on Windows
+
+Microsoft provides [a download link for the C++ build tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
+This actually downloads an installer util which will itself install the build tools:
+
+1. Download the file from the Microsoft website.
+1. Run it.
+1. Among the many installation options, select the latest version *Visual Studio Build Tools* (at the time of this writing, 2022).
+
+    ![](visual_studio_build_tools.png)
+
+And done! You should now be able to install annoy:
+
+```
+pip install annoy
+```
+
+When installing python packages, please keep in mind the good practice of creating a separate environment for each project.
+I recommend using the built-in `venv` util for this, and accessing it via the VSCode command line.

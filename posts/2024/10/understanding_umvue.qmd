@@ -1,0 +1,196 @@
+---
+title: "Some understanding for UMVUE (Uniformly Minimum Variance Unbiased Estimator)"
+description: |
+    The study of Uniformly Minimum Variance Unbiased Estimators (UMVUE) is
+    an old-fashioned but interesting bit of statistical theory.
+    In this post, I consider a very minimal toy-model with no UMVUE and show
+    a family of estimators which are efficient at a single point in space
+    and suboptimal everywhere else.
+date: "10/05/2024"
+categories:
+  - math
+  - stackoverflow
+---
+
+It is hard to build consensus in statistical theory
+because it is very hard to formulate a universal set of clear universal rules
+that one should follow when analysing data.
+For example, if we want to estimate some parameter $\theta$ given some data $x_1 \dots x_n$ and a parametric probabilistic model $\theta \rightarrow X_i$, we could:
+
+- compute the maximum likelihood estimator,
+- add a prior on $\theta$ and compute a Bayesian estimator,
+- use a moment-matching technique,
+- use a robust method,
+- etc.
+
+An early direction for work in statistical theory was to focus instead on comparisons.
+If finding the best estimator was too tricky, perhaps it would be easier to find
+that some estimators are *dominated* by others, ie using them is guaranteed to be worse.
+For example, if we have two candidate estimators but the second candidate always has smaller variance than the first one, it would be foolish to continue using the first one.
+
+The study of UMVUE is a limitting case of this logic in which we are able to prove that, among the class of unbiased estimators, there is a clear best candidate.
+As we will discuss, this is a very rare occurence.
+
+I was inspired by [this old question on stack-overflow and I have written a shorter version on this post over there](https://math.stackexchange.com/questions/1051346/optimal-unbiased-estimator/5015204#5015204).
+
+When writing this post, I assume that you already have a background level in some key concepts of statistical theory. I hope that it can bring these concepts into a new light. If self-studying, I recommend the Casella-Berger *Statistical Inference* book which should be easy to find.
+
+# Some background in statistical theory
+
+## Comparing estimators
+
+Assume that we want to compare two estimators $\hat \theta_1$ and $\hat \theta_2$,
+constructed somehow on the basis of some dataset $x_i$.
+Comparing the precise conditional distributions of these estimators would be:
+
+- an extremely complex task, since deriving conditional distributions for complex estimators is very hard;
+- useless, because comparing distributions is extremely tricky.
+
+Instead, we can take a step back.
+We care about these estimators because we want to reconstruct $\theta$ precisely.
+By choosing an appropriate loss-function, we can encode in a mathematically-precise way
+what exactly it means to "reconstruct precisely" $\theta$.
+Recall that a loss function combines the true value of $\theta$ and an estimated value $\hat \theta$ and returns a numeric loss associated to this pair.
+
+$$
+L: \theta, \hat \theta \rightarrow l \in \mathbb R
+$$
+
+Given a loss function, we can now compare the two estimators based on their expected losses at each value of $\theta$.
+These are two functions:
+
+$$
+\theta \rightarrow \mathbb E_\theta \big[ L(\theta, \hat \theta) \big]
+$$
+
+When comparing two estimators, we can have two scenarios.
+
+- At every value of $\theta$, one estimator is better than the other.
+    This means that this estimator **dominates** the other.
+    It would be very weird to choose a dominated estimator since you incur a net loss doing so.
+
+- One estimator dominates one some regions but is dominated on other regions.
+    This means that there is no clear hierarchy between the two estimators.
+
+Mathematically, we thus have constructed a [partial order](https://en.wikipedia.org/wiki/Partially_ordered_set) on the ensemble of estimators.
+This is far from perfect but it is (somewhat[^Having a single loss function fails to represent the full diversity of the ensemble. We are back to the issue of comparing conditional distributions. Perhaps we should consider multiple expected losses, constructed on multiple losses representing different aspects of faithfulness of $\hat \theta$ to $\theta$?]) faithful to the complexity of that ensemble.
+If we really want to have a full order, then we need to somehow collapse the function to a single value (while conserving the usual properties of an order):
+
+- either by taking the $\max$: this justifies the study of minimax estimators,
+- or by taking an average over $\theta$: this gives us a Bayesian perspective on loss functions which justifies Bayesian inference from another angle.
+
+## Unbiased estimators
+
+A key subset of estimators is the class of *unbiased estimators*.
+These are such that their mean is correctly centered at $\theta$:
+
+$$
+\mathbb E_\theta (\hat \theta) = \theta
+$$
+
+Note that, while the mean has obviously a key role in probability and statistics, it is not obvious that it would be the best way to encode the center of an estimator.
+Perhaps it could be more relevant, in some specific scenario, to consider estimators with an unbiased median, or an unbiased trimmed mean.
+
+There are two reasons why we care about unbiased estimators. The first one is very practical. Among estimators, biased estimators are very common and straightforward to understand. The extreme case is the constant estimators: $\hat \theta = \theta_0$. Frustratingly, biased estimators are locally optimal according to the partial order we just defined on estimators. For example, the constant estimators cannot be beat at $\theta_0$, by definition. Restricting our study to unbiased estimators enables us to exclude these "cheating" estimators.
+
+The second key reason is the fact that we can prove things on estimators with an unbiased mean. The key result is the [Cramer-Rao theorem](https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound) which establishes that any unbiased estimator has a minimal variance which depends on $\theta$ and the conditional model of the underlying data.
+
+## UMVUE theory
+
+We now have sufficient background to discuss what a UMVUE is.
+A [UMVUE](https://en.wikipedia.org/wiki/Minimum-variance_unbiased_estimator) is an estimator that:
+
+- is unbiased,
+- has minimal variance; i.e. is globally optimal for the expected $L^2$ loss: $L^2(\theta, \hat \theta) = (\hat \theta - \theta)^2$.
+
+This is a very strong property since it requires that the partial order is somehow such that it has single global optimum.
+
+Unsurprisingly, UMVUE typically do not exist. The [Lehmann-Scheffé theorem](https://en.wikipedia.org/wiki/Lehmann%E2%80%93Scheff%C3%A9_theorem) gives sufficient conditions for their existence (and unicity). Roughly, we can have an UMVUE for the moment-parameters of exponential families.
+
+# A simple exemple with no UMVUE
+
+The thing that was bugging was the following.
+If our data is such that we do not have a complete statistic, then the argument of the Lehmann-Scheffé theorem does not work and we cannot construct a UMVUE candidate.
+However, that does not prove that a UMVUE does not exist, just that our proof is too limited.
+This made me very curious about how to construct minimal examples in which a UMVUE does not exist.
+Here is one very simple construction.
+
+Consider the following model.
+
+- We have a one-dimensional parameter $\theta \in \mathbb R$.
+- We generate a random scale $S$. For example[^For the curious reader, we will need that the distribution of $S$ does not put too much weight near $0$.], uniformly distributed on $[1,2]$: $S \sim U[1,2]$.
+- We generate a single datapoint by adding scaled Gaussian noise to $\theta$.
+
+In a single equation:
+
+$$
+\begin{align}
+\theta &\in \mathbb R \\
+S &\sim U[1, 2] \\
+Z &\sim \mathcal N(0, 1) \\
+X &= \theta + S Z \\
+\end{align}
+$$
+
+$X$ is then a very natural unbiased estimator of $\theta$ with constant variance:
+
+$$
+\operatorname{var}(X) = E(S^2)
+$$
+
+However, we cannot apply the Lehmann-Scheffé theorem since $s$ provides ancillary information and the pair $S,X$ is sufficient but not complete.
+
+Can we now construct other unbiased estimators which are somehow better than $X$?
+My insistence on recalling the Cramer-Rao bound is a strong hint that yes.
+Indeed, applying the Cramer-Rao bound to my example yields:
+
+$$
+\operatorname{var}(\hat \theta) \geq \big[ \mathbb E (1 / S^2) \big]^{-1} = I^{-1}
+$$
+
+which is smaller than the variance of $X$ due to the Jensen inequality applied to the convex function: $s \rightarrow 1/s^2$.
+
+We can thus try to construct an estimator which reaches the Cramer-Rao bound. Consider estimators of the form:
+
+$$
+\hat \theta = \theta_0 + w(s) (X - \theta_0)
+$$
+
+where $w(s)$ is some weight function. These estimators bias $X$ towards $\theta_0$ by weighting the evidence according to the $w(s)$ function.
+
+In order for such estimators to be unbiased, they need to respect $\mathbb E[w(S)] = 1$. Plugging in $w(S) = 1 / I / S^2$ (with $I$ the Fisher information $I = \mathbb E (1 / S^2) $), we find the $L^2$ error of this estimator:
+
+$$
+\mathbb E (\hat \theta - \theta)^2 = \mathbb E (w(S) - 1)^2 (\theta - \theta_0)^2 + I^-1
+$$
+
+These weighted estimators are thus unbiased and locally optimal at $\theta_0$ where they exactly saturate the Cramer-Rao bound.
+
+The existence of this family of estimators demonstrates the impossibility of the existence of a UMVUE in this example.
+Indeed, in order to be a UMVUE, an estimator would need to saturate the Cramer-Rao bound everywhere so that it improves on each single estimator in the family.
+This is impossible because, in order to saturate the Cramer-Rao bound at $\theta_0$, a unbiased estimator needs to be proportional to the score function at $\theta_0$ (the partial derivative with respect to $\theta_0$ of the log-likelihood) which is exactly how I constructed the local estimators.
+Since you cannot be proportional to multiple local estimators at once, there is no UMVUE.
+
+Instead, in this example, we need to choose between several reasonable estimators:
+
+- a minimax estimator $X$ which is decent everywhere,
+- locally optimal estimators which are maximally efficient at $\theta_0$, which improve on $X$ in a neighborhood of $\theta_0$ but are increasingly worse as we move away from $\theta_0$.
+
+# Getting value out of an example
+
+I have just presented a single example of a model in which the UMVUE does not exist and this might seem irrelevant.
+Indeed, the field of mathematics does not place a lot of value on examples.
+However, I strongly disagree with this point of view:
+in my opinion, examples such as this one are a great platforms on which to build mathematical intuition which can then be strenghtened by mathematical rigor.
+
+Here, this example is very valuable because it is a *toy-model*, a simplified situtation in which we can carry out rigorous analysis but which remains representative of a large class of practical situations.
+This model is simple in the following ways:
+
+- We have a Gaussian model with unknown mean, i.e. the simplest statistical model with great mathematical properties.
+- The the scale of the noise is randomized but observed.
+
+As a consequence, we have a clear unbiased estimator, we were able to derive the Fisher information, the locally optimal estimators (and they are unbiased!) and prove that the UMVUE does not exist.
+However, the overall structure of this model is universal.
+Many models have this structure in which we actually care about a single parameter, or a subset of parameters, and the other parameters are mostly a *nuisance* which impacts the quality of the information about the parameters of interest.
+In such situations, this analysis of the toy model shows that we will likely have a similar situation as here:
+we will again have a choice between globally efficient estimators and locally efficient ones.

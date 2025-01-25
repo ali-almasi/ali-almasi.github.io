@@ -1,0 +1,156 @@
+---
+title: "After action report: running a simple statistical experiment"
+description: |
+    I wanted to test a simple statistical method so I ran a simulation-based experiment. This post gives an after action report of my priorities and process to validate my method.
+date: "05/15/2024"
+categories:
+  - statistics
+  - data science
+---
+
+# Experiments in statistics
+
+The premise of this post might seem slightly weird to some. Can we actually run experiments in Statistics? But, at the heart of statistics lies the following trio:
+
+1.  A *probabilistic model*, which generates the data.
+2.  An *analysis algorithm*, which produces some result from the data.
+3.  A *good property*^[I know that this is a very ambiguous statement. Data science has several frameworks which define the particular good properties that are interesting. For the present post, I do not wish to go further.] that the result has.
+
+For example, the empirical mean of the dataset is close to the true mean of the data-generating model.
+
+Critically, the algorithm needs to be tuned to the model. Each analysis algorithm typically applies to an ensemble of models which share some features. If an algorithm is applied to a model that does not have the right features, then the *good property* probably does not apply.
+
+Typically, we find the constraints that the model must respect through a sophisticated probabilistic analysis and we prove a theorem clearly establishing when the *good property* holds. But such theorems are often limited: they only show that the property holds, up to a small error. That's where experiments also have role to play:
+
+1.  They can give concrete proof of the performance of an algorithm.
+2.  They can serve as a basis to build intuition.
+
+That's why, even if it is probably a bit heretical for a statistician, I am a big believer in high-quality statistical experiments^[Not convinced? Then consider deep neural networks. They are, by-far, the largest breakthrough in data science in the last 20 years, and they have been built purely on the back of empirical results.].
+
+# The situation
+
+The precise details of my situation are not particularly important: my process typically does not vary that much. In this case, I have a classification problem where I want to predict the correct class, and also give a confidence level associated to that prediction. We have a current baseline method, and I have an improvement in mind.
+
+I thus have a simple plan in mind:
+
+1.  I will create a python project (see @sec-project-management if you want details).
+2.  Where I can implement both the existing method and a variant.
+3.  Where I can tune the data-generating model.
+4.  Where I can compute the performance of both methods.
+
+This will give a simple tunable benchmark to check that, under a wide range of conditions, the new method is indeed better.
+
+## Data-generating model
+
+For my model, I have the following constraints:
+
+1.  I want to generate pairs consisting of a class $C$ and 2D features $X$. Each class will have a different distribution for $X$. I want to be able to tune the number of classes, but I will use 3 classes.
+2.  I want a model that has an explicit density function for $X$ given $C$.
+3.  I don't want to use a simple model, such as a Gaussian, Gamma, etc.
+4.  I want to be able to tune the model easily from an external configuration file.
+
+Using a mixture distribution is the simplest way to accomplish this: the density of the mixture is the weighted sum of the densities of each component. Using student distributions instead of Gaussians gives dense tails to the density, and I like using models which produce outliers. Please see @sec-generating-student-mixture for details.
+
+All of this data-generation mechanism is supported by a small amount of reusable python code.
+This means that all of the steps are straightforward to reproduce or modify in the future.
+
+
+## Performance comparison
+
+In this experiment, I want to compare:
+
+- a standard method.
+- an improvement.
+
+In order to make this comparison quantitative, I need to define:
+
+- an experimental setup where both methods can be applied simultaneously.
+- one (or multiple) measures of the performance of each method.
+
+For this specific example, my problem is a problem of *classification*. I should thus measure:
+
+1. whether the predictions of each method are correct or not.
+1. whether the uncertainty estimates associated to each method are correct or not.
+
+For point 1. there are many standard measures of the quality of a prediction. Let's pick the precision and recall as good baselines.
+For point 2. we enter trickier territory.
+I took a solid hour before deciding to use the *Brier score* (L2 loss over the probabilities) and a custom measure of the whether the predicted probabilities of each class match the actual probabilities.
+Explaining the details of this choice is out-of-topic for this post.
+
+The critical points here are:
+
+- I have several quantitative measures of the performance of both methods.
+- I took the time to think in detail about these measures of performance.
+- Since I'm working with artifical data, I can compare the performance to the best possible performance: the one that an oracle that knows the data-generating model would reach.
+
+Again, all of this I translate into concise and reusable python code.
+
+## Experiments
+
+Finally, I can combine my data-generating mecanism and my measures of performance.
+This yields several experiments to compare my methods to one-another, and to the performance of an oracle with knowledge of the data-generating process.
+
+I can then:
+
+- observe how tweaking the parameters of the experiments modifies the measures of performance for both algorithms, and the gap between the two,
+- play-around with the difficulty of the class. Here, this corresponds to separating the classes more,
+- play around with class-imbalance,
+- play around with drift between the training dataset and the validation dataset, for example by modifying the proportion of each class in both sets.
+
+Overall, this gave me great confidence in the gains of the tweaked method, and a bit of additional understanding of its strengths.
+
+# Key points
+
+1. Statistics / data-science is an applied discipline. Controlled experiments with toy-data can thus be a great way to improve our understanding of our methods.
+1. This requires using non-trivial data. I believe that a mixture of student distributions is a good starting point. It is critical to avoid cases that are too easy since they might lack some critical features of realistic data, such as:
+    1. outliers / exceptional datapoints,
+    1. ambiguity between classes,
+    1. non-linearity.
+1. Comparison between methods needs to be quantitative. We should use, if possible, simple and well-established measures of performance. We should understand the statistical relevance of these measures. If possible, we should compare the performance of all methods to the performance of an oracle knowning the data-generating process, since this provides an upper-bound on the performance of any method.
+1. This should be supported by high-quality code that is easy to tweak and to reuse. This code should be tested to avoid bugs.
+
+I am a great believer in this approach to statistics / data science, and I hope you can succesfully integrate it in your own work.
+
+# Python project: physical organization {.appendix #sec-project-management}
+
+In case you need guidance on this point, here is my default file-structure in a project.
+
+```
+project_root/
+├─ data/
+│  ├─ some_data.csv
+├─ scripts/
+│  ├─ experiment_1.py
+│  ├─ experiment_2.py
+│  ├─ experiment_3.py
+├─ src/
+│  ├─ library_name/
+│  │  ├─ __ini__.py
+│  │  ├─ file.py
+├─ test/
+│  ├─ test1.py
+├─ .gitignore
+├─ pyproject.toml
+├─ README.md
+```
+
+It's a very standard structure:
+
+- I'm using the modern `pyproject.toml` specification for dependencies and setup, instead of having a `requirements.txt` file.
+- data is saved in a separate folder, in a human-readable format. It gets commited as part of the project.
+- any generalist function is saved in a python module / library saved under `src/library_name`.
+- any script manipulating these functions to achieve a result (here: run an experiment) is saved under `scripts`.
+- tests (using `pytest`) are separately saved under the `tests` folder. Always write test code.
+
+# Generating a Student mixture {.appendix #sec-generating-student-mixture}
+
+To generate the parameterization of the mixture, for each class:
+
+- I define a list of centers, which roughly draw a tree-shape over the space.
+    Each tree starts at `0,0`, which will have an ambiguous class attribution.
+    Each class goes in a different direction.
+- I sample several (random number between 3 and 6) IID Gaussians centered around each center.
+- I give each center a random weight, using a Gamma distribution.
+
+I tweaked the centers and the parameters of the sampling until I was visually satisfied with the result, then saved the mixture parameters in a json file.
+This makes sure that the mixture is (somewhat) human-readable but, more importantly, that it is machine-readable, can be shared trivially, can be resampled, can be commited to git, etc.

@@ -1,0 +1,142 @@
+---
+title: "Configuring a Quarto website"
+description: |
+    Setting up a Quarto website is not trivial.
+    In this post, I discuss how to setup the `_quarto.yml` configuration file optimally.
+date: "03/31/2024"
+categories:
+  - quarto
+---
+
+# Quarto website configuration
+
+[Quarto offers a lot of configuration options for html](https://quarto.org/docs/reference/formats/html.html) [and also for websites](https://quarto.org/docs/reference/projects/websites.html)!
+In this post, I focus on the configuration options I believe to be the most important.
+These are, of course, a reflection of my personnal priorities, but I hope it can serve as a stepping stone towards your own mastery of Quarto.
+
+Remember that all of these options can be modified on a document-by-document basis by modifying the yaml header of the `.qmd` file.
+
+# My choices
+
+Here is my current global settings file with comments. [Check out the latest version here](https://github.com/GuillaumeDehaene/guillaumedehaene.github.io/blob/main/_quarto.yml).
+
+```{.yaml filename="_quarto.yml"}
+project:
+    type: website       #<1>
+    output-dir: docs    #<1>
+    resources:          #<1>
+        - CNAME         #<1>
+
+website:
+    title: "Guillaume Dehaene"
+    site-url: www.guillaumedehaene.com
+    page-footer: "This website was created with [Quarto](https://quarto.org/)."     #<2>
+    page-navigation: true           #<3>
+    back-to-top-navigation: true    #<3>
+    navbar:
+        left:
+            - blog.qmd
+        right:
+            - publications.qmd
+            -   href: about.html
+                # file: about.qmd
+                text: About me
+
+format:
+    html:
+        theme:  #<4>
+            - cosmo  #<4>
+            - style.scss  #<4>
+        mainfont: "EB Garamond, Georgia, serif"  #<4>
+        monofont: Fira Code, consolas, courier, monospace  #<4>
+        highlight-style: github  #<4>
+
+        html-math-method:  #<4>
+            method: mathjax  #<4>
+            url: "https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-mml-chtml.js"  #<4>
+        include-in-header:
+            text: |
+                <style>  #<4>
+                @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap')   #<4>
+                @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap')   #<4>
+                </style>   #<4>
+                <script>
+                MathJax = {    #<5>
+                    tex: {    #<5>
+                        tags: 'ams'  // should be 'ams', 'none', or 'all'     #<5>
+                    },    #<5>
+                    output: {    #<6>
+                        font: 'mathjax-fira'   #<6>
+                    }   #<6>
+                };
+                </script>
+        
+        toc: true   #<7>
+        toc-location: right-body   #<7>
+        
+        number-sections: true   #<8>
+        number-depth: 3   #<8>
+
+        shift-heading-level-by: 1   #<9>
+        anchor-sections: true   #<9>
+
+        code-copy: true     #<10>
+
+        code-tools: true    #<11>
+
+        freeze: auto    #<12>
+
+        link-external-icon: true        #<13>
+        link-external-newwindow: true        #<13>
+
+        lang: en    #<14>
+
+        strip-comments: true    #<15>
+```
+
+1. [Publishing to github pages using this method](https://quarto.org/docs/publishing/github-pages.html#render-to-docs).
+2. A simple footer which I'll need to improve latter.
+3. Add page navigation information.
+4. Styling options. [See my blog post on how I built the styling](styling_a_quarto_blog.qmd).
+5. Number (almost all)^[Equations can either be delimited by `$$ $$` signs or an *ams-delimiter* (for example: `\begin{equation} \end{equation}`). This numbers all ams equations. I'll have more to say about math in future posts.] all math equations.
+6. Styling options. [See my blog post on how I built the styling](styling_a_quarto_blog.qmd).
+7. Including a toc menu:
+    - makes each page easy to navigate.
+    - makes it obvious what content is present on the page, acting as a sort of introduction, without taking up space.
+    The default setting makes it so that the content menu is invisible on small screens like phones. This `right-body` setting adds an additional TOC at the beginning of the content. I might make that second TOC invisible on large-screens in the future since it is invasive.
+8. Numbering sections, more or less like a Latex document. Headers from `#` to `###` get numbered.
+9. Adding an anchor symbol to headers. This is purely about communicating to the user that they can link to headers. `shift-heading-level-by: 1` is necessary here. It converts `#` titles to `<h2>` instead of `<h1>`. `<h1>` elements do not receive the anchor treatment.
+10. Add a "copy code" anchor to code blocks. Another nice user-facing feature.
+11. Add a button to view the Quarto markdown source of each document. This is not a super useful feature but it has no downside.
+12. Avoid repeating Python calculations to decrease document rendering time.
+13. Add additional styling to make obvious to the user which links are external and open these in new windows / tabs.
+14. Use english language for automated language construction.
+15. Remove html comments from the source. Any comment I write are about the Quarto content, and are not relevant for the HTML document.
+
+
+# Page-specific options
+
+These settings get applied globally accross the website, but they are not appropriate for special pages.
+Thankfully, we can override the global parameters on a given by giving them another value in the yaml header.
+
+I've used this feature to customize the settings on the `about.html` page.
+
+```yaml
+anchor-sections: false
+number-sections: false
+code-tools: false
+```
+
+This page has a very different type of content. Numbering sections, anchoring all sections, and providing the page source are all features which distract from that content. Interestingly, some features are automatically removed just by using the `about` page format.
+
+# Other interesting options
+
+These options are presented in the order in which they appear in the Quarto docs:
+
+- `smooth-scroll`: instead of jumping to the target anchor, scroll the page smoothly. I feel that this improves the wow factor of the website, but it can also be annoying. It's definitely a matter of personnal preference.
+- `html-math-method`: choose the math renderer. mathjax is the best as far as I'm concerned (especially with version 4.0 on the way) but you can try out the other options.
+- `linestretch`: more space between lines. Can be the right choice if you want to produce a document that a reviewer would print. That's not really a website option though.
+- `lightbox`: Give a gallery scroller to the figures. I feel that this setting depends on the type of documents you write. For an article, I feel this should be on. I believe that Nature and several other journals use a similar type of styling for their figures.
+- `crossref`: if you want to [customize the behavior of cross-references](https://quarto.org/docs/reference/metadata/crossref.html).
+- `include-in-header`, `include-before-body`, `include-after-body`: these commands inject html code or files in specific sections of the final document. If you need to do some advanced features, you probably need this.
+- `copyright`, `license`: the information gets added to the appendix of the document.

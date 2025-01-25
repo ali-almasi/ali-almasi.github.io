@@ -1,0 +1,10 @@
+---
+draft: True
+
+title: "How does Quarto work"
+description: |
+    Understanding a tool is critical to using it well. Let's try to understand the important details of how Quarto works.
+date: ""
+categories:
+  - quarto
+---

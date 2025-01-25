@@ -1,0 +1,103 @@
+---
+title: "Connecting gitlab to redmine"
+description: |
+    Connecting gitlab to a redmine ticket-management server. Why? Because their ticket management is slightly better.
+date: "06/10/2024"
+---
+
+In this blog post, I tell you how to connect:
+
+- [redmine](www.redmine.org/), an open source ticket management system,
+- [gitlab](about.gitlab.com/), a open-core source management system based on git.
+
+Our objective was to create a system so that redmine tickets can be linked to the code commits addressing them.
+
+In our current workflow, we follow these steps:
+
+- We create a ticket on redmine. For example: issue 42 could be `Find the meaning of life`.
+- We create a new branch addressing this ticket: `42_find_the_meaning_of_life`.
+- When creating a merge request, we mention in the description the related issues and describe the changes introduced by the MR:
+    
+    ```
+    Close #42
+
+    - Found the formula for the meaning of life.
+    ```
+- This description and other key information is added to the git commit message.
+- Information in the commit messages is linked to the redmine ticket.
+
+# Gitlab to redmine connection
+
+The connection from gitlab to redmine is minimalist and straightforward to setup.
+
+Normally, gitlab provides automated functionality to parse patterns of the form `#ID` (where `ID` is an integer) in any text block on the site. When this pattern is identified, it is linked to the gitlab issue with the same number. We wanted to use redmine as an issue tracker instead of gitlab. Gitlab provides a simple way to do so.
+
+- For each repository, [disable gitlab issues](https://docs.gitlab.com/ee/user/project/settings/index.html#configure-project-features-and-permissions).
+- For each repository, [enable the redmine connection](https://docs.gitlab.com/ee/user/project/integrations/redmine.html).
+
+# Redmine to git connection
+
+Things will now get trickier. We cannot directly connect redmine to gitlab. Instead, we will connect redmine to git. This will make git commit messages visible on redmine.
+
+Once git commit messages are visible on redmine, you can choose patterns to automatically link a specific commit to a redmine work item. Commits can also be manually linked to a work item, via the web interface.
+
+Annoyingly, redmine only refreshes which commits the web server is aware of when somebody visits the repository page on its web interface.
+
+- On the machine hosting your redmine instance:
+
+    1. Authentify as `www-data` user: `sudo -su www-data` (or whichever user is used by your redmine installation).
+    1. Create a folder to host repositories. For example: `/var/www/repos`.
+    1. Create a method to authenticate this machine on your gitlab server. For example, you can create a new user:
+        1. Create a new gitlab user for your redmine machine.
+        1. Create a ssh key: `ssh-keygen -t ed25519`; note save location.
+        1. Copy ssh key: `cat PATH/TO/id_ed25519.pub`.
+        1. Save ssh key in gitlab user preferences.
+    1. Clone project **with mirror option**: `git clone --mirror SSH_CLONE_ADDRESS`.
+    1. Create a cron task to fetch all repositories:
+        1. ⚠️ You only need to do this once. ⚠️
+        1. Create a script to fetch all repositories: `nano git_fetch_all.sh`
+
+            ```
+            #!/bin/sh
+            echo "Starting fetch script"
+            for dir in $(ls -d /var/www/repos/*/); do
+                echo "fetching $dir" && cd "$dir" && git fetch -q --all -p && cd ..
+            done
+            echo "Fetch script done"
+            ```
+        
+        1. Create a cron task to run the script:
+
+            1. Open cron edit: `crontab -u www-data -e`.
+            1. Add a new line: `*/1 * * * * (sh /var/www/repos/git_fetch_all.sh) > /var/www/repos/log`.
+
+- On the redmine web interface:
+
+    1. In the global settings:
+
+        1. In tab `repositories`, select `git` as `enabled scm`.
+        1. Change `referencing keywords` to: `*`.
+
+    1. In the target project:
+        1. In settings, open repositories tab.
+        1. Add new repository with path `/var/www/repos/PROJECT_NAME.git`.
+
+- Debug:
+
+    1. If redmine reports a 404 error, check paths.
+    1. If redmine reports a 403 error, check ownership of all folders.
+    1. If the repositories do not update on the machine:
+    
+        1. Check that the script runs correctly.
+        1. Check that the cron task is correctly set for the www-data user.
+
+    1. If the commits do not update in work items:
+
+        1. redmine only refreshes which commits the web server is aware of when somebody visits the repository page on its web interface. Check on the specific page corresponding to the repository where the commit has been added.
+
+# Gitlab connection
+
+We can now connect gitlab to redmine by writing information about gitlab into git commit messages. Whenever we accept a merge request on gitlab, a merge request commit and, optionally, a squash commit are created. We can customize the commit messages for both to link these commits to redmine issues. By default, the commit messages reproduce the description of the merge request, but additional information can be added.
+
+- Make a habit of mentionning in the merge request description which redmine items are concerned with the `#ID` syntax.
+- For each repository, [write a custom commit message template](https://docs.gitlab.com/ee/user/project/merge_requests/commit_templates.html) to include the information you wish to be present on redmine.

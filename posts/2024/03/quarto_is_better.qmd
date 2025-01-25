@@ -1,0 +1,120 @@
+---
+title: "Don't use Latex: Quarto is better!"
+description: |
+    Latex is the defacto standard typesetting tool in large fractions of the academic world, but can we do better?
+    Now that Quarto is around, the answer is yes!
+date: "03/28/2024"
+categories:
+  - typesetting
+  - quarto
+  - latex
+---
+
+# The sales pitch
+
+Latex has a very simple sales pitch.
+
+> Do you want to author high-quality technical documents?
+> Then we have the right tool for the job!
+> (And it's also mandatory if you plan on publishing it in an academic journal).
+
+Pretty compelling!
+
+But Latex is also 40 year old software that has a number of issues.
+What if I told you that you can better by using [Quarto](www.quarto.org)?
+
+- publish to a much wider variety of formats including HTML.
+- dynamic figures in HTML.
+- simplify the syntax of your source document.
+- integrate with Python, Javascript, Julia, R for figure generation (or any sort of content generation).
+
+Even more compelling, right?
+
+# Latex use cases
+
+Let's start by reviewing typical use cases for Latex. Here are some typical use cases:
+
+1. I want to author a technical document that I will distribute myself. E.g. exercise sheets, presentations, notes.
+1. I want to author a group of technical documents that I will distirbute myself. E.g. for an academic class, I would write class notes, multiple presentations, and exercise sheets.
+1. I want to author a research article that I will distribute myself.
+1. I want to author a research article to the specific requirements of the Journal of Awesome Research.
+
+Among these requirements, point 4. is the most constrained. Many technical journals have integrated Latex as part of their publishing workflow. They thus require authors to submit their manuscripts as Latex files so that they can be processed automatically. For example, as part of the review process, the document is first compiled using review settings (increased margins, skipping lines, more space between paragraphs) whereas the final published article is compiled using more standard settings.
+
+Even if you aren't forced into using Latex, it still provides a decent solution for all these points. Once you have mastered it, Latex produces beautiful and clear documents with consistent styling. It is slightly trickier to coordinate a corpus of documents but it is still doable.
+
+But Latex is also more than 40 years old and like other long-running software, it has got a few limits. My main criticisms would be:
+
+1. **heavy syntax**. Obviously, with sufficient work, you reach a point where you can parse Latex (and having syntactic coloring helps!), but the ratio of code to content is never negligible.
+1. **poor documentation**. Latex is a confusing language and accessing the right level of detail is extremely hard. Most times, when you search for information about the right solution to a problem, you find an old stackoverflow post with a recipe with no explanation. Hopefully, that fixes your issue but your understanding doesn't grow.
+1. **very steep learning curve**. These first two points compound to make Latex very tricky to learn.
+1. **slow compilation**. Seeing the rendered result of what you are currently working on can take multiple seconds or even minutes.
+1. **limited output formats**. Latex is built to generate pdf content, but HTML documents can provide a much better support:
+    - they adapt to the screen size.
+    - they support dynamic figures (zooming, selecting subsets of data, etc.).
+    - with some degree of javascript mastery, the sky is the limit.
+1. **hard to extend**. It is hard to interact with the Latex core and integrate additional software with it.
+
+If want to expand on point 5. a bit more, since it might seem like a fairly minor point. To me, a key aspect of evaluating software is seeing how it can integrate with other software: the value of software is also derived from the environment surrounding it. For example, if every math journal on earth used MSWord (*shudders*), then the value of Latex would be considerably diminished for mathematicians. The fact that it is not possible to easily integrate tweaks and improvements from other software into Latex is a mark against it. For example, if suddenly someone invents a great javascript visualization tool, then we lose value by not being able to use that easily in Latex.
+
+Now, please understand that these flaws do not mean that Latex is bad. It is a great system for typesetting documents. But we can do better, even if we want to remain compatible with the requirement of being able to produce a .tex file for journal submission. The solution is [Quarto](www.quarto.org).
+
+# Quarto improvements
+
+[Quarto](www.quarto.org) is a modern alternative to Latex. It is built for publishing technical documents, whether academic or not. Its key features are:
+
+- clear and simple **markdown** syntax.
+- built-in support for generating dynamic content in Python, Javascript, Julia, or R.
+- focus on producing crisp HTML documents.
+- dynamic figures.
+- expanded syntax for code blocks, diagrams, callouts, etc.
+- Latex compatibility: Quarto documents can always be exported to Latex format.
+- support for [a huge variety of output formats](https://quarto.org/docs/output-formats/all-formats.html) including:
+    - MSWord and Powerpoint (and their open office variants), when you want to do manual tweaking.
+    - Several wiki formats.
+    - Several ebook formats.
+- support for coordinated ensemble of documents: websites, books, etc. This website is written in Quarto.
+- easily tweakable. Quarto has built-in support for extensions and [a large library of user-supplied extensions](https://quarto.org/docs/extensions/).
+
+Personally, the shift to markdown syntax is the biggest draw for me. The key idea of markdown is that simplicity is essential:
+
+> A Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions. – John Gruber
+
+Compare the following two fairly minimal documents with a title and a list, in markdown and Latex:
+
+```markdown
+# Choosing a language
+
+When choosing a language to write content:
+
+1. Source document should be easily human readable.
+1. Source document should be easily computer readable, except where it conflicts with rule 1.
+```
+
+```latex
+\section{Choosing a language}
+
+When choosing a language to write content:
+
+\begin{enumerate}
+\item Source document should be easily human readable.
+\item Source document should be easily computer readable, except where it conflicts with rule 1.
+\end{enumerate}
+```
+
+Not quite convinced by this simple example?
+Then I leave as an exercise to you, dear reader, to imagine the Latex code that would generate these two blocks of raw code with syntactic coloring.
+
+# Try Quarto
+
+Curious? Then give it a try and [download Quarto](https://quarto.org/docs/download/)!
+
+Try the following:
+
+- get familiar with the basic syntax.
+- try [mermaid diagrams](https://quarto.org/docs/authoring/diagrams.html#mermaid).
+- if you are already familiar with Python, try [a plotly interactive figure](https://quarto.org/docs/interactive/widgets/jupyter.html#plotly)
+- render to html and pdf, and compare the results.
+- render to Latex.
+
+Are you curious how Quarto manages to do all that? I'll address that in a future post. Unlike Latex, it is very possible to understand what goes on under-the-hood of Quarto and tweak it.

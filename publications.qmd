@@ -1,0 +1,103 @@
+---
+title: "My research"
+---
+
+I currently work full-time as an AI software engineer.
+This page recaps my work in statistics as a PhD. student at university of Geneva and as an instructor at *Ecole Polytechnique Fédérale de Lausanne* (EPFL) (from 2012 to 2020):
+
+- [my published articles](#publications).
+- [my research interests](#research-interests).
+
+# Publications
+
+## A deterministic and computable Bernstein-von Mises theorem
+
+**Guillaume Dehaene, 2019**.
+
+[Article link](https://arxiv.org/abs/1904.02505).
+
+In order to make Bayesian inference possible on large datasets, approximations are required. For example, computing the Laplace approximation is straightforward since it only requires finding the maximum of the posterior. However, while the Bernstein-von Mises theorem guarantees that the error of the Laplace approximation goes to  in the limit of infinitely large datasets, it is hard to measure precisely the size of the error in a given example.
+
+This article derives a tight and computable elegant approximation of the size of this error. I show that the Kullback-Leibler divergence between a given probability distribution and its Laplace approximation can be approximated using the “Kullback-Leibler variance”
+
+## Computing the quality of the Laplace approximation
+
+**Guillaume Dehaene, 2017**, AABI NIPS 2017 Workshop.
+
+[Article link](https://arxiv.org/abs/1711.08911).
+
+Bayesian inference requires approximations because the posterior distribution is generally uncomputable. The Laplace approximation is a fairly basic one which gives us a Gaussian approximation of the posterior distribution. This begs the question: how good is the approximation? The classical answer to this question is the Bernstein-von Mises theorem, which asserts that in the large-data limit, the Laplace approximation becomes exact. However, this theorem is mostly useless in practice, mostly because its assumptions are hard to check.
+
+This article presents a computationally-relevant extension of the classical result: we give an explicit upper-bound for the distance between a given posterior and its Laplace approximation. The approach we follow can be extended to more advanced Gaussian approximation methods which we will do in further work. 
+
+## Expectation Propagation in the large-data limit
+
+**Guillaume Dehaene and Simon Barthelmé, 2017**, Journal of the Royal Statistical Society, series B.
+
+[Article link](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/rssb.12241).
+
+Expectation Propagation is a popular method for variational inference which can be remarkably effective despite the fact that there's very little theory supporting it. Our two main contributions consist in showing that EP is closely related to Newton's method for finding the maximum of the posterior, and showing that EP is asymptotically exact, meaning that when the number of datapoints goes to infinity the method recovers the posterior exactly.
+
+We also introduce some new theoretical tools that help analysing EP formally, including a simpler variant, called Average-EP (or Stochastic-EP), that is asymptotically equivalent to EP.
+
+## Expectation Propagation performs a smoothed gradient descent
+
+**Guillaume Dehaene, 2016**, AABI NIPS 2016 Workshop.
+
+[Article link](https://arxiv.org/abs/1612.05053).
+
+**NeurIPS AABI Workshop 2016 Disney Research Paper Awards**
+
+If one wants to compute a Gaussian approximation of a probability distribution, there are three popular alternatives: the Laplace approximation, the Gaussian Variational Approximation, and Expectation Propagation.
+
+I show in this work that the approximations found by these three methods are actually very closely related, as they all correspond to variants from the same algorithm. This shines a bright light on the deep connections between these three algorithms.
+
+## Bounding errors of expectation-propagation
+
+**Guillaume Dehaene and Simon Barthelmé, 2015**, NIPS 2015.
+
+[Article link](https://papers.nips.cc/paper_files/paper/2015/hash/c8ffe9a587b126f152ed3d89a146b445-Abstract.html).
+
+Expectation Propagation (EP) is a popular method for variational inference which can be remarkably effective despite the fact that there's very little theory supporting it.
+
+Our contribution in this work consists in showing that, in the large-data limit, EP is asymptotically exact and, furthermore, more precise than the alternative Laplace approximation. However, our results only hold for strongly log-concave distributions, which very rarely exist.
+
+# Research interests
+
+My research interests are briefly summarized in this section.
+
+## The problem of the uncomputable posteriors
+
+Bayesian inference is a very interesting method for someone who is interested in an axiomatic approach to inference. Indeed, the statistician Cox set out a simple set of rules for a robot to represent, using real numbers, the strength of his beliefs in various propositions and proved that the only system which obeys these axioms is probability theory. Furthermore, the rule that the robot should use to update his beliefs when faced new information is Bayes's rule. The only axiomatization of rational thinking about the world is thus Bayesian inference.
+
+However, there is a huge problem with Bayesian inference: in most cases, the computations required for exact implementation of the method are too expensive to be used in practice. Most of the practical research work on Bayesian methods actually revolves about how to deal with this thorny issue with various approximation schemes. These approximation schemes can be decomposed into two large families: sampling methods (dominated by Markov Chain Monte Carlo methods; acronym MCMC) which aim at producing samples from the posterior distribution and on which I don't have much to say, and what I call approximate inference methods: methods which aim to return a parametric approximation (very often Gaussian) of the true posterior distribution.
+
+## Approximate inference schemes
+
+My work centers on methods which aim to return a parametric approximation (very often Gaussian) of the true posterior distribution. These are often called "variational" methods but I'd rather call them approximate inference methods instead. This is because:
+
+- the word "variational" is already used for the Variational Bayes algorithm which, even though it is the most popular approximate inference method, is far from being the only one
+
+- "variational" implies an optimisation, which means that the term variational excludes the Expectation Propagation algorithm
+
+- the only critic of the "approximate inference" vs "sampling" separation I have gotten is that sampling methods also aim at producing an approximation of the posterior. I still feel like this is fine, since sampling methods require quite a bit of further processing in order to answer questions about the posterior whereas approximate inference methods directy output an approximation.
+
+There is currently a large number of open questions on such methods.
+
+1. The most important one concerns the speed at which these algorithms perform their task. Most often, these algorithms perform an iteration until they reach a fixed-point. Estimating the number of loops needed for convergence is very important for being able to guarantee that our algorithms will run quickly.
+
+2. A second critical question concerns the quality of the approximation we obtain. We need to understand in which cases these algorithms are good enough, and in which cases we should use the more expensive but more accurate sampling methods. However, current theoretical results are inapplicable for a number of reasons: the hypotheses are untestable, they apply to approximations that are not in use, etc.
+
+3. The final important question is of a more practical nature. It is simply whether the current versions of the algorithm we have are the best we can do, or whether there are better variants that are yet to be found. This can only be solved once we are able to compute the speed and the approximation-quality of current methods. We will then be able to see whether introducing slight changes to the current algorithms will improve them.
+
+## Bayesian statistics for the frequentist
+
+Another aspect of my work concerns trying to convince my frequentist colleagues that Bayesian inference is the best system of statistics.
+
+In practice, the best way to do this is not to be a dogmatic Bayesian which goes on shouting about the Cox axioms and subjective probability, but instead to adopt the frequentist point of view on problems, and show that Bayesian methods are the best at solving these. Adopting Bayesian methods is then simply a matter of choosing the most efficient tool for solving problems.
+
+In practice, following this idea means studying the posterior distribution as a function-valued random variable, and then studying the behavior of this random variable. My work expands on earlier work by, among other, Lecam on what is called the "Bernstein-von Mises theorem". My objective is to expand current forms of this theorem so that they are:
+
+As general as they can be.
+As efficient as they can be.
+Relevant in practical applications of Bayesian inference.
