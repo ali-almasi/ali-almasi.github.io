@@ -268,15 +268,15 @@
   {
     "objectID": "resources.html",
     "href": "resources.html",
-    "title": "A Quarto Page Layout Example",
+    "title": "Resources",
     "section": "",
-    "text": "1 Introduction"
+    "text": "1 Quantum Algorithms\n  \n  1.1 Survey Articles"
   },
   {
-    "objectID": "resources.html#introduction",
-    "href": "resources.html#introduction",
-    "title": "A Quarto Page Layout Example",
-    "section": "1 Introduction",
-    "text": "1 Introduction\nThis document demonstrates the use of a number of advanced page layout features to produce an attractive and usable document inspired by the Tufte handout style and the use of Tufte’s styles in RMarkdown documents [@xie2018]. The Tufte handout style is a style that Edward Tufte uses in his books and handouts. Tufte’s style is known for its extensive use of sidenotes, tight integration of graphics with text, and well-set typography. Quarto1 supports most of the layout techniques that are used in the Tufte handout style for both HTML and LaTeX/PDF output.\n1 To learn more, you can read more about Quarto or visit Quarto’s Github repository.---\ntitle: \"An Example Using the Tufte Style\"\nauthor: \"John Smith\"\nformat:\n  html:\n    grid:\n1      margin-width: 350px\n  pdf: default\n2reference-location: margin\ncitation-location: margin\n---\n\n1\n\nIncreases the width of the margin to make more room for sidenotes and margin figures (HTML only).\n\n2\n\nPlaces footnotes and cited sources in the margin. Other layout options (for example placing a figure in the margin) will be set per element in examples below.\n\n\nThese layout features are designed with two important goals in mind:\n\nTo produce both PDF and HTML output with similar styles from the same Quarto document;\nTo provide simple syntax to write elements of the Tufte style such as side notes and margin figures. If you’d like a figure placed in the margin, just set the option fig-column: margin for your code chunk, and we will take care of the details for you[^2]."
+    "objectID": "resources.html#quantum-algorithms",
+    "href": "resources.html#quantum-algorithms",
+    "title": "Resources",
+    "section": "1 Quantum Algorithms",
+    "text": "1 Quantum Algorithms\n\n1.1 Survey Articles\n\nQuantum algorithms for algebraic problems by Andrew M. Childs, Wim van Dam This is an excellent source for learning about a large class of quantum algorithms that are similar to the seminal algorithm by Peter Shor for factoring integers. My suggestion to beginners is to start with reading Appendix B, then move on to Section III.1\n\n\n\n1 Childs also has a set of lecture notes on quantum algorithms that may be helpful in reading this survey."
   }
 ]
