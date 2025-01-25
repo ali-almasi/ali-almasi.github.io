@@ -30,7 +30,7 @@ format:
 <!-- Banner -->
 :::::: {.banner .column-page-right}
 
-# Guillaume Dehaene {#sec-header .anchored}
+# Ali ALMASI {#sec-header .anchored}
 
 ## AI Engineer
 

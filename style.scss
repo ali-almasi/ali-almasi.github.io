@@ -36,8 +36,12 @@ dl.code-annotation-container-grid dt {
 // $mermaid-fg-color: $body-color;
 // $mermaid-fg-color--lighter: lighten($body-color, 10%);
 // $mermaid-fg-color--lightest: lighten($body-color, 20%);
-$mermaid-font-family: "EB Garamond, Georgia, serif";
-$mermaid-label-bg-color: #000000;
-$mermaid-label-fg-color: #000000;
+$font-family-sans-serif:     "Red Hat Text", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// $font-family-serif: "Petrona", serif,;
+$headings-font-weight:       400;
+
+$font-family-monospace:      "Dank Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+$headings-font-family:       "Petrona";
 // $mermaid-node-bg-color: rgba($primary, 0.1);
 // $mermaid-node-fg-color: $primary;

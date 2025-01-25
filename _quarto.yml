@@ -8,13 +8,13 @@ project:
         - guillaume_dehaene.jpg
 
 website:
-    title: "Guillaume Dehaene"
+    title: "Ali ALMASI"
     site-url: https://ali-almasi.github.io/
     page-navigation: true
     back-to-top-navigation: true
     page-footer:
         center:
-            - text: "Copyright"
+            - text: "Die Mathematiker sind eine Art Franzosen. Spricht man zu ihnen, so übersetzen sie alles in ihre eigene Sprache, und so wird es alsobald etwas ganz anderes. -Goethe"
     navbar:
         left:
             - blog.qmd
