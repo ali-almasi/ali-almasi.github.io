@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Welcome to my blog. I write mostly about:\n\nstatistics, with a focus on Bayesian statistics, variational inference and theory.\ntypesetting documents with Quarto and alternatives.\nprogramming, mostly in Python.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClassical and Quantum Source Coding\n\n\n\n\n\n\nclassical-information-theory\n\n\nquantum-information-theory\n\n\ncourse-notes\n\n\n\n\n\n\n\n\n\nMar 11, 2025\n\n\n\n\n\n\n\n\n\n\n\nQuantifying and Classifying Entanglement\n\n\n\n\n\n\nquantum-information-theory\n\n\ncourse-notes\n\n\n\n\n\n\n\n\n\nJan 2, 2025\n\n\n\n\n\n\n\n\n\n\n\nAn Attempt at Understanding the Grand Unification\n\n\n\n\n\n\nquantum-algorithms\n\n\ncourse-notes\n\n\n\n\n\n\n\n\n\nDec 8, 2024\n\n\n\n\n\n\n\n\n\n\n\nTwo CS-inspired Proofs for the Infinitude of Primes\n\n\n\n\n\n\nprimes\n\n\nclassical-information-theory\n\n\nautomata-theory\n\n\n\n\n\n\n\n\n\nJun 11, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Welcome to my blog. I write mostly about:\n\nstatistics, with a focus on Bayesian statistics, variational inference and theory.\ntypesetting documents with Quarto and alternatives.\nprogramming, mostly in Python.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuantifying and Classifying Entanglement\n\n\n\n\n\n\nquantum-information-theory\n\n\ncourse-notes\n\n\n\n\n\n\n\n\n\nJan 2, 2025\n\n\n\n\n\n\n\n\n\n\n\nAn Attempt at Understanding the Grand Unification\n\n\n\n\n\n\nquantum-algorithms\n\n\ncourse-notes\n\n\n\n\n\n\n\n\n\nDec 8, 2024\n\n\n\n\n\n\n\n\n\n\n\nClassical and Quantum Source Coding\n\n\n\n\n\n\nclassical-information-theory\n\n\nquantum-information-theory\n\n\ncourse-notes\n\n\n\n\n\n\n\n\n\nNov 15, 2024\n\n\n\n\n\n\n\n\n\n\n\nTwo CS-inspired Proofs for the Infinitude of Primes\n\n\n\n\n\n\nprimes\n\n\nclassical-information-theory\n\n\nautomata-theory\n\n\n\n\n\n\n\n\n\nJun 11, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "assets/teaching_materials/functional_analysis2022/test.html",
@@ -39,21 +39,21 @@
     "href": "index.html#sec-research",
     "title": "Ali ALMASI",
     "section": " Research Projects",
-    "text": "Research Projects\nQuantum Guessing Games (M1 Internship) report, poster slides\nSupervised by Peter Brown and Cambyse Rouzé, 2024\nAn investigation of quantum guessing games, a generalization of quantum state discrimination and antidiscrimination, in which we found closed-form solutions for specific games, defined and analyzed the pretty good measurement for this generalization, and studied the convergence behaviour of an iterative algorithm for determining the optimal strategy.\nPositive but not Completely Positive Maps report, slides\nSupervised by Peter Brown, 2023\nA numerical and analytical study of the properties of positive but not completely positive (PnCP) maps, focusing on their applications in entanglement detection and relaxing certain optimization problems over the set of separable quantum states. Using semidefinite programming, we explored the relationship between two fundamental entanglement criteria: positivity under partial application of a PnCP map and entanglement witnesses.\nQuantum Proofs\nSupervised by Shahram Khazaei, 2022\nA pedagogical survey (in Persian) intended to be an introduction to quantum complexity theory, focusing on QMA, a quantum analogue of NP."
+    "text": "Research Projects\nQuantum Guessing Games (M1 Internship) | report, poster, slides\nSupervised by Peter Brown and Cambyse Rouzé, 2024\nAn investigation of quantum guessing games, a generalization of quantum state discrimination and antidiscrimination, in which we found closed-form solutions for specific games, defined and analyzed the pretty good measurement for this generalization, and studied the convergence behaviour of an iterative algorithm for determining the optimal strategy.\nPositive but not Completely Positive Maps | report, slides\nSupervised by Peter Brown, 2023\nA numerical and analytical study of the properties of positive but not completely positive (PnCP) maps, focusing on their applications in entanglement detection and relaxing certain optimization problems over the set of separable quantum states. Using semidefinite programming, we explored the relationship between two fundamental entanglement criteria: positivity under partial application of a PnCP map and entanglement witnesses.\nQuantum Proofs | thesis\nSupervised by Shahram Khazaei, 2022\nA pedagogical survey (in Persian) intended to be an introduction to quantum complexity theory, focusing on QMA, a quantum analogue of NP."
   },
   {
-    "objectID": "index.html#other-activities",
-    "href": "index.html#other-activities",
+    "objectID": "index.html#other-academic-activities",
+    "href": "index.html#other-academic-activities",
     "title": "Ali ALMASI",
-    "section": " Other Activities",
-    "text": "Other Activities\nHead Organizer and Mentor\nSharif Mathematics Summer School (for high school students), 2019\nMember of Hamband Scientific Association, 2019 - 2020\nEditorial Board of Sharif Students Mathematics Journal 2023"
+    "section": " Other Academic Activities",
+    "text": "Other Academic Activities\n\nHead Organizer and Mentor of the Sharif Mathematics Summer School (for high school students), 2019.\nMember of Hamband Scientific Association, 2019 - 2020.\nEditorial Board of Sharif Students Mathematics Journal, Since 2023."
   },
   {
-    "objectID": "index.html#hobbies",
-    "href": "index.html#hobbies",
+    "objectID": "index.html#interests-outside-academia",
+    "href": "index.html#interests-outside-academia",
     "title": "Ali ALMASI",
-    "section": "Hobbies",
-    "text": "Hobbies\n\nJudo\nBandes dessinées\nCompetitive coding: Advent of code"
+    "section": "Interests Outside Academia",
+    "text": "Interests Outside Academia"
   },
   {
     "objectID": "posts/2024/06/PrimeInfinitude.html",
