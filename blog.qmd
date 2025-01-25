@@ -1,0 +1,15 @@
+---
+title: "Blog"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+---
+
+Welcome to my blog.
+I write mostly about:
+
+- statistics, with a focus on Bayesian statistics, variational inference and theory.
+- typesetting documents with Quarto and alternatives.
+- programming, mostly in Python.

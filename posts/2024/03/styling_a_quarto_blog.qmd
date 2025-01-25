@@ -1,0 +1,327 @@
+---
+title: "Styling a Quarto blog."
+description: |
+    Customizing a website is fun and interesting.
+    Let's learn how to tweak the appearance of a Quarto website to make it our own.
+date: "03/29/2024"
+categories:
+  - quarto
+  - github pages
+---
+
+::: {.callout-caution}
+Dear reader, this blog post is a bit rough: these are mostly my notes as I play around with the styling of this website.
+I still publish in the hope that I can be helpful to other Quarto users.
+
+Cheers, Guillaume.
+:::
+
+# Style objectives
+
+With any project, I like to start with a small list of objectives, instead of diving straight-away into code.
+This helps keep the project grounded.
+
+As far as styling this website goes, I want to:
+
+- customize the overall styling of the page.
+- customize the font.
+- make sure the style is correctly applied to all special blocks:
+    - code blocks.
+    - mermaid diagrams.
+    - MathJax math blocks.
+    - plotly figures.
+
+Please refer to @sec-examples for examples of how my current style is applied to various Quarto elements.
+
+# Customization steps
+
+## Summary
+
+I'm using:
+
+- the cosmo bootstrap theme. Once Quarto 1.5 is released, I'll add a light-dark switch.
+- EG Garamond as a text font, Fira Code for code blocks, mathjax-fira for math blocks.
+- for mermaid, I'm using the cosmo version of mermaid that Quarto introduces, but modified to have black text.
+- for code highlighting, I'm using the github style (I'm unsure if it actually matches what shows on github).
+- I haven't styled plotly plots. It is a bit complicated.
+
+My current configuration is (or check out [the latest version here](https://github.com/GuillaumeDehaene/guillaumedehaene.github.io/blob/main/_quarto.yml)):
+
+```{.yaml filename="_quarto.yml"}
+format:
+    html:
+        theme:
+            - cosmo
+            - style.scss
+        mainfont: "EB Garamond, Georgia, serif"
+        monofont: Fira Code, consolas, courier, monospace
+        highlight-style: github
+        
+        html-math-method:
+            method: mathjax
+            url: "https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-mml-chtml.js"   # <1>
+        include-in-header:
+            text: |
+                <style> # <2>
+                @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap')
+                @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap')
+                </style>
+                <script>
+                MathJax = {
+                    tex: {  # <3>
+                        tags: 'ams'  // should be 'ams', 'none', or 'all'
+                    },
+                    output: {
+                        font: 'mathjax-fira'
+                    }
+                };
+                </script>
+```
+
+1. Importing Mathjax version 4.0 beta.
+2. Importing the fonts.
+3. Unrelated code: this numbers all equations.
+
+I also added an external style sheet: changing the font was causing a bad alignment in annotated code blocks, and I had to turn off a peculiar styling that Garamond applies to numerals.
+Check out [the latest version here](https://github.com/GuillaumeDehaene/guillaumedehaene.github.io/blob/main/style.scss):
+
+```{.scss filename=style.scss}
+/*-- scss:defaults --*/
+body {
+    // By default, EG Garamond uses "old-styles" numerics which have a baseline offset
+    // for some numerals. This turns that ugly feature off.
+    font-variant-numeric: lining-nums;
+}
+
+dl.code-annotation-container-grid dt {
+    // needed because I have changed the mono font
+    line-height: 20px !important;
+}
+
+$mermaid-font-family: "EB Garamond, Georgia, serif";
+$mermaid-label-bg-color: #000000;
+$mermaid-label-fg-color: #000000;
+```
+
+## Overall style
+
+For the overall style, I would like:
+
+- something sleek and modern.
+- something with a light and dark mode.
+- something slightly personalized (but not too much! I'm really bad at graphical design).
+- something simple.
+
+Given that [Quarto has built-in support for various free themes](https://quarto.org/docs/output-formats/html-themes.html), I've decided to keep it simple and just use that.
+
+- Initially, I used to combo of flatly + darkly but I dislike some of the blues they use.
+- I've seen that, in version 1.5, Quarto will support light and dark mode styling for all themes. I've thus switched to using the cosmo theme.
+    It is sleek, modern, and simple, like I wanted.
+    Once the necessary update is pushed out, I will add light/dark mode and I will perhaps play around with the colors.
+- to put a tiny bit of personalization, I've modified the text font to use Garamond instead (with appropriate fallbacks, just in case):
+
+    ```{.yaml filename="_quarto.yml"}
+    format:
+        html:
+            mainfont: "EB Garamond, Georgia, serif"
+    ```
+
+    I'm unsure whether you need to add a call to download the font from the web in the HTML header: I've added one anyway.
+
+- annoyingly, Garamond uses *old-style* numerals by default. This setting makes some numerals, such as 3 and 4, align the middle of the character to the baseline of the text. I'm honestly surprised that this even exists and I've turned it off.
+
+    ```{.scss filename=style.scss}
+    /*-- scss:defaults --*/
+    body {
+        // By default, EB Garamond uses "old-styles" numerics which have a baseline offset
+        // for some numerals. This turns that ugly feature off.
+        font-variant-numeric: lining-nums;
+    }
+    ```
+
+## Code blocks
+
+For code blocks, there are several basic choices available:
+
+- the font. Again, I'm going for a bit of personalization and using Fira code.
+- [code highlighting](https://quarto.org/docs/output-formats/html-code.html#highlighting).
+    - the default setting is very grey: let's try to have more color. ^[NB: the fact that the syntax highlighting is so grey could be due to the cosmo theme. Maybe the colors are computed from the base colors of the theme? That would be a weird choice.]
+    - after testing most of them, my shortlist was:
+        - github
+        - solarized
+        - pygments
+        - breeze
+        - gruvbox
+    - In the end, I've decided on github. It's light but detailed.
+    - It would probably be worth it to explore a little bit more if I want something with more colors, like my setting on vscode.
+
+The resulting website configuration is:
+
+```{.yaml filename="_quarto.yml"}
+format:
+    html:
+        monofont: Fira Code, consolas, courier, monospace
+        highlight-style: github
+```
+
+Changing the font caused a bad alignment in annotated code blocks, so I had to introduce an external style.
+I must be doing something slightly wrong because I needed to add an `!important` tag to ensure that this took priority over the Quarto styling.
+
+```{.scss filename=style.scss}
+/*-- scss:defaults --*/
+dl.code-annotation-container-grid dt {
+    // needed because I have changed the mono font
+    line-height: 20px !important;
+}
+```
+
+## Mermaid diagrams
+
+Mermaid diagrams can either use:
+
+- reactive styling, based on the base style (ie: `cosmo` for me): I didn't find that it worked out great for `cosmo` since it uses a very luminous blue for text.
+- [using the built-in themes](https://quarto.org/docs/authoring/diagrams.html#using-mermaids-built-in-themes). I didn't think it worked great with the cosmo main theme.
+- [custom styling](https://quarto.org/docs/authoring/diagrams.html#customizing-mermaid). ⚠️ I struggled with this since it is not compatible with mermaid built-in themes ⚠️. I've just used this to set the font to black and the font-family to match the text font.
+
+I'll probably want to return to this in the future, but for the time being, the diagrams are going to be neutral and easy on the eyes: good enough for now.
+
+```{.scss filename=style.scss}
+$mermaid-font-family: "EB Garamond, Georgia, serif";
+$mermaid-label-bg-color: #000000;
+$mermaid-label-fg-color: #000000;
+```
+
+## Math blocks
+
+Currently, the released version of MathJax: version 3.0, does not support much in the way of customization.
+Apparently, [version 4.0 will allow to choose the font](https://github.com/mathjax/MathJax-docs/issues/319#issuecomment-1375748349).
+Well, then let's use the 4.0 beta version!
+
+```{.yaml filename="_quarto.yml"}
+format:
+    html:
+        html-math-method:
+            method: mathjax
+            url: "https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-mml-chtml.js"
+        include-in-header:
+            text: |
+                <style>
+                @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap')
+                @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap')
+                </style>
+                <script>
+                MathJax = {
+                    tex: {
+                        tags: 'ams'  // should be 'ams', 'none', or 'all'
+                    },
+                    output: {
+                        font: 'mathjax-fira'
+                    }
+                };
+                </script>
+```
+
+I've set the font to `mathjax-fira`, to align with code blocks.
+
+## Plotly figures
+
+As far as I can tell, plotly does not support css-based customization of its figures.
+It is apparently possible to use existing or create new python templates to have consistent styling accross figures.
+Apparently, [this dash-bootstrap-components library](https://hellodash.pythonanywhere.com/adding-themes/figure-templates) ([pip link](https://pypi.org/project/dash-bootstrap-components/)) includes templates that match the bootstrap styles that are built-into Quarto?
+It should even work with [light-dark switching](https://hellodash.pythonanywhere.com/adding-themes/color-modes)?
+I'll make a note of it, and return to this if it becomes necessary.
+
+# Examples {#sec-examples}
+
+Since this page is on the website, I'll write down some examples, to have a visual reference.
+
+Text formatting:
+
+- *italics*, **bold**, ***bold italics***
+- superscript^2^ / subscript~2~
+- ~~strikethrough~~
+
+> A blockquote
+
+A keyboard shortcut: {{< kbd Shift-Ctrl-P >}}. ^[Unless I start doing IT posts, this probably won't be useful, but there's no reason to be lazy and not check it.]
+
+A table:
+
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+
+Inline math $0+0=0$ and inline code `compute_something(foo)`. And their display equivalents:
+
+\begin{equation}
+0 + 0 = 0
+\end{equation}
+
+\begin{align}
+(a+2)(a-2) &= a^2 + 2a - 2a - 4 \\
+            &= a^2 - 4
+\end{align}
+
+```
+This block doesn't have syntax coloring.
+The next one has python syntax coloring and a file title.
+```
+
+```{.python filename="square.py"}
+def square(x: int) -> int:
+    """Compute the squared value.
+
+    This computes the square of the input.
+    """
+    # This is high-level math!
+    return x**2
+```
+
+A mermaid diagram, with figure styling:
+
+```{mermaid}
+%%| fig-cap: "This is a caption."
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+A callout block:
+
+:::{.callout-note}
+Note that there are five types of callouts, including: 
+`note`, `tip`, `warning`, `caution`, and `important`.
+:::
+
+[This is a span that has the class `aside` which places it in the margin without a footnote number.]{.aside}
+
+This is a plotly figure:
+
+```{python}
+import plotly.express as px
+import plotly.io as pio
+df = px.data.iris()
+fig = px.scatter(df, x="sepal_width", y="sepal_length", 
+                 color="species", 
+                 marginal_y="violin", marginal_x="box", 
+                 trendline="ols", template="simple_white")
+fig.show()
+```
+
+Annotated code block:
+
+```r
+library(tidyverse)
+library(palmerpenguins)
+penguins |>                                      # <1>
+  mutate(                                        # <2>
+    bill_ratio = bill_depth_mm / bill_length_mm, # <2>
+    bill_area  = bill_depth_mm * bill_length_mm  # <2>
+  )                                              # <2>
+```
+1. Take `penguins`, and then,
+2. add new columns for the bill ratio and bill area.

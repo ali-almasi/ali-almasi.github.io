@@ -1,0 +1,256 @@
+---
+title: "Investigating a conjecture from Stack Overflow 2/2"
+description: |
+    A user on Stack Overflow proposes an interesting problem featuring
+    modulos (and thus arithmetic) and sampling without replacement.
+    I write a detailed mathematical analysis of the problem and answer the initial question.
+date: "12/11/2024"
+categories:
+  - math
+  - stack-overflow
+---
+
+# The problem
+
+[Initial question on SO](https://math.stackexchange.com/questions/5006412/probability-of-picking-numbers-is-it-always-dfrac-1-k/5006528#5006412).
+
+> There are $n$ cards which have numbers $1$~$n$ on each. You pick $m$ cards from it, and you don't put it back once you pick from it. Is the probability that their sum is divisible by $k$ always $\dfrac 1 k$, while $k|n$? If not, how do we generalize the probability?
+
+More mathematically, let $X_i$ be samples without replacement from $[1, n]$. Let $S$ be their sum modulo $k$:
+
+$$
+S = \sum X_i \bmod k
+$$
+
+We want to find the probability of $S = 0$.
+
+[After an intitial study](stack_overflow_1_k__1.qmd), I was able to conjecture that the probability is closely related to the greatest common divisor of $k, m$.
+Let $p$ be the probability of the sum being divisible.
+
+1. If $\operatorname{gcd}(m, k)=1$, then $p=1/k$.
+1. If $\operatorname{gcd}(m, k) \neq 1$, then $p \neq 1/k$. The deviation is small and I derive a procedure to compute it.
+
+# Proof of point 1
+
+The proof of point 1 was essentially derived by user Matthew Spam [nn of the answers of the original thread](https://math.stackexchange.com/a/5006539/251691).
+Their argument is very elegant and consists in showing that the number of subsets $x_1 \dots x_m$ of $[1, n]$ such that $S=0$ is equal to the number of subsets such that $S=1$ or $2$, etc.
+Thus, $S$ is a uniform variable over an ensemble with $k$ possibilities: $[0,k-1]$ and $p=1/k$.
+
+To see this, let $x_1 \dots x_m$ be one subset, and consider the subset $x_1 + 1 \dots x_m + 1$ where we add $1$ to each $x$.
+This adds $m$ to the sum:
+
+$$
+\sum (x_i + 1) == m + \sum x_i \mod k 
+$$
+
+Similarly, adding $i \in [0,k-1]$ instead of $1$ adds $m i$ to the total sum.
+
+Since $\operatorname{gcd}(m, k) = 1$, as $i$ takes all values in $[0, k-1]$, the sum takes all values in $[0, k-1]$.
+
+Thus, we find that, for any subset $x_1 \dots x_m$ summing to some value, there is also a subset summing to any other value. There is thus the same number of subsets for every value in $[0, k-1]$.
+
+This proves that the distribution of $\sum X_i \bmod k$ is uniform over $[0, k-1]$.
+
+::: {.callout}
+
+If $\operatorname{gcd}(m, k) \bmod k = 1$, then $\sum X_i \bmod k$ is uniform over $[0, k-1]$.
+
+:::
+
+# Proof of point 2
+
+In order to prove the second point, I do not have a direct proof. Instead, the best I have is a series of results to:
+
+- establish a result in a simple case,
+- decompose the general case as a combination of simple cases.
+
+As a bonus, the decomposition could be used to write down a computer program to compute the probability explicitly, which I leave as an exercise to the interested reader.
+
+This divide-and-conquer approach to proofs is common, but I typically find it unsatisfying: I am always worried that a more elegant proof exists.
+In this particular case though, the result is quite complex so I would be surprised that a simpler formula could exist.
+
+## The easy case $m = k$ and $n=a m$ {#sec-easy-case}
+
+The easiest case is when all three values $n, m, k$ are equal.
+Then, the process is not random at all: we have a single possible value which is:
+
+$$
+\sum_{i=1}^n i \bmod n = n (n-1) / 2 \bmod n
+$$
+
+Whether this is divisible by $n$ depends on its parity:
+
+- If $n$ is odd then $(n-1) / 2$ is an integer and thus the sum is divisible by $n$.
+- If $n$ is even, then the sum is not divisible by $n$.
+
+::: {.callout}
+
+The general easy case is when $m=k$ and $n=ak$. We then have three possibilities:
+
+- $n$ odd: $p=1$.
+- $n$ even, $a$ even: $p=1$.
+- $n$ even, $a$ odd: $p=0$.
+
+:::
+
+## Recursion: reducing $k$ {#sec-reducing-k}
+
+We now turn to the task of reducing an arbitrary triplet $n, m, k$ to the simple case.
+
+Let us return to the proof of point 1. If $\operatorname{gcd}(m, k) = g > 1$, then the argument doesn't work because we cannot reach all values modulo from the starting point. When we add $i \in [0, k-1]$ to each $x_i$, we add $m i$ to the sum, and that only reaches values which are offset by $g$.
+
+However, that is still an interesting observation: the probability distribution of the sum is such that it is invariant to these offsets of $g$. Thus, in order to caracterize the distribution, we only need to know the probability distribution of the sum modulo $g$.
+
+$$
+\mathbb P \bigg(\sum x_i \bmod k = j \bigg) = \frac{g}{k} \mathbb P \bigg(\sum x_i = j \mod g \bigg)
+$$
+
+Thus, we can simplify the calculation of $p$:
+
+::: {.callout}
+$$
+p(n, m, k) = \frac{g}{k} p(n, m, g)
+$$
+
+:::
+
+Note that this extends result 1 which corresponds to the case $g=1$.
+
+## Recursion: reducing $n$ and $m$
+
+Now, we turn to reducing $n$ and $m$. This is more complex than reducing $k$ so hang tight.
+
+The key observation I have is the following.
+The situation is complex here because we have sampling without replacement from values in $[1, n]$.
+If we had instead sampling with replacement, we would have a straightforward symmetry and the probability distribution of the sum would be uniform.
+
+Now observe further that we do not actually care about the precise value of $x_i$ but only about its value modulo $k$. For example, if $n = 6, m = 2, k = 3$, we are actually sampling from the ensemble: $\{1, 2, 3, 1, 2, 3 \}$. In this situation, the correlations due to sampling with replacement can be analyzed in the following way:
+
+- either the two observations come from the same half, in which case they cannot take the same value, i.e. they are conditionally highly anti-correlated,
+- or they come from two different halves, in which case they are conditionally independent.
+
+We can decompose the calculation of $p(n=6, m=2, k=3)$ by considering these two cases separately.
+
+We will generalize this approach of conditioning but we will need additional notation for this.
+Given some initial number of samples $m$, we will denote with a list $[c_1, c_2 \dots]$ the non-zero counts of the number of samples falling into the different subsets of size $k$ in $[1, n]$. NB: we do not distinguish the subsets. In our example, we have two cases: $[2]$ and $[1,1]$.
+
+The distribution of the counts depends on the number of groups $n / k$, the size of the groups $k$ and the number of samples $m$.
+Deriving its distribution is a complex exercise in combinatorics which I leave to the interested reader.
+Sampling from it is straightforward: we simply sample from $[1, n]$, count the number of samples in each group, and sort them.
+
+Now, given a list of counts $[c_1 \dots]$, let us investigate the probability distribution of $\sum x_i \bmod k$.
+Again, we can bring to bear the translation argument, but inside of each group.
+Instead of translating in $[1, n]$ translate the j-th group by $i$.
+This translates the sum by $c_j i$ modulo $k$.
+
+Let us start by the simplest case: assume that a group has a count of 1.
+By translating that group by $i \in [0, k-1]$, we can reach any value in $[0, k-1]$.
+Thus, for any count which has a $1$, the probability distribution of the sum is uniform over $[0, k-1]$.
+
+Now, assume that we have multiple counts such that their greatest common divisor is $1$.
+By definition of the gcd, we are able to find combinations of the $c_j$ such that the sum reaches any value in $[0, k-1]$.
+Again, the probability distribution of the sum is uniform over $[0, k-1]$. The most general case of this argument is when $\operatorname{gcd}(k, c_1 \dots) = 1$.
+
+When the gcd is not 1, we cannot reach all values. Instead, we have partial symmetry, exactly like in @sec-reducing-k: we can only increase the count in increments of the gcd. Again, we can reduce the modulo in this situation:
+
+$$
+p(n, [c_1 \dots], k) = \frac{g}{k} p(k, [c_1 \dots ], g)
+$$
+
+In this final situation, we now have again a discrepancy between the group-size $k$ and the modulo $g$.
+Again, we should split the counts into groups of size $g$.
+Iterating this process reduces the counts and $k$ until we are in the simple case of all groups of the same size equal to the group size and modulo.
+I.e. we are able to reduce into the simple case discussed in @sec-easy-case.
+
+## Examples
+
+Let us do some examples.
+
+#### $n, m, k = 4, 2, 2$
+
+We have $\operatorname{gcd}(m, k) = 2$ which is already equal to $k$.
+We thus turn to conditionning on counts.
+We have two possible counts: $[2]$ and $[1, 1]$ with probabilities $1/3$ and $2/3$.
+Decomposing:
+
+$$
+\begin{align}
+p(4,2,2) &= 1/3 p(2, [2], 2) + 2/3 p(2, [1, 1], 2] \\
+        &= 0 + 2/3 1/2 \\
+        &= 1/3
+\end{align}
+$$
+
+#### $n, m, k = 8, 4, 2$
+
+Again, we turn to counts.
+The only "interesting" count is $[2, 2]$.
+Denote it with $A$ and let $B$ be the complement event.
+All others counts have gcd 1.
+Thus, for any count in $B$ we have $p(2, [c_1 \dots], 2) = 1/2$.
+
+$$
+\begin{align}
+p(8, 4, 2) &= \mathbb P(A) p(2, [2, 2], 2) + \mathbb P(B) 1/2 \\
+           &= \mathbb P(A) 1 + \mathbb P(B) 1/2 
+\end{align}
+$$
+
+and we find that the probability is only slightly higher than $1/k = 1/2$
+
+#### $n, m, k = 6, 3, 3$
+
+This is the example identified in the initial question.
+Again, we have a single interesting count: $[3]$ which we denote with $A$. We have $\mathbb P(A) = 1/10$ and:
+
+$$
+\begin{align}
+p(6, 3, 3) &= \mathbb P(A) p(3, [3], 3) + \mathbb P(B) 1/3 \\
+           &= \mathbb P(A) 1 + \mathbb P(B) 1/3 \\
+           &\approx 0.4333
+\end{align}
+$$
+
+#### $n, m, k = 18, 6, 6$
+
+This final example is the first one in which we need to re-split the counts. It is also interesting since it is emblematic of cases for which we could not prove that $p \neq 1/k$.
+
+We have three interesting counts: $[6], [3,3], [2,2,2]$.
+The first one is a simple case with $p=0$, but the two final counts need further work.
+
+$$
+p(6, [3, 3], 6) = \frac{1}{2} p(6, [3, 3], 3)
+$$
+
+where the $3$ counts in a group of size $6$ need to be split.
+The only interesting count is when both groups remain intact.
+
+$$
+p(6, [3, 3], 3) = \mathbb P (\text{Groups intact}) p(3, [3, 3], 3)
+            + [1 - \mathbb P (\text{Groups intact})] 1/3 > 1/3
+$$
+
+Similarly, for the $[2, 2, 2]$ count:
+
+$$
+p(6, [2, 2, 2], 6) = \frac{1}{3} p(6, [2, 2, 2], 2)
+$$
+
+and again, the only interesting split is when all groups remain intact:
+
+$$
+p(6, [2, 2, 2], 2) = \mathbb P (\text{Groups intact}) p(2, [2, 2, 2], 2)
+            + [1 - \mathbb P (\text{Groups intact})] 1/2 < 1/2
+$$
+
+Returning the example, we have:
+
+$$
+\begin{align}
+p(18,6,6) &= \mathbb P(A) 0 + \mathbb P(B) p(6, [3, 3], 6)
+            + \mathbb P(C) p(6, [2, 2, 2], 6)
+            + \mathbb P(D) 1/6
+\end{align}
+$$
+
+Interestingly, it is ambiguous whether the final result is greater or smaller than $1/6$ since the $A, C$ terms point down but the $B$ term is pointing up.

@@ -1,0 +1,224 @@
+---
+draft: true
+
+title: "A basis for one dimensional convex functions"
+description: |
+    The ensemble of convex functions on $\mathbb{R}$ has many great properties.
+    I answer in detail a great question from math.stackexchange: "Is there a 'basis'" over which we can decompose any convex function?
+date: "06/25/2024"
+categories:
+  - math
+---
+
+$$
+\def \E {\mathcal{E}(a,b)}
+$$
+
+When I started this blog, I thought I would avoid math. But *somebody was wrong*. *Somebody was wrong **on the internet***! I couldn't just stand by: I had to intervene.
+
+It all started from [this math.stackexchange question](https://math.stackexchange.com/questions/1863966/convex-basis-of-functions). I found it while googling for properties of high-dimensional convex functions. I was greatly frustrated at the very dismissive tone of the existing answer and I wanted to improve beyond it.
+
+The initial question was:
+
+> I'm looking for a set of convex functions which is forms a basis for $C^1(\mathbb{R})$ ?
+> Most of the basises I know are polynomials or Fourier basis but I was wondering if there was a basis of convex functions.
+
+It is a little bit all over the place, but it gives us a great starting place to discuss convex functions. If you wish to skip directly to my answer: skip ahead to @sec-answer. Otherwise, let's dive in.
+
+Please note that, throughout, I will take some drastic measures to make the math clear and easy to prove. As a consequence, I will make some strong assumptions on the functions I consider. The results remain true if we relax the assumptions, but I will leave that as an exercise to the reader. I discuss this point further in @sec-strong-assumptions.
+
+# A simple space of functions
+
+Let's start by defining the limits of our playground. To make things simple, I will focus on $C^2(\mathbb R)$: the space of functions with a continuous second derivative. Furthermore, I will tack on two extra constraints:
+
+- the second derivative has finite support:
+
+    $$
+    x \notin [a, b] \implies f''(x) = 0
+    $$
+
+- the second derivative is finite: $|f''(x)| < \infty$.
+
+Let's denote this ensemble with $\E$.
+
+What properties does this ensemble have?
+
+- It is non-empty.
+- It is stable by linear scalar combinations: if $f_1$ and $f_2$ are both in $\E$, then so is: $\alpha f_1 + \beta f_2$ for any real coefficients $\alpha, \beta$:
+
+    - the second derivative exists and is continuous.
+    - it has finite support.
+    - it is finite.
+
+It thus forms a [vector space](https://en.wikipedia.org/wiki/Vector_space). We can thus aim to give a basis for this space.
+
+# Convex functions are a cone
+
+Convex functions are a sub-ensemble of $\E$. A function $c$ is convex if for any coefficient $p\in[0,1]$ and any $x,y \in \mathbb R$:
+
+$$
+p c(x) + (1-p) c(y) \geq c( px + (1-p)y )
+$$
+
+which has a nice geometric interpretation: on a graph of the function $x \rightarrow c(x)$ the segment linking the points $(x, c(x))$ to $(y, c(y))$ stands above the graph of the function.
+
+Given that we have focused only on regular functions, we can give a characterization of convex functions in terms of the properties of their derivatives. For any convex function $c$:
+
+- The first derivative is increasing: $x\leq y$ implies $c'(x) \leq c'(y)$.
+- The second derivative is positive: $c''(x) \geq 0$.
+
+The relationship goes both ways: any function with these properties is convex.
+
+What properties does this ensemble have?
+
+- It is definitely not a vectorial space: $(-1) c(x)$ is concave instead of being convex.
+- However, the ensemble is stable over *linear combinations with **positive** coefficients*:
+
+    - for any convex functions $c_1, c_2$
+    - for any positive coefficients $\alpha, \beta \geq 0$
+    - the linear combination $x \rightarrow \alpha c_1(x) + \beta c_2(x)$ is convex.
+    - this can be proved in any way, but it is easiest to see by noting that the second derivative is obviously positive.
+
+- The ensemble of convex functions is thus a [convex cone](https://en.wikipedia.org/wiki/Convex_cone#Definition).
+
+Given that this ensemble is stable by linear combinations, it is then very natural to ask, as the original poster did, whether we can find elementary convex functions such that any convex function can be decomposed as a positive sum of these elementary convex functions.
+
+# Splitting up a convex function
+
+## A simple family
+
+Intuitively, a convex function is bowl-shaped and points up. Typically, a convex function has many points of inflection, but what if we tried to find the limiting case in which there is a single inflection, and the function is otherwise flat?
+
+Let's progress towards this limiting case. We start from the parabola $x \rightarrow x^2$.
+
+```{python}
+import numpy as np
+import plotly.graph_objects as go
+
+x = np.linspace(-3, 3, 1201)
+c = x**2
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=x, y=c, name="Parabola"))
+fig.show()
+```
+
+We can make it flatter by setting the derivative to 0 when x goes beyond some threshold $t$. This yields a [Huber-function](https://en.wikipedia.org/wiki/Huber_loss): quadratic in the middle, linear on the sides. For example, here are the two graphs corresponding to the tresholds $t=2$ and $t=1$.
+
+```{python}
+def huber(x, t):
+    return np.clip(np.abs(x), 0, t)**2 + 2 * t * (np.clip(np.abs(x), t, None) - t)
+
+x = np.linspace(-3, 3, 121)
+h2 = huber(x, 2)
+h1 = huber(x, 1)
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=x, y=h2, name="Huber t=2"))
+fig.add_trace(go.Scatter(x=x, y=h1, name="Huber t=1"))
+```
+
+Note the bowl-shaped region is confined to the center. However, as $t$ becomes even smaller, the function also becomes flatter. We can correct this by rescaling the function such that its value at $x=1$ is 1. This yields for $t=1$, $t=0.25$ and $t=0.1$:
+
+```{python}
+def scaled_huber(x, t):
+    return (np.clip(np.abs(x), 0, t)**2 + 2 * t * (np.clip(np.abs(x), t, None) - t)) / (2 * t * (1-t) + t**2)
+
+x = np.linspace(-3, 3, 121)
+h1 = scaled_huber(x, 1)
+h_25 = scaled_huber(x, 0.25)
+h_01 = scaled_huber(x, 0.1)
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=x, y=h1,   name="Scaled Huber t=1"))
+fig.add_trace(go.Scatter(x=x, y=h_25, name="Scaled Huber t=.25"))
+fig.add_trace(go.Scatter(x=x, y=h_01, name="Scaled Huber t=.10"))
+```
+
+In the limit, we find the function: $x \rightarrow |x|$ which is:
+
+- infinitely sharp at 0.
+- completely flat at every other point.
+
+These can be thought of *atom* convex functions representing having curvature only at $t$.
+
+As we will now show, any convex function can be decomposed into an integral over these elementary convex functions.
+
+## Decomposition
+
+::: {#thm-decomposition}
+
+## Convex function decomposition
+
+Any function $f \in \E$ can be decomposed into a sum of a linear function and an integral over the elementary convex functions: $x \rightarrow |x-t|$.
+
+$$
+f(x) = \alpha + \beta x + \int_{t \in \mathbb R} f''(t) \frac{|x-t|}{2} dt
+$$
+
+:::
+
+Note that both the theorem and its proof do not require convexity: any function (of $\E$) can be expressed as a combination of these elementary convex functions. However, for convex functions we obtain an interesting result: a decomposition onto elementary convex functions with strictly positive coefficients. The result is unremarkable for non-convex functions[^This is a common theme in mathematics: theorems are only interesting if they lead to follow-up results or if they provide understanding into the structure of the objects under consideration. There are infinitely many true statements, but a theorem is something much more precious: it is both true and illuminating. If I recall correctly, [Poincarré presents this point extremely clearly in his book](https://en.wikipedia.org/wiki/Science_and_Hypothesis)]
+
+::: {.proof}
+
+NB: the proof does not require convexity.
+
+If you are aware of the theory of [distributions](https://en.wikipedia.org/wiki/Distribution_(mathematics)), a generalisation of functions, then the proof is immediate by considering the derivatives of |x - t|:
+
+- the first derivative is the Heavyside function $\sign(x-t)/2$.
+- the second derivative is $\delta(x-t)$ where $\delta$ is the Dirac delta.
+
+The result is then a straightforward consequence of the second derivatives of f(x) and the proposed formula being equal.
+
+Otherwise, a direct proof is also possible. Without loss of generality, assume $x\ geq 0$. The Taylor theorem gives the following formula for $f(x)$:
+
+$$
+\begin{align}
+f(x) &= f(0) + f'(0) x + \int_0^x f''(t) (x-t) dt \\
+f(x) &= f(0) + f'(0) x + \int_{t \in \mathbb R} f''(t) (x-t) \mathbb 1 (t \in [0, t]) dt
+\end{align}
+$$
+
+where $\mathbb 1 (t \in [0, t])$ is the indicator function for the interval $[0,t]$.
+
+This can be rewritten by substituting $(x-t) \mathbb 1 (t \in [0, t])$ with the function ${|x-t|} / {2} - {x \text{sign}(t)} / {2} - {|t|} / {2}$.
+I leave it up to you to check that these two functions are indeed equal on the three regions: $t \in ]-\infty,0]$, $t\in[0, x]$, $t\in[x, \infty[$.
+
+The substitution yields:
+
+$$
+\begin{align}
+f(x) &= f(0) + f'(0) x + \int_{t \in \mathbb R} f''(t) [\frac{|x-t|}{2} - \frac{x \text{sign}(t)}{2} - \frac {|t|} {2})] dt \\
+     &= \alpha + \beta x + \int_{t \in \mathbb R} f''(t) \frac{|x-t|}{2} dt
+\end{align}
+$$
+
+where the remainder gets folded into the constant and first order terms. It is only at this point that the assumptions come into play and ensure that all integrals are finite.
+
+:::
+
+# The answer {#sec-answer}
+
+The initial question was whether we could decompose a convex function into a sum over a basis. To summarize:
+
+- It's important to note that the ensemble of convex functions formes a convex cone instead of a vector space.
+- Regardless, convex functions can be decomposed into an integral over the elementary convex functions $x \rightarrow |x-t|$, as explained in @thm-decomposition. These can be thought of as representing the *atom* of having convex curvature only at point $t$.
+- The statement of that decomposition is a bit trickier than my presentation here suggests. I took drastic assumptions in order to make the math simple. 
+
+# Strong assumptions make math easy {#sec-strong-assumptions}
+
+It is worth discussing a bit more the important role that assumptions play in mathematics, and particularly in analysis. @thm-decomposition has a typical structure for analysis theorems:
+
+- we highlight a large family of functions.
+- inside that family, a property holds.
+
+However, the result is true for a much larger family, i.e. the theorem is not maximal.
+
+Why would did I focus on the simpler case instead of stating a maximally strong theorem (or, at least, a stronger version than what I stated here)? My choice here is to focus on a simpler case so that the proof (and the statement of theorem) can remain simple. If we expand the ensemble on which we prove the result then, typically:
+
+- the proof of the result is more complicated, due to more potential edge cases which the proof needs to account for.
+- the statement of the theorem is more complicated.
+
+Finally, and critically for a blog trying to appeal to a wide audience, sophisticated results would exclude readers which do not have the necessary bagage, and would force me to burden my presentation with a lot of filler, required for mathematical rigor, but useless for comprehension.
+
+I thus am strongly biased towards simple results with strong assumptions. These yield easier proofs, can be explained more easily, to a wider audience. Being able to state fully rigorous maximal results also has its time and place, but it should be reserved to specific contexts: mathematical textbooks, research work, etc.
+
+The underlying point is the following: a theorem is a statement that is both true and illuminating[^If I recall correctly, [Poincarré presents this point extremely clearly in his book](https://en.wikipedia.org/wiki/Science_and_Hypothesis)]. A statement that the reader understands partially is not illuminating. 

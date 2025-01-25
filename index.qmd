@@ -1,0 +1,176 @@
+---
+title: ""
+# about:
+#     template: marquee
+#     image: guillaume_dehaene.jpg
+aliases: 
+    - about.html
+
+format:
+    html:
+        theme:
+            - cosmo
+            - style.scss
+            - style_cv.scss
+        
+        # Provides a navigation menu for the content on the page
+        toc: true
+        toc-location: left
+        toc-title: "Contents"
+        toc-depth: 2
+
+        # anchored manually instead of automatically
+        anchor-sections: false
+
+        number-sections: false
+
+        code-tools: false
+---
+
+<!-- Banner -->
+:::::: {.banner .column-page-right}
+
+# Ali ALMASI {#sec-header .anchored}
+
+## AI Engineer
+
+[My goal is to tackle interesting AI problems by combining expert knowledge of deep learning, Bayesian inference, statistical theory and Python.]{.banner-elevator-pitch}
+
+[Website](https://www.guillaumedehaene.com) - [Blog](blog.qmd) - [Email](mailto:guillaume.dehaene+cv@gmail.com) - [LinkedIn](https://www.linkedin.com/in/guillaume-dehaene-442306b3/)
+
+::::::
+
+<!-- Mobile TOC -->
+::::: {.mobile-contents .hidden}
+
+[Experience](#sec-professional-experience) [Skills](#sec-skills) [Education](#sec-education) [Publications](#sec-publications)
+
+:::::
+
+# {{< iconify mdi:hammer >}} Professional experience{#sec-professional-experience .anchored}
+
+## Artificial Intelligence Engineer
+
+#### Geodaisics | Sept. 2023
+
+- Creation and implementation of the internal validation procedures of AI models.
+- Creation of a shared workflow and tooling for the research team.
+- Wrote and reviewed developpement procedures for the internal Quality Management System in accordance with ISO 13485 / 14971 / 62304 / ...
+
+## Senior data Engineer
+
+#### Marelli - Smart Me Up | July 2022 - July 2023
+
+- Project supervision: embedded gesture recognition (precision >95%).
+- Definition of data needs for the Grenoble teams.
+- Responsible for the internal online data annotation tool.
+- Supervision of the annotation team (12 people). Creation and supervision of the data sharing procedures.
+
+## R&D computer vision engineer
+
+#### Marelli Smart Me Up | April 2020 - June 2022
+
+- Creation and implementation of an unsupervised stereo vision algorithm.
+- Creation of an internal library to standardize R&D activity on neural networks.
+- Features: automated code standards, unit testing, web visualization of results,
+reproducibility.
+- Technology watch on computer vision. Algorithms adapted: SwAV, Mean teacher,
+depth estimation, transformer.
+
+## Assistant professor in Statistics
+
+#### Ecole Polytechnique Fédérale de Lausanne | Sept. 2016 - April 2020
+
+- Neurips 2016 AABI workshop Disney Research Paper Awards awarded for:
+Expectation Propagation performs a smoothed gradient descent, G. Dehaene.
+- Creation and implementation of a method to validate the results of a Bayesian
+statistical analysis
+- Supervision of one PhD. and three master theses.
+
+<!-- Skills in right-margin -->
+::::{.column-margin .skills}
+
+# {{< iconify mdi:hammer >}} Skills {#sec-skills .anchored}
+
+## Programing
+
+|||
+|--------|------|
+| Python <br> (Django, Pytorch, Tensorflow) | [[]{.skill-inner data-level=9}]{.skill-outer} | 
+| Rust   | [[]{.skill-inner data-level=6}]{.skill-outer}  |
+| Javascript   | [[]{.skill-inner data-level=8}]{.skill-outer}  |
+| HTML, CSS   | [[]{.skill-inner data-level=7}]{.skill-outer}  |
+| Git   | [[]{.skill-inner data-level=9}]{.skill-outer}  |
+| Docker   | [[]{.skill-inner data-level=7}]{.skill-outer}  |
+| Linux admin   | [[]{.skill-inner data-level=7}]{.skill-outer}  |
+: {.striped .hover .borderless tbl-colwidths="[50, 50]"}
+
+## Management
+
+|||
+|--------|------|
+| Agile project management | [[]{.skill-inner data-level=8}]{.skill-outer} | 
+| R&D supervision   | [[]{.skill-inner data-level=7}]{.skill-outer}  |
+|CI / CD   | [[]{.skill-inner data-level=6}]{.skill-outer}  |
+: {.striped .hover .borderless tbl-colwidths="[50, 50]"}
+
+
+## Artificial Intelligence
+
+|||
+|--------|------|
+| Neural networks | [[]{.skill-inner data-level=9}]{.skill-outer} | 
+| Computer vision   | [[]{.skill-inner data-level=9}]{.skill-outer}  |
+| Statistical theory  | [[]{.skill-inner data-level=10}]{.skill-outer}  |
+| Bayesian statistics   | [[]{.skill-inner data-level=10}]{.skill-outer}  |
+: {.striped .hover .borderless tbl-colwidths="[50, 50]"}
+
+## Languages
+
+|||
+|--------|--------|
+| French | Native |
+| English | Bilingual |
+: {.striped .hover .borderless tbl-colwidths="[50, 50]"}
+
+::::
+
+# {{< iconify mdi:flask >}} Education {.anchored #sec-education}
+
+**Ph.D. in neuroscience and statistics** \
+Université de Genève, Université Paris- Descartes \
+2012-2016
+
+**Ecole Polytechnique engineer diploma** \
+Ecole Polytechnique Paris \
+2008-2012
+
+**Master in Cognitive Science** \
+ENS-Paris, EHESS, Université Paris-Descartes \
+2011-2012
+
+# {{< iconify mdi:book-open-blank-variant-outline >}} Publications {.anchored #sec-publications}
+
+[**A deterministic and computable Bernstein-von Mises theorem**](publications.qmd#a-deterministic-and-computable-bernstein-von-mises-theorem) \
+G. Dehaene, 2019 \
+Presented at: Séminaire BIG (Grenoble), Séminaire de Statistique de Berne
+
+[**Expectation Propagation in the large data limit**](publications.qmd#expectation-propagation-in-the-large-data-limit) \
+G. Dehaene and S. Barthelmé, 2018 \
+Journal of the Royal Statistical Society - Series B \
+Presented at: Séminaire BIG (Grenoble), Séminaire de Statistique de Genève
+
+[**Expectation Propagation performs a smoothed gradient descent**](publications.qmd#expectation-propagation-performs-a-smoothed-gradient-descent) \
+G. Dehaene, 2016 \
+Advances in Approximate Bayesian Inference NeuRIPS workshop \
+**NeurIPS AABI Workshop 2016 Disney Research Paper Awards**
+
+[**Bounding errors of Expectation-Propagation**](publications.qmd#bounding-errors-of-expectation-propagation) \
+G. Dehaene and S. Barthelmé, 2015 \
+NeurIPS 2015
+
+# Hobbies {.anchored .unlisted}
+
+- [Judo](https://www.jcgoncelin.com/)
+- Bandes dessinées
+- Competitive coding: [Advent of code](https://adventofcode.com/)

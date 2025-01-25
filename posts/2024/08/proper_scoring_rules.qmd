@@ -1,0 +1,141 @@
+---
+draft: true
+
+title: "Proper scoring rules: an introduction"
+description: |
+    Scoring rules are loss functions that measure whether a probabilistic forecast gives good results or not. In this post, I try to review some of the key properties of this class of loss functions.
+date: "08/24/2024"
+categories:
+  - data science
+---
+
+Typically, losses in machine learning are presented as combining a true value $Y$ and an estimate $\hat Y$. However, many situations call instead for computing a probabilistic forecast of $Y$ instead of a simple point estimate. Scoring rules loss functions which measure the quality of probabilistic forecasts.
+
+In this post, I will share some insight into scoring rules. I will focus mostly on *proper* scoring rules. As far as I can see, there is no reason to use a non-proper scoring rule so it is important to be able to tell the difference.
+
+Choosing the right loss function (or mixture of loss functions) is an important skill in deep learning and other data science methods. I hope that this information can help you find the right loss functions for your problem.
+
+## Definitions
+
+### Scoring rule
+
+Let us start with a bit of notation. Assume the standard supervised learning setup: we are given $n$ pairs of datapoints composed of a predictor $x_i$ and a target $y_i$. We want to evaluate some data science methods that builds probabilistic predictions for $y_i$. If the $Y$ values are discrete, then this prediction is a discrete probability distribution. If the $Y$ values are continuous, then the prediction is a continuous distribution instead. Regardless, I will denote the prediction $q_i$ [^Using $q$ instead of $p$ since this a prediction / approximation, instead of a true probability distribution.] which represents either the vector of predicted probabilities for each discrete value of $Y$ or the probability density function of the prediction.
+
+::: {.callout-note}
+
+#### Scoring rule
+
+A *scoring rule* is any loss function which combines a probabilistic prediction $f_i$ and a true value $y_i$ and measures somehow the quality of the fit between the two.
+
+Note that, technically, scoring rules can either be losses, which we want to minimize, or utilities, which we aim to maximize. I will only consider losses, but be careful about checking the directionality
+
+:::
+
+For example, if $Y$ is a categorical variable, then the classical measure of the fit of a probability vector $p_i$ to a realized value $y_i$ is the cross-entropy loss. An alternative is the L2 scoring rule (aka "Brier loss" [^A major pet peeve of mine is using jargon when a much universal name could be used instead. I am certain that Brier was a remarquable person but calling this the "Brier loss" is completely deconnected from its role. Calling it instead the L2 scoring rule immediately reminds an aware reader of what the loss is exactly about. It's that one scoring rule which uses the L2 norm to measure errors.]) which is simply the L2 error between the predicted probabilities and the *one-hot* vector associated to $Y$. In equations:
+
+- Given a predicted probability vector $q$ and a value $y$,
+- denoting $y_j$ the possible values of $Y$,
+- the one-hot probability vector is: $\operatorname{one-hot}(y)_j = \mathbf{1} (y_j = y)$ (where $\mathbf 1$ is the identity function),
+- and the Brier loss is finally the L2 error / sum of the squared errors at each coordinate:
+
+$$
+\operatorname{Brier}(q, y) = \sum_j (q_j - \operatorname{one-hot}(y)_j )^2
+$$
+
+### Proper scoring rule
+
+By itself, the definition of a scoring rule is perfectly empty. It is just something that takes two inputs and gives an output. In particular, it makes no effort to say whether a given scoring rule is interesting or not. The definition of a *proper* scoring rule is a minimal requirement for a scoring rule to be interesting.
+
+This definition brings into play an additional element: a true probability $p$ for the target variable $Y$. Instead of considering the loss for a single concrete realization $y_i$, we instead consider the average loss under $p$. 
+
+::: {.callout-note}
+
+#### Proper scoring rule
+
+A scoring rule $L(q, y)$ is said to be *proper* if, for all true probability distributions $p$, the average loss is optimized by setting $q=p$. Mathematically:
+
+$$
+\mathbb E_{Y\sim p} [L(q, Y)] \geq \mathbb E_{Y\sim p} [L(p, Y)] 
+$$
+
+I.e. the optimal prediction is the one that correctly matches the true probability distribution of $Y$. The alternative would be the horrible situation where, given some true data generated according to $p$, optimizing the loss leads you instead to learn some other distirbution.
+
+:::
+
+For example, the cross-entropy, and the L2 scoring rule are both proper. However, these are somewhat exceptional. If we start from the L2 scoring rule and replace the squared errors by absolute values instead, then we have a non-proper scoring rule.
+
+## Characterizing proper scoring rules
+
+Proper scoring rules have a somewhat simple caracterization. Given a candidate scoring rule, $L(q, y)$, define the function:
+
+$$
+p \rightarrow C(p) = \mathbb E_{Y \sim p} [L(p,Y)]
+$$
+
+This function is the optimal score that could be reached when the true distribution is $p$.
+
+Having defined $C$, we can now give a simple characterization of proper scoring rules. $L$ is proper if and only if $C$ is convex.
+
+The link goes further: any convex function $C$ on the space of probability distributions can be transformed into a proper scoring rule.
+For simplicity, let's focus on the discrete case, i.e. $p$ is a vector.
+Let $G(p)$ be sub-gradient of $C$, i.e. a vector-valued function such that the linear approximation at $q$ with slope $G(q)$ is below $C(p)$:
+
+$$
+\forall p, q, \quad C(p) \geq C(q) + (p - q) G(q)
+$$
+
+Then, the difference between $C(p)$ and the linear tangent at $q$ is [the Bregman divergence associated to $C$](https://en.wikipedia.org/wiki/Bregman_divergence):
+
+$$
+D_C(q, p) = C(p) - C(q) - (p-q) G(q) \geq 0
+$$
+
+The associated scoring rule is simply the divergence computed against the one-hot vector associated to $y$, i.e. at $p = \operatorname{OH}(y)$:
+
+$$
+L_C(q, y) = D_C(q, \operatorname{OH}(y))
+$$
+
+For example,
+
+1. the Kullback-Leibler divergence, and the associated cross-entropy scoring rule, are associated to the negative entropy:
+
+    $$
+    E(p) = \sum_j p_j \log p_j
+    $$
+
+2. the L2 distance between probability vectors, and the associated L2 scoring rule are associated to the L2 norm:
+
+    $$
+    \sum_j (p_j)^2
+    $$
+
+3. it now becomes straightforward to compute the divergence and scoring rule corresponding to taking powers other than 2. For example, taking the fourth power:
+
+    $$
+    \begin{align}
+    C(p) &= \sum_j (p_j)^4 \\
+    \nabla_j C(p) &= 4 p_j \\
+    D_C(q, p) &= \sum_j (p_j)^4 - (q_j)^4 - 4 (p_j - q_j) (q_j)^3 \\
+    L_C(q, y) &= 1 - \left[ \sum_j (q_j)^3 [4 \operatorname{OH}_j(y) - 3 q_j] \right]
+    \end{align}
+    $$
+
+## Link to optimal decision making under uncertainty
+
+[Optimal decision making under uncertainty](https://en.wikipedia.org/wiki/Bayes_estimator) can be made explicit by combining:
+
+- a probability distribution, encoding the probability of the various possible states of the world,
+- a loss function, measuring numerically the loss associated to an action and a state of the world.
+
+With this setup, it is then possible to compute the expected loss of any action, and to choose the optimal action: the one which minimizes the expected loss.
+
+Given one such loss over an action $a$ and a state $y$, it is fairly natural to wonder if it can be linked to a scoring rule.
+
+### Decomposing one-dimensional rules
+
+
+
+## General recipes
+
+### 

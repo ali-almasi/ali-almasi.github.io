@@ -1,0 +1,99 @@
+---
+title: "Pruning git local branches."
+description: |
+    A short guide to the commands necessary to automatically prune unneeded local branches from git.
+date: "09/10/2024"
+categories:
+  - git
+---
+
+`git` is a great piece of software but it can be a bit tricky to understand how to do advanced manipulations with it.
+Here is a trick which I find quite useful.
+It is very normal to accumulate unused local branches on a work computer, typically due to them being merged into the main code branch.
+You could manually delete them, but let me share my procedure to do so automatically.
+
+# Deleting branches quickly and accurately
+
+Let's get straight to the point. Open your terminal inside the project, then run the following commands.
+
+1. Create the file `branches_to_prune.txt` with all branches which do not have associated upstream branches.
+
+```bash
+git fetch --prune && git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}' >> branches_to_prune.txt
+```
+
+1. Then review the file to make sure that everything is all right.
+
+```bash
+nano branches_to_prune.txt
+```
+
+1. Erase all branches in the file and delete the file.
+
+```bash
+while read p; do branch -d $p; done < branches_to_prune.txt
+rm branches_to_prune.txt
+```
+
+# How it works
+
+If you want to understand the dark magic going on, here are all the important details.
+
+If you feel lost, the key reference is the [pro git book](https://git-scm.com/book/en/v2).
+
+## `git fetch --prune`
+
+Normally, we run `git fetch` which updates all branches present on the remote.
+However, branches which are not present on the remote are not updated.
+With the `--prune` option, branches which are not on the remote get removed.
+This makes it so that branches which have no counter-part on the remote can now be identified since they don't have an upstream branch which they track.
+
+## Listing and parsing local branches
+
+Git offers a built-in tool for listing and parsing local branches: `git-for-each-ref`.
+In the final command, we do not take advantage of the fact that its outputs can be formatted.
+A human readable command would be:
+
+```
+git for-each-ref --format '%(align:width=60)%(refname)%(end)%(align:width=60)%(upstream)%(end)%(align:width=10)%(upstream:track)%(end)%(align:width=3)%(upstream:trackshort)%(end)' refs/heads
+```
+
+The pieces of information are a bit tricky to understand.
+`upstream` provides information about the reference upstream from the branch.
+`upstream:track` and `upstream:trackshort` provide information about whether the upstream is behind, ahead, equal compared to the local branch.
+Furthermore, `upstream:track` has the special value `[gone]` if the upstream is absent, which is what our final command parses.
+
+Another important 
+
+The command we use in the workflow is a machine-formatted variant:
+
+```
+git for-each-ref --format '%(refname) %(upstream:track)' refs/heads
+```
+
+Play around with `for-each-ref`: it's a really interesting command.
+
+## Parsing each line
+
+Each line of the `for-each-ref` is parsed with `awk`:
+
+```
+awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'
+```
+
+This parses as:
+
+- if the second input `$2` is exactly `[gone]`,
+- then remove `refs/heads/` from the first input and print the remainder.
+
+This transforms the list from `for-each-ref` into the list of all local branches with no upstream.
+
+## A note on deleting
+
+There are two commands for deletion:
+
+- `git branch -d $name`: this is the normal `--delete` option.
+- `git branch -D $name`: this is a shorthand for `--delete --force`.
+
+The `--force` option allows deleting the branch irrespective of its merged status, or whether it even points to a valid commit.
+Please be careful and only use it when necessary.
