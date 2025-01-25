@@ -277,6 +277,6 @@
     "href": "resources.html#quantum-algorithms",
     "title": "Resources",
     "section": "1 Quantum Algorithms",
-    "text": "1 Quantum Algorithms\n\n1.1 Survey Articles\n\nQuantum algorithms for algebraic problems by Andrew M. Childs, Wim van Dam\nThis is an excellent source for learning about a large class of quantum algorithms that are similar to the seminal algorithm by Peter Shor for factoring integers. My suggestion to beginners is to start with reading Appendix B, then move on to Section III.1\n\n\n\n1 Childs also has a set of lecture notes on quantum algorithms that may be helpful in reading this survey."
+    "text": "1 Quantum Algorithms\n\n1.1 Survey Articles\n\nQuantum algorithms for algebraic problems by Andrew M. Childs, Wim van Dam\n\nThis is an excellent source for learning about a large class of quantum algorithms that are similar to the seminal algorithm by Peter Shor for factoring integers. My suggestion to beginners is to start with reading Appendix B, then move on to Section III.1\n\n\n1 Childs also has a set of lecture notes on quantum algorithms that may be helpful in reading this survey."
   }
 ]
