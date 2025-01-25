@@ -81,6 +81,35 @@ MathJax = {
 };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-mml-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -175,11 +204,12 @@ An investigation of <em>quantum guessing games</em>, a generalization of quantum
 <p><strong>Positive but not Completely Positive Maps</strong> | <a href="assets/projects_materials/pncp/final_report.pdf">report</a>, <a href="ali-almasi.github.io/assets/projects_materials/pncp/PnCP_defence.pdf">slides</a><br>
 Supervised by <a href="https://peterjbrown519.github.io/">Peter Brown</a>, 2023<br>
 A numerical and analytical study of the properties of positive but not completely positive (PnCP) maps, focusing on their applications in entanglement detection and relaxing certain optimization problems over the set of separable quantum states. Using semidefinite programming, we explored the relationship between two fundamental entanglement criteria: positivity under partial application of a PnCP map and entanglement witnesses.</p>
-<section id="quantum-proofs" class="level4">
-<h4 data-anchor-id="quantum-proofs"><strong>Quantum Proofs</strong></h4>
-<p><a href="assets/projects_materials/bachelor_thesis/QProofs.pdf">thesis</a><br>
-Supervised by <a href="https://sharif.ir/~shahram.khazaei/home.html">Shahram Khazaei</a>, 2022<br>
-A pedagogical survey (in Persian) intended to be an introduction to quantum complexity theory, focusing on QMA, a quantum analogue of NP.</p>
+<section id="quantum-proofs-fall-2022" class="level4">
+<h4 data-anchor-id="quantum-proofs-fall-2022"><strong>Quantum Proofs</strong> | Fall 2022</h4>
+<p><a href="assets/projects_materials/bachelor_thesis/QProofs.pdf">Thesis</a><br>
+- Supervised by <a href="https://sharif.ir/~shahram.khazaei/home.html">Shahram Khazaei</a>, 2022<br>
+<span class="math inline">\(\text{A pedagogical survey (in Persian) intended to be an introduction to quantum complexity
+theory, focusing on QMA, a quantum analogue of NP}\)</span>.</p>
 </section>
 </section>
 <section id="other-academic-activities" class="level2 anchored">
