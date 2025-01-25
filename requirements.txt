@@ -1,6 +1,0 @@
-jupyter
-pandas
-plotly
-statsmodels
-tabulate
-pyzmq==25.1.2
