@@ -32,7 +32,14 @@
     "href": "index.html#sec-research",
     "title": "Ali ALMASI",
     "section": " Research Projects",
-    "text": "Research Projects\nQuantum Guessing Games (M1 Internship)\nSupervised by Peter Brown and Cambyse Rouzé\n::: {style=“font-size: 50%;”}\nAn investigation of quantum guessing games, a generalization of quantum state discrimination and antidiscrimination, in which we found closed-form solutions for specific games, defined and analyzed the pretty good measurement for this generalization, and studied the convergence behaviour of an iterative algorithm for determining the optimal strategy.\n:::\nExpectation Propagation in the large data limit\nG. Dehaene and S. Barthelmé, 2018\nJournal of the Royal Statistical Society - Series B\nPresented at: Séminaire BIG (Grenoble), Séminaire de Statistique de Genève\nExpectation Propagation performs a smoothed gradient descent\nG. Dehaene, 2016\nAdvances in Approximate Bayesian Inference NeuRIPS workshop\nNeurIPS AABI Workshop 2016 Disney Research Paper Awards\nBounding errors of Expectation-Propagation\nG. Dehaene and S. Barthelmé, 2015\nNeurIPS 2015"
+    "text": "Research Projects\nQuantum Guessing Games (M1 Internship)\nSupervised by Peter Brown and Cambyse Rouzé, 2024\nAn investigation of quantum guessing games, a generalization of quantum state discrimination and antidiscrimination, in which we found closed-form solutions for specific games, defined and analyzed the pretty good measurement for this generalization, and studied the convergence behaviour of an iterative algorithm for determining the optimal strategy.\nPositive but not Completely Positive Maps\nSupervised by Peter Brown, 2023\nA numerical and analytical study of the properties of positive but not completely positive (PnCP) maps, focusing on their applications in entanglement detection and relaxing certain optimization problems over the set of separable quantum states. Using semidefinite programming, we explored the relationship between two fundamental entanglement criteria: positivity under partial application of a PnCP map and entanglement witnesses.\nQuantum Proofs\nSupervised by Shahram Khazaei, 2022\nA pedagogical survey (in Persian) intended to be an introduction to quantum complexity theory, focusing on QMA, a quantum analogue of NP."
+  },
+  {
+    "objectID": "index.html#other-activities",
+    "href": "index.html#other-activities",
+    "title": "Ali ALMASI",
+    "section": " Other Activities",
+    "text": "Other Activities\nHead Organizer and Mentor\nSharif Mathematics Summer School (for high school students), 2019\nMember of Hamband Scientific Association, 2019 - 2020\nEditorial Board of Sharif Students Mathematics Journal 2023"
   },
   {
     "objectID": "index.html#hobbies",
