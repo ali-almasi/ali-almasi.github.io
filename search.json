@@ -28,11 +28,11 @@
     "text": "Education\nM.Sc. in Computer Science (PhD-track Program)\nÉcole Polytechnique, Institut Polytechnique de Paris\n2023 - 2025 (expected)\nB.Sc. in Pure Mathematics, Minor in Computer Science\nSharif University of Technology\n2018 - 2023"
   },
   {
-    "objectID": "index.html#sec-publications",
-    "href": "index.html#sec-publications",
+    "objectID": "index.html#sec-research",
+    "href": "index.html#sec-research",
     "title": "Ali ALMASI",
-    "section": " Publications",
-    "text": "Publications\nA deterministic and computable Bernstein-von Mises theorem\nG. Dehaene, 2019\nPresented at: Séminaire BIG (Grenoble), Séminaire de Statistique de Berne\nExpectation Propagation in the large data limit\nG. Dehaene and S. Barthelmé, 2018\nJournal of the Royal Statistical Society - Series B\nPresented at: Séminaire BIG (Grenoble), Séminaire de Statistique de Genève\nExpectation Propagation performs a smoothed gradient descent\nG. Dehaene, 2016\nAdvances in Approximate Bayesian Inference NeuRIPS workshop\nNeurIPS AABI Workshop 2016 Disney Research Paper Awards\nBounding errors of Expectation-Propagation\nG. Dehaene and S. Barthelmé, 2015\nNeurIPS 2015"
+    "section": " Research Projects",
+    "text": "Research Projects\nQuantum Guessing Games (M1 Internship)\nSupervised by Peter Brown and Cambyse Rouzé\n::: {style=“font-size: 50%;”}\nAn investigation of quantum guessing games, a generalization of quantum state discrimination and antidiscrimination, in which we found closed-form solutions for specific games, defined and analyzed the pretty good measurement for this generalization, and studied the convergence behaviour of an iterative algorithm for determining the optimal strategy.\n:::\nExpectation Propagation in the large data limit\nG. Dehaene and S. Barthelmé, 2018\nJournal of the Royal Statistical Society - Series B\nPresented at: Séminaire BIG (Grenoble), Séminaire de Statistique de Genève\nExpectation Propagation performs a smoothed gradient descent\nG. Dehaene, 2016\nAdvances in Approximate Bayesian Inference NeuRIPS workshop\nNeurIPS AABI Workshop 2016 Disney Research Paper Awards\nBounding errors of Expectation-Propagation\nG. Dehaene and S. Barthelmé, 2015\nNeurIPS 2015"
   },
   {
     "objectID": "index.html#hobbies",
