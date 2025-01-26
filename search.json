@@ -49,6 +49,13 @@
     "text": "Research Projects\n\nQuantum Guessing Games (M1 Internship) | Summer 2024\nReport, Poster, Slides\n\nSupervised by Peter Brown and Cambyse Rouzé\nAn investigation of quantum guessing games, a generalization of quantum state discrimination and antidiscrimination, in which we found closed-form solutions for specific games, defined and analyzed the pretty good measurement for this generalization, and studied the convergence behaviour of an iterative algorithm for determining the optimal strategy.\n\n\n\nPositive but not Completely Positive Maps | Fall 2023\nReport, Slides\n\nSupervised by Peter Brown\nA numerical and analytical study of the properties of positive but not completely positive (PnCP) maps, focusing on their applications in entanglement detection and relaxing certain optimization problems over the set of separable quantum states. Using semidefinite programming, we explored the relationship between two fundamental entanglement criteria: positivity under partial application of a PnCP map and entanglement witnesses.\n\n\n\nQuantum Proofs | Fall 2022\nThesis\n\nSupervised by Shahram Khazaei\nA pedagogical survey (in Persian) intended to be an introduction to quantum complexity theory, focusing on QMA, a quantum analogue of NP."
   },
   {
+    "objectID": "index.html#teaching-experience",
+    "href": "index.html#teaching-experience",
+    "title": "Ali ALMASI",
+    "section": " Teaching Experience",
+    "text": "Teaching Experience\n\nTeaching Assistant at Sharif University | 2019 - 2023\n\nCourses: Mathematical Logic, Automata Theory, Theory of Computer Science, Elementary Functional Analysis, Probability and Applications, Linear Algebra, Complex Analysis, Topology\nSee here for more details.\n\n\n\nPart-time Mathematics Teacher\n\nAllameh Helli Middle School (2019), Allameh Helli 3 Middle School (2019), Allameh Helli 5 High School (2023)\n\n\n\nMentor at Calculus 1 Problem-Solving Workshop, Hamband Scientific Association | Fall 2019"
+  },
+  {
     "objectID": "index.html#other-academic-activities",
     "href": "index.html#other-academic-activities",
     "title": "Ali ALMASI",
