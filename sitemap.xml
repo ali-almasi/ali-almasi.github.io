@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ali-almasi.github.io/blog.html</loc>
-    <lastmod>2025-01-25T08:07:49.325Z</lastmod>
+    <lastmod>2025-01-26T07:37:33.024Z</lastmod>
   </url>
   <url>
     <loc>https://ali-almasi.github.io/assets/teaching_materials/linear_algebra2020/test.html</loc>
@@ -17,24 +17,28 @@
     <lastmod>2025-01-25T21:08:22.930Z</lastmod>
   </url>
   <url>
-    <loc>https://ali-almasi.github.io/posts/2024/12/grand-unification.html</loc>
-    <lastmod>2025-01-25T13:27:16.376Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ali-almasi.github.io/posts/2024/11/source-coding.html</loc>
-    <lastmod>2025-01-25T13:54:16.851Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ali-almasi.github.io/posts/2025/01/quantifying-entanglement.html</loc>
-    <lastmod>2025-01-25T13:27:24.038Z</lastmod>
+    <loc>https://ali-almasi.github.io/misc_posts/digital-works.html</loc>
+    <lastmod>2025-01-26T00:58:00.121Z</lastmod>
   </url>
   <url>
     <loc>https://ali-almasi.github.io/posts/2024/06/PrimeInfinitude.html</loc>
     <lastmod>2025-01-25T20:21:13.428Z</lastmod>
   </url>
   <url>
-    <loc>https://ali-almasi.github.io/misc_posts/digital-works.html</loc>
-    <lastmod>2025-01-26T00:58:00.121Z</lastmod>
+    <loc>https://ali-almasi.github.io/posts/2025/01/quantifying-entanglement.html</loc>
+    <lastmod>2025-01-25T13:27:24.038Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ali-almasi.github.io/posts/2024/11/source-coding.html</loc>
+    <lastmod>2025-01-25T13:54:16.851Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ali-almasi.github.io/posts/2024/12/grand-unification.html</loc>
+    <lastmod>2025-01-25T13:27:16.376Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ali-almasi.github.io/misc_posts/ta-sharif.html</loc>
+    <lastmod>2025-01-26T07:45:33.168Z</lastmod>
   </url>
   <url>
     <loc>https://ali-almasi.github.io/publications.html</loc>
