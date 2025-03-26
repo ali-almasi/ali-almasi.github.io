@@ -228,7 +228,7 @@
     "href": "posts/2024/06/PrimeInfinitude.html",
     "title": "Two CS-inspired Proofs for the Infinitude of Primes",
     "section": "",
-    "text": "1 Introduction\n  2 Chaitin’s Proof\n  3 Thakkar’s Proof\n  4 Acknowledgement\n  5 Bibliography\nIt’s unfortunate that there aren’t many good open-source fonts designed specifically for dyslexic readers. However, there’s a helpful Chrome extension that can change the font of the text you read online, making it easier to follow."
+    "text": "1 Introduction\n  2 Chaitin’s Proof\n  3 Thakkar’s Proof\n  4 Acknowledgement\n  5 Bibliography"
   },
   {
     "objectID": "posts/2024/06/PrimeInfinitude.html#introduction",
@@ -340,7 +340,7 @@
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "1 Quantum Information Science\n  \n  1.1 Quantum Algorithms\n  1.2 ZX-Calculus\n  1.3 Quantum Information Theory\n  1.4 Quantum Complexity Theory"
+    "text": "1 Quantum Information Science\n  \n  1.1 Quantum Algorithms\n  1.2 ZX-Calculus\n  1.3 Quantum Information Theory\n  1.4 Quantum Complexity Theory\n  \n  2 Are you a high school student and you want to decide whether to study math in college?"
   },
   {
     "objectID": "resources.html#quantum-information-science",
@@ -348,5 +348,12 @@
     "title": "Resources",
     "section": "1 Quantum Information Science",
     "text": "1 Quantum Information Science\n\n1.1 Quantum Algorithms\n\n1.1.1 Survey Articles\n\nQuantum algorithms for algebraic problems by Andrew M. Childs and Wim van Dam\n\nThis is an excellent source for learning about a large class of quantum algorithms that are similar to the seminal algorithm by Peter Shor for factoring integers. My suggestion to beginners is to start with reading Appendix B, then move on to Section III.1\n1 Childs also has a set of lecture notes on quantum algorithms that may be helpful in reading this survey.\n\n\n1.2 ZX-Calculus\n\n1.2.1 Survey Articles\n\nZX-calculus for the working quantum computer scientist by John van de Wetering\n\nA wonderful easy-to-read and succinct introduction to ZX-calculus. If you are completely new to ZX, I believe that reading Section 3-6 and Section 10 will give you an idea of what ZX-calculus is and how it is useful.\n\n\n\n1.3 Quantum Information Theory\n\n1.3.1 Courses\n\nA short course on quantum information theory by Omar Fawzi\n\n\n\n\n1.4 Quantum Complexity Theory\n\nQuantum Computational Complexity by John Watrous\nQuantum Hamiltonian Complexity by Gharibian et al.\nQuantum Proofs by Thomas Vidick and John Watrous"
+  },
+  {
+    "objectID": "resources.html#are-you-a-high-school-student-and-you-want-to-decide-whether-to-study-math-in-college",
+    "href": "resources.html#are-you-a-high-school-student-and-you-want-to-decide-whether-to-study-math-in-college",
+    "title": "Resources",
+    "section": "2 Are you a high school student and you want to decide whether to study math in college?",
+    "text": "2 Are you a high school student and you want to decide whether to study math in college?\nThere are many resources that are fairly accessible for a high school student and can give them a taste of what mathematicians do and what mathematics is about.\n\nDialógusok a matematikáról by Alfréd Rényi, free copies of English and Persian translations are available online[^2] [^2]: This is a wonderful book written by a great mathematician. Easy-to-read and compelling, you may not be able to put it down once you start reading it. When I used to teach some extra-curricular math classes to high school and middle school students, I usually tried to read parts of this book in the class, and it was often one of the most enjoyable parts of the class for both me and the students.\nTake a look at"
   }
 ]
