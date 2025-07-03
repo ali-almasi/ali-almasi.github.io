@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-03-31">
 
-<title>Blog – Ali ALMASI</title>
+<title>Some op-eds in Derayeh – Ali ALMASI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon-96x96.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7fd0fe4245b865325b8ce8dccb604d59.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-81da4bf3ea3ec2835a28c05d85ac4863.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon-96x96.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7fd0fe4245b865325b8ce8dccb604d59.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9be09999754786af3c487cc9121268de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap')
@@ -113,39 +83,13 @@ MathJax = {
 };
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-mml-chtml.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="Blog – Ali ALMASI">
+<meta property="og:title" content="Some op-eds in Derayeh – Ali ALMASI">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://ali-almasi.github.io/assets/img/d8-1.png">
 <meta property="og:site_name" content="Ali ALMASI">
+<meta property="og:image:height" content="1580">
+<meta property="og:image:width" content="1110">
 </head>
 
 <body class="nav-fixed">
@@ -155,7 +99,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Ali ALMASI</span>
     </a>
   </div>
@@ -166,17 +110,17 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resources.html"> 
+    <a class="nav-link" href="../resources.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./misc.html"> 
+    <a class="nav-link" href="../misc.html"> 
 <span class="menu-text">Misc.</span></a>
   </li>  
 </ul>
@@ -191,21 +135,42 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YXV0b21hdGEtdGhlb3J5">automata-theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2xhc3NpY2FsLWluZm9ybWF0aW9uLXRoZW9yeQ==">classical-information-theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJpbWVz">primes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cXVhbnR1bS1pbmZvcm1hdGlvbi10aGVvcnk=">quantum-information-theory <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#derayeh-in-its-current-form" id="toc-derayeh-in-its-current-form" class="nav-link active" data-scroll-target="#derayeh-in-its-current-form">Derayeh in its current form</a></li>
+  <li><a href="#derayeh-when-i-was-the-editor-in-chief" id="toc-derayeh-when-i-was-the-editor-in-chief" class="nav-link" data-scroll-target="#derayeh-when-i-was-the-editor-in-chief">Derayeh when I was the editor-in-chief</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
+<h1 class="title">Some op-eds in Derayeh</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">sharif-university</div>
+    <div class="quarto-category">derayeh</div>
+    <div class="quarto-category">undergraduate-research</div>
+    <div class="quarto-category">extracurricular-activities</div>
+    <div class="quarto-category">hamband</div>
+    <div class="quarto-category">freshmen</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 31, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -214,89 +179,149 @@ window.Quarto = {
 
 </header>
 
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#derayeh-in-its-current-form" id="toc-derayeh-in-its-current-form">Derayeh in its current form</a></li>
+  <li><a href="#derayeh-when-i-was-the-editor-in-chief" id="toc-derayeh-when-i-was-the-editor-in-chief">Derayeh when I was the editor-in-chief</a></li>
+  </ul>
+</nav>
+<p>When I began my undergraduate studies at Sharif University of Technology, <em><a href="https://t.me/deraye_mag">Derayeh</a></em> was a student newsletter aimed at helping freshmen become familiar with the mathematics department and understand how things work at Sharif. In my sophomore year, I was the editor-in-chief of Derayeh. Over time, it evolved into a broader magazine, serving as a non-technical student publication for the mathematics department. I have also contributed to this new version of Derayeh by writing several op-eds.&nbsp;</p>
+<section id="derayeh-in-its-current-form" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="derayeh-in-its-current-form">Derayeh in its current form</h3>
+<div>
 
-<p>Welcome to my blog! If you have any suggestions or comments about the content, in particular about the technical writings, please let me know.</p>
+</div>
+<div class="quarto-layout-panel" data-layout="[ 70, 30 ]">
+<div class="quarto-layout-row">
+<div id="first-column-8-1" class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: flex-start;">
+<section id="march-2024-on-being-a-freshman-in-derayeh-81" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="march-2024-on-being-a-freshman-in-derayeh-81">(March 2024) On <em>Being a Freshman</em>, in Derayeh (8,1)</h4>
+<p>(<a href="../assets/Miscellaneous_materials/Derayeh/excerpts/Deraye8_1_freshmen.pdf">Exerpt</a>, <a href="../assets/Miscellaneous_materials/Derayeh/Full_version/Deraye8_1.pdf">Issue</a>)</p>
+</section>
+</div>
+<div id="second-column-8-1" class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<p><img src="../assets/img/d8-1.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[ 70, 30 ]">
+<div class="quarto-layout-row">
+<div id="first-column-7-3" class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: flex-start;">
+<section id="august-2023-on-undergraduate-research-in-mathematics-at-sharif-university-in-derayeh-73" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="august-2023-on-undergraduate-research-in-mathematics-at-sharif-university-in-derayeh-73">(August 2023) On <em>Undergraduate Research in Mathematics at Sharif University</em>, in Derayeh (7,3)</h4>
+<p>(<a href="../assets/Miscellaneous_materials/Derayeh/excerpts/Deraye7_3_undergrad_research.pdf">Exerpt</a>, <a href="../assets/Miscellaneous_materials/Derayeh/Full_version/Deraye7_3.pdf">Issue</a>)</p>
+</section>
+</div>
+<div id="second-column-7-3" class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<p><img src="../assets/img/d7-3.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[ 70, 30 ]">
+<div class="quarto-layout-row">
+<div id="first-column-7-2" class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: flex-start;">
+<section id="march-2023-on-how-friendly-hamband-is-to-strangers-in-derayeh-72" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="march-2023-on-how-friendly-hamband-is-to-strangers-in-derayeh-72">(March 2023) On <em>How friendly Hamband is to strangers</em>, in Derayeh (7,2)</h4>
+<p>(<a href="../assets/Miscellaneous_materials/Derayeh/excerpts/Deraye7_2_How_welcoming_hamband_is.pdf">Exerpt</a>, <a href="../assets/Miscellaneous_materials/Derayeh/Full_version/Deraye7_2.pdf">Issue</a>)</p>
+</section>
+</div>
+<div id="second-column-7-2" class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<p><img src="../assets/img/d7-2.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[ 70, 30 ]">
+<div class="quarto-layout-row">
+<div id="first-column-6-2" class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: flex-start;">
+<section id="november-2021-on-sharif-mathematics-summer-school-in-derayeh-62" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="november-2021-on-sharif-mathematics-summer-school-in-derayeh-62">(November 2021) On <em>Sharif Mathematics Summer School</em>, in Derayeh (6,2)</h4>
+<p>(<a href="../assets/Miscellaneous_materials/Derayeh/excerpts/Deraye6_2_Sharif_summer_School.pdf">Exerpt</a>, <a href="../assets/Miscellaneous_materials/Derayeh/Full_version/Deraye6_2.pdf">Issue</a>)</p>
+</section>
+</div>
+<div id="second-column-6-2" class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<p><img src="../assets/img/d6-2.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="derayeh-when-i-was-the-editor-in-chief" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="derayeh-when-i-was-the-editor-in-chief">Derayeh when I was the editor-in-chief</h3>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[ 70, 30 ]">
+<div class="quarto-layout-row">
+<div id="first-column-4-1" class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: flex-start;">
+<section id="derayeh-41" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="derayeh-41"><a href="../assets/Miscellaneous_materials/Derayeh/Full_version/Derayeh4_1.pdf">Derayeh (4,1)</a></h4>
+</section>
+</div>
+<div id="second-column-4-1" class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<p><img src="../assets/img/d4-1.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[ 70, 30 ]">
+<div class="quarto-layout-row">
+<div id="first-column-4-2" class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: flex-start;">
+<section id="derayeh-42" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="derayeh-42"><a href="../assets/Miscellaneous_materials/Derayeh/Full_version/Derayeh4_2.pdf">Derayeh (4,2)</a></h4>
+</section>
+</div>
+<div id="second-column-4-2" class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<p><img src="../assets/img/d4-2.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[ 70, 30 ]">
+<div class="quarto-layout-row">
+<div id="first-column-4-3" class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: flex-start;">
+<section id="derayeh-43" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="derayeh-43"><a href="../assets/Miscellaneous_materials/Derayeh/Full_version/Derayeh4_3.pdf">Derayeh (4,3)</a></h4>
+</section>
+</div>
+<div id="second-column-4-3" class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<p><img src="../assets/img/d4-3.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[ 70, 30 ]">
+<div class="quarto-layout-row">
+<div id="first-column-4-4" class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: flex-start;">
+<section id="derayeh-44" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="derayeh-44"><a href="../assets/Miscellaneous_materials/Derayeh/Full_version/Derayeh4_4.pdf">Derayeh (4,4)</a></h4>
+</section>
+</div>
+<div id="second-column-4-4" class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<p><img src="../assets/img/d4-4.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="cXVhbnR1bS1pbmZvcm1hdGlvbi10aGVvcnk=" data-listing-date-sort="1750802400000" data-listing-file-modified-sort="1751466273875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1310">
-<div class="thumbnail">
-<p><a href="./posts/2025/06/PnCP_part1.html" class="no-external"></a></p><a href="./posts/2025/06/PnCP_part1.html" class="no-external">
-</a><p><a href="./posts/2025/06/PnCP_part1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025/06/PnCP_part1.html" class="no-external">Positive but Not Completely Positive Maps (PnCP Maps)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2025/06/PnCP_part1.html" class="no-external">Part I: PnCP Maps as Entanglement Criteria</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cXVhbnR1bS1pbmZvcm1hdGlvbi10aGVvcnk='); return false;">
-quantum-information-theory
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2025/06/PnCP_part1.html" class="no-external">This series of posts is supposed to provide a report on a research project I did in the first year of my master’s, under <span>Peter Brown</span>’s supervision. I will also try to include some more recent relevant results that I have learned about since then.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2025/06/PnCP_part1.html" class="no-external">
-<div class="listing-date">
-Jun 25, 2025
-</div>
-<div class="listing-author">
-Ali Almasi
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="cHJpbWVzJTJDY2xhc3NpY2FsLWluZm9ybWF0aW9uLXRoZW9yeSUyQ2F1dG9tYXRhLXRoZW9yeQ==" data-listing-date-sort="1718056800000" data-listing-file-modified-sort="1743850612433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="725">
-<div class="thumbnail">
-<p><a href="./posts/2024/06/PrimeInfinitude.html" class="no-external"></a></p><a href="./posts/2024/06/PrimeInfinitude.html" class="no-external">
-</a><p><a href="./posts/2024/06/PrimeInfinitude.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024/06/PrimeInfinitude.html" class="no-external">Two CS-Inspired Proofs for the Infinitude of Primes</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024/06/PrimeInfinitude.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cHJpbWVz'); return false;">
-primes
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Y2xhc3NpY2FsLWluZm9ybWF0aW9uLXRoZW9yeQ=='); return false;">
-classical-information-theory
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YXV0b21hdGEtdGhlb3J5'); return false;">
-automata-theory
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2024/06/PrimeInfinitude.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024/06/PrimeInfinitude.html" class="no-external">
-<div class="listing-date">
-Jun 11, 2024
-</div>
-<div class="listing-author">
-Ali Almasi
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
