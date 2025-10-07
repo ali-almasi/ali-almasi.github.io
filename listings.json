@@ -1,12 +1,5 @@
 [
   {
-    "listing": "/blog.html",
-    "items": [
-      "/posts/2025/06/PnCP_part1.html",
-      "/posts/2024/06/PrimeInfinitude.html"
-    ]
-  },
-  {
     "listing": "/misc.html",
     "items": [
       "/misc_posts/digital-works.html",
@@ -18,7 +11,7 @@
     ]
   },
   {
-    "listing": "/blog-farsi.html",
+    "listing": "/blog-nontech.html",
     "items": [
       "/misc_posts/digital-works.html",
       "/misc_posts/women-in-math.html",
@@ -26,6 +19,13 @@
       "/misc_posts/my-poems.html",
       "/misc_posts/ta-sharif.html",
       "/misc_posts/smss.html"
+    ]
+  },
+  {
+    "listing": "/blog-tech.html",
+    "items": [
+      "/posts/2025/06/PnCP_part1.html",
+      "/posts/2024/06/PrimeInfinitude.html"
     ]
   }
 ]

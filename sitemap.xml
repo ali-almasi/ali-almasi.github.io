@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ali-almasi.github.io/blog.html</loc>
-    <lastmod>2025-04-07T00:15:36.000Z</lastmod>
+    <loc>https://ali-almasi.github.io/resources.html</loc>
+    <lastmod>2025-06-10T09:20:20.697Z</lastmod>
   </url>
   <url>
-    <loc>https://ali-almasi.github.io/assets/teaching_materials/linear_algebra2020/test.html</loc>
+    <loc>https://ali-almasi.github.io/assets/teaching_materials/functional_analysis2022/test.html</loc>
     <lastmod>2025-01-25T10:34:23.000Z</lastmod>
   </url>
   <url>
@@ -49,19 +49,19 @@
     <lastmod>2025-06-12T10:34:32.476Z</lastmod>
   </url>
   <url>
-    <loc>https://ali-almasi.github.io/blog-farsi.html</loc>
-    <lastmod>2025-09-16T19:04:55.605Z</lastmod>
+    <loc>https://ali-almasi.github.io/blog-nontech.html</loc>
+    <lastmod>2025-10-04T22:51:01.954Z</lastmod>
   </url>
   <url>
     <loc>https://ali-almasi.github.io/publications.html</loc>
     <lastmod>2025-01-25T08:07:49.000Z</lastmod>
   </url>
   <url>
-    <loc>https://ali-almasi.github.io/assets/teaching_materials/functional_analysis2022/test.html</loc>
-    <lastmod>2025-01-25T10:34:23.000Z</lastmod>
+    <loc>https://ali-almasi.github.io/blog-tech.html</loc>
+    <lastmod>2025-10-04T22:52:34.555Z</lastmod>
   </url>
   <url>
-    <loc>https://ali-almasi.github.io/resources.html</loc>
-    <lastmod>2025-06-10T09:20:20.697Z</lastmod>
+    <loc>https://ali-almasi.github.io/assets/teaching_materials/linear_algebra2020/test.html</loc>
+    <lastmod>2025-01-25T10:34:23.000Z</lastmod>
   </url>
 </urlset>
