@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>test – Ali ALMASI</title>
+<title>Non-Technical Blog – Ali ALMASI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../favicon-96x96.png" rel="icon" type="image/png">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7fd0fe4245b865325b8ce8dccb604d59.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-1f1679a2c0b10de83e16c7d6bfa790d5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon-96x96.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7fd0fe4245b865325b8ce8dccb604d59.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-81da4bf3ea3ec2835a28c05d85ac4863.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap')
@@ -82,8 +113,37 @@ MathJax = {
 };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-mml-chtml.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Ali ALMASI">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Non-Technical Blog – Ali ALMASI">
 <meta property="og:site_name" content="Ali ALMASI">
 </head>
 
@@ -94,7 +154,7 @@ MathJax = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Ali ALMASI</span>
     </a>
   </div>
@@ -105,8 +165,12 @@ MathJax = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog-tech.html"> 
+    <a class="nav-link" href="./blog-tech.html"> 
 <span class="menu-text">Technical Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./blog-nontech.html" aria-current="page"> 
+<span class="menu-text">Non-Technical Blog</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -119,19 +183,285 @@ MathJax = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="YXV0b21hdGEtdGhlb3J5">automata-theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2FsY3VsdXM=">calculus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVyYXllaA==">derayeh <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlnaXRhbC1hcnQ=">digital-art <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXh0cmFjdXJyaWN1bGFyLWFjdGl2aXRpZXM=">extracurricular-activities <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZnJlc2htZW4=">freshmen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVuY3Rpb25hbC1hbmFseXNpcw==">functional-analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGFtYmFuZA==">hamband <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGluZWFyLWFsZ2VicmE=">linear-algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9naWM=">logic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGFpbnRpbmc=">painting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvYmFiaWxpdHk=">probability <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2hhcmlmLXVuaXZlcnNpdHk=">sharif-university <span class="quarto-category-count">(3)</span></div><div class="category" data-category="dGVhY2hpbmc=">teaching <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dW5kZXJncmFkdWF0ZS1yZXNlYXJjaA==">undergraduate-research <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUQ4JUI0JUQ4JUI5JUQ4JUIx">شعر <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUQ5JTgxJUQ4JUE3JUQ4JUIxJUQ4JUIzJURCJThD">فارسی <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Non-Technical Blog</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 
 
 
 
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1768688041192">
+<div class="thumbnail">
+<p><a href="./misc_posts/Rennes.html" class="no-external"></a></p><a href="./misc_posts/Rennes.html" class="no-external">
+</a><p><a href="./misc_posts/Rennes.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./misc_posts/Rennes.html" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./misc_posts/Rennes.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./misc_posts/Rennes.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./misc_posts/Rennes.html" class="no-external"></a></p><a href="./misc_posts/Rennes.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="ZGlnaXRhbC1hcnQlMkNwYWludGluZw==" data-listing-date-sort="1737846000000" data-listing-file-modified-sort="1749724088480" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="158">
+<div class="thumbnail">
+<p><a href="./misc_posts/digital-works.html" class="no-external"></a></p><a href="./misc_posts/digital-works.html" class="no-external">
+</a><p><a href="./misc_posts/digital-works.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./misc_posts/digital-works.html" class="no-external">Some Digital Artworks</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./misc_posts/digital-works.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGlnaXRhbC1hcnQ='); return false;">
+digital-art
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('cGFpbnRpbmc='); return false;">
+painting
+</div>
+</div>
+<div class="listing-description">
+<a href="./misc_posts/digital-works.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./misc_posts/digital-works.html" class="no-external">
+<div class="listing-date">
+Jan 26, 2025
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="JUQ5JTgxJUQ4JUE3JUQ4JUIxJUQ4JUIzJURCJThD" data-listing-date-sort="1713909600000" data-listing-file-modified-sort="1743989518000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1534">
+<div class="thumbnail">
+<p><a href="./misc_posts/women-in-math.html" class="no-external"></a></p><a href="./misc_posts/women-in-math.html" class="no-external">
+</a><p><a href="./misc_posts/women-in-math.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./misc_posts/women-in-math.html" class="no-external">زنان در ریاضیات ایران</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./misc_posts/women-in-math.html" class="no-external">سرمقاله‌ای در مجله‌ی ریاضی شریف</a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('JUQ5JTgxJUQ4JUE3JUQ4JUIxJUQ4JUIzJURCJThD'); return false;">
+فارسی
+</div>
+</div>
+<div class="listing-description">
+<a href="./misc_posts/women-in-math.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./misc_posts/women-in-math.html" class="no-external">
+<div class="listing-date">
+Apr 24, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="c2hhcmlmLXVuaXZlcnNpdHklMkNkZXJheWVoJTJDdW5kZXJncmFkdWF0ZS1yZXNlYXJjaCUyQ2V4dHJhY3VycmljdWxhci1hY3Rpdml0aWVzJTJDaGFtYmFuZCUyQ2ZyZXNobWVu" data-listing-date-sort="1711839600000" data-listing-file-modified-sort="1749724492239" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="197">
+<div class="thumbnail">
+<p><a href="./misc_posts/derayeh.html" class="no-external"></a></p><a href="./misc_posts/derayeh.html" class="no-external">
+</a><p><a href="./misc_posts/derayeh.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./misc_posts/derayeh.html" class="no-external">Some op-eds in Derayeh</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./misc_posts/derayeh.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('c2hhcmlmLXVuaXZlcnNpdHk='); return false;">
+sharif-university
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVyYXllaA=='); return false;">
+derayeh
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('dW5kZXJncmFkdWF0ZS1yZXNlYXJjaA=='); return false;">
+undergraduate-research
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZXh0cmFjdXJyaWN1bGFyLWFjdGl2aXRpZXM='); return false;">
+extracurricular-activities
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('aGFtYmFuZA=='); return false;">
+hamband
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZnJlc2htZW4='); return false;">
+freshmen
+</div>
+</div>
+<div class="listing-description">
+<a href="./misc_posts/derayeh.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./misc_posts/derayeh.html" class="no-external">
+<div class="listing-date">
+Mar 31, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="JUQ5JTgxJUQ4JUE3JUQ4JUIxJUQ4JUIzJURCJThDJTJDJUQ4JUI0JUQ4JUI5JUQ4JUIx" data-listing-date-sort="1707778800000" data-listing-file-modified-sort="1749724472476" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="403">
+<div class="thumbnail">
+<p><a href="./misc_posts/my-poems.html" class="no-external"></a></p><a href="./misc_posts/my-poems.html" class="no-external">
+</a><p><a href="./misc_posts/my-poems.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./misc_posts/my-poems.html" class="no-external">صریر کلک شکسته‌</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./misc_posts/my-poems.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('JUQ5JTgxJUQ4JUE3JUQ4JUIxJUQ4JUIzJURCJThD'); return false;">
+فارسی
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('JUQ4JUI0JUQ4JUI5JUQ4JUIx'); return false;">
+شعر
+</div>
+</div>
+<div class="listing-description">
+<a href="./misc_posts/my-poems.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./misc_posts/my-poems.html" class="no-external">
+<div class="listing-date">
+Feb 13, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="dGVhY2hpbmclMkNsb2dpYyUyQ2F1dG9tYXRhLXRoZW9yeSUyQ3Byb2JhYmlsaXR5JTJDZnVuY3Rpb25hbC1hbmFseXNpcyUyQ2xpbmVhci1hbGdlYnJhJTJDY2FsY3VsdXMlMkNzaGFyaWYtdW5pdmVyc2l0eQ==" data-listing-date-sort="1676847600000" data-listing-file-modified-sort="1744230991000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="329">
+<div class="thumbnail">
+<p><a href="./misc_posts/ta-sharif.html" class="no-external"></a></p><a href="./misc_posts/ta-sharif.html" class="no-external">
+</a><p><a href="./misc_posts/ta-sharif.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./misc_posts/ta-sharif.html" class="no-external">My Time as a TA at Sharif University</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./misc_posts/ta-sharif.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
+teaching
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('bG9naWM='); return false;">
+logic
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('YXV0b21hdGEtdGhlb3J5'); return false;">
+automata-theory
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('cHJvYmFiaWxpdHk='); return false;">
+probability
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZnVuY3Rpb25hbC1hbmFseXNpcw=='); return false;">
+functional-analysis
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('bGluZWFyLWFsZ2VicmE='); return false;">
+linear-algebra
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Y2FsY3VsdXM='); return false;">
+calculus
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('c2hhcmlmLXVuaXZlcnNpdHk='); return false;">
+sharif-university
+</div>
+</div>
+<div class="listing-description">
+<a href="./misc_posts/ta-sharif.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./misc_posts/ta-sharif.html" class="no-external">
+<div class="listing-date">
+Feb 20, 2023
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="aGFtYmFuZCUyQ2V4dHJhY3VycmljdWxhci1hY3Rpdml0aWVzJTJDc2hhcmlmLXVuaXZlcnNpdHk=" data-listing-date-sort="1566511200000" data-listing-file-modified-sort="1743985472000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
+<div class="thumbnail">
+<p><a href="./misc_posts/smss.html" class="no-external"></a></p><a href="./misc_posts/smss.html" class="no-external">
+</a><p><a href="./misc_posts/smss.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./misc_posts/smss.html" class="no-external">Sharif Mathematics Summer School (2019)</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./misc_posts/smss.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('aGFtYmFuZA=='); return false;">
+hamband
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZXh0cmFjdXJyaWN1bGFyLWFjdGl2aXRpZXM='); return false;">
+extracurricular-activities
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('c2hhcmlmLXVuaXZlcnNpdHk='); return false;">
+sharif-university
+</div>
+</div>
+<div class="listing-description">
+<a href="./misc_posts/smss.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./misc_posts/smss.html" class="no-external">
+<div class="listing-date">
+Aug 23, 2019
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
